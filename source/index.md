@@ -25,7 +25,12 @@ Wissenschaft kann einfach sein - wenn man sie richtig erklärt.
 Dafür stehe ich mit SimpleScience.
 
 
-
+```{toctree}
+:maxdepth: 1
+:caption: Informatik
+:hidden:
+git/index
+```
 
 ```{toctree}
 :maxdepth: 1

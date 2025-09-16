@@ -3,6 +3,8 @@
 
 *Stand: 16.09.2025*
 
+---
+
 ## Allgemeiner Hinweis
 
 Die Inhalte dieser Website bzw. Dokumentation dienen ausschließlich zu Informations- und Lernzwecken.  
