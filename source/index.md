@@ -34,4 +34,5 @@ Dafür stehe ich mit SimpleScience.
 
 Rechtliches/Datenschutzerklärung
 Rechtliches/Impressum
+Rechtliches/Disclaimer
 ```
