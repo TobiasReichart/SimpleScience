@@ -23,3 +23,14 @@ Wie baue ich mit Tkinter eine moderne Benutzeroberfläche für eigene Applets?
 Wissenschaft kann einfach sein - wenn man sie richtig erklärt.
 
 Dafür stehe ich mit SimpleScience.
+
+
+
+
+```{toctree}
+:maxdepth: 1
+:hidden:
+:caption: Rechtliches
+
+rechtliches/Datenschutzerklärung
+```
