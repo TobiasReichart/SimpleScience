@@ -33,7 +33,7 @@ html_static_path = ['_static']
 html_theme = 'sphinx_rtd_theme' # default: 'alabaster'
 
 html_theme_options = {
-'collapse_navigation': False, # Navigationsmenüs nicht einklappen
+'collapse_navigation': True, # Navigationsmenüs nicht einklappen
 'sticky_navigation': False, # Navigation scrollt nicht mit
 'includehidden': True, # hidden toctree einträge werden auch angezeigt
 'prev_next_buttons_location': 'bottom', # bottom (default), top, both, None

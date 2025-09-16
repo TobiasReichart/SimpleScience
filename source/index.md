@@ -32,5 +32,6 @@ Dafür stehe ich mit SimpleScience.
 :hidden:
 :caption: Rechtliches
 
-rechtliches/Datenschutzerklärung
+Rechtliches/Datenschutzerklärung
+Rechtliches/Impressum
 ```
