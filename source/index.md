@@ -32,7 +32,7 @@ Dafür stehe ich mit SimpleScience.
 :hidden:
 :caption: Rechtliches
 
-Rechtliches/Datenschutzerklärung
-Rechtliches/Impressum
-Rechtliches/Disclaimer
+legal/Datenschutzerklärung
+legal/Impressum
+legal/Disclaimer
 ```
