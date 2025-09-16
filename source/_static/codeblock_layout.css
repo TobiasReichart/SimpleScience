@@ -1,0 +1,153 @@
+/* Sphinx/Docutils/Pygments: Codebereich einfärben */
+div.highlight pre,
+pre.literal-block {
+  background-color: #ececec !important;  /* Code Hintergrundfarbe */
+  margin: 0;                               /* bündig an den Rand */
+  padding: 0.75rem 1rem;                   /* Luft um den Code */
+  border-radius: 0 0 5px 5px;              /* unten abrunden (passt zu ::before-Header) */
+  overflow: auto;                          /* Scrollbar bei langen Zeilen */
+}
+
+div.highlight-bash::before {  /* ::before fügt einen Inhalt vor das div-Element mit der Klasse highlight-bash ein, welches von Sphinx für Codeblöcke mit .. code-block:: python generiert wird */
+    content: "Bash"; /* Fügt den Text 'Bash' als zusätzlichen Inhalt vor den Codeblock ein */
+    display: block; /* Stellt das ::before-Element als Block-Element dar (nimmt die volle Breite ein) */
+    font-weight: bold; /* Der Text "Python-Befehl" wird fett dargestellt */
+    background-color: black; /* Setzt die Hintergrundfarbe des Elements auf schwarz */
+    color: white; /* Setzt die Schriftfarbe auf weiß */
+    padding: 5px; /* Fügt einen Innenabstand (Padding) von 5 Pixeln hinzu, damit der Text nicht direkt am Rand klebt. */
+    border-radius: 5px 5px 0 0; /* Macht die oberen Ecken des Elements abgerundet (5px), während die unteren Ecken eckig bleiben. 
+                                    Oben links: 5px abgerundet
+                                    Oben rechts: 5px abgerundet
+                                    Unten rechts: 0px (keine Abrundung)
+                                    Unten links: 0px (keine Abrundung) */
+}
+
+div.highlight-console::before { /* Console */
+    content: "Konsole";
+    display: block;
+    font-weight: bold;
+    background-color: #000000;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-bat::before { /* bat */
+    content: "Batch";
+    display: block;
+    font-weight: bold;
+    background-color: #000000;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-none::before { /* Ordnerstruktur */
+    content: "Ordnerstruktur";
+    display: block;
+    font-weight: bold;
+    background-color: #3b3b3b;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-python::before { /* Python */
+    content: "Python";
+    display: block;
+    font-weight: bold;
+    background-color: #3771a1;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-latex::before { /* LaTeX */
+    content: "LaTeX";
+    display: block;
+    font-weight: bold;
+    background-color: #343131;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-markdown::before { /* Markdown */
+    content: "MyST-Markdown";
+    display: block;
+    font-weight: bold;
+    background-color: #f37726;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-toml::before { /* TOML */
+    content: "TOML";
+    display: block;
+    font-weight: bold;
+    background-color: #9c4221;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-json::before { /* JSON */
+    content: "JSON";
+    display: block;
+    font-weight: bold;
+    background-color: #434343;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-bibtex::before { /* BibTeX */
+    content: "BibTeX";
+    display: block;
+    font-weight: bold;
+    background-color: #343131;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-rst::before { /* rst */
+    content: "rst";
+    display: block;
+    font-weight: bold;
+    background-color: #343131;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-css::before { /* css */
+    content: "CSS";
+    display: block;
+    font-weight: bold;
+    background-color: #66309a;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-csharp::before { /* C# */
+    content: "C#";
+    display: block;
+    font-weight: bold;
+    background-color: #66309a;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+div.highlight-xml::before { /* C# */
+    content: "xml";
+    display: block;
+    font-weight: bold;
+    background-color: #439eff;
+    color: white;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+}

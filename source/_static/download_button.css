@@ -1,0 +1,22 @@
+/* Container sorgt für Zentrierung */
+p .download.reference {                            /* Selektor: <a> mit Klassen "download reference" innerhalb eines <p>-Tags */
+    display: inline-block;                         /* Macht den Link wie ein Block-Element, behält aber den Inline-Fluss (wichtig für Padding/Breite) */
+    padding: 10px 18px;                            /* Innenabstand: 10px oben/unten, 18px links/rechts */
+    background-color: #4CAF50;                     /* Hintergrundfarbe des Buttons (Grün) */
+    color: white !important;                       /* Schriftfarbe Weiß, !important überschreibt evtl. Theme-Styles */
+    border-radius: 6px;                            /* Abgerundete Ecken (6px Radius) */
+    font-weight: bold;                             /* Fetter Text */
+    text-decoration: none;                         /* Entfernt Unterstreichung des Links */
+    transition: background-color 0.2s ease-in-out; /* Weicher Farbwechsel beim Hover in 0,2 Sekunden */
+    text-align: center;                            /* Zentriert den Text innerhalb des Links */
+}
+
+/* Hover-Effekt */
+p .download.reference:hover {     /* Wenn Maus über dem Link ist */
+    background-color: #449f48;    /* Etwas dunkleres Grün als Hover-Farbe */
+}
+
+/* Zentrierung des gesamten Absatzes */
+p:has(.download.reference) { /* Wählt <p>-Tags, die einen Link mit "download reference" enthalten */
+    text-align: center;      /* Zentriert den Inhalt des Absatzes (damit der Button mittig steht) */
+}
