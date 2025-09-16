@@ -32,8 +32,12 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build Sphinx (HTML)
+        run: sphinx-build -b html source build/html
+
+      - name: Inspect build output
         run: |
-          sphinx-build -b html source build/html
+          echo "Top-level files in build/html:"
+          ls -la build/html | head -200
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
