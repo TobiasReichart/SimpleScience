@@ -2,6 +2,8 @@
 
 *Letzte Aktualisierung: 16.09.2025*
 
+---
+
 ## Angaben gemäß § 5 TMG
 
 **Tobias Reichart**<br>
@@ -10,12 +12,16 @@ Guerickestraße 19<br>
 Deutschland<br>
 E-Mail: <a href="mailto:info.simplescience@gmx.de">info.simplescience@gmx.de</a>
 
+---
+
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
 
 **Tobias Reichart**<br>
 Guerickestraße 19<br>
 80805 München<br>
 Deutschland<br>
+
+---
 
 ## Haftung für Inhalte
 
@@ -25,6 +31,8 @@ Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, ü
 Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
 Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich.
 Bei Bekanntwerden entsprechender Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.
+
+---
 
 ## Haftung für Links
 
@@ -36,6 +44,8 @@ Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
 Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar.
 Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.
 
+---
+
 ## Urheberrecht
 
 Die durch mich erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht.
@@ -46,6 +56,8 @@ Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerzielle
 Soweit Inhalte auf dieser Website nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.
 Sollten Sie dennoch auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis.
 Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.
+
+---
 
 ## Hinweis gemäß § 36 Verbraucherstreitbeilegungsgesetz (VSBG):
 
