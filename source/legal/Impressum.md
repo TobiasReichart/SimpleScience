@@ -51,11 +51,15 @@ Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entf
 Die durch mich erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht.
 Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
 
-Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+Downloads und Kopien dieser Seite sind nur für den privaten, **nicht kommerziellen** Gebrauch gestattet.
 
 Soweit Inhalte auf dieser Website nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.
 Sollten Sie dennoch auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis.
 Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.
+
+### Verwendung von Produktabbildungen und Screenshots
+
+Auf dieser Website bzw. in dieser Dokumentation werden Screenshots und Abbildungen von Drittanbietersoftware (z. B. Git, Visual Studio Code, GitHub) ausschließlich zur Veranschaulichung technischer Sachverhalte verwendet. Die Rechte an diesen Inhalten liegen bei den jeweiligen Urhebern bzw. Rechteinhabern. Die Nutzung erfolgt gemäß § 51 UrhG (Zitatrecht) ausschließlich zu dokumentarischen, nicht-kommerziellen Zwecken. Sollten Sie dennoch eine Verletzung geltender Schutzrechte feststellen, bitten ich um einen entsprechenden Hinweis.
 
 ---
 
