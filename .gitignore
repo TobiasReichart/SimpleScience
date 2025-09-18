@@ -6002,3 +6002,6 @@ build/html/git/section/installation.html
 build/html/legal/Datenschutzerklärung.html
 build/html/legal/Disclaimer.html
 build/html/legal/Impressum.html
+build/html/.doctrees/sphinx/index.doctree
+build/html/_sources/sphinx/index.md.txt
+build/html/sphinx/index.html
