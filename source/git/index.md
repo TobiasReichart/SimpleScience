@@ -41,5 +41,5 @@ Während **Git** ein lokales Werkzeug ist, das auf deinem Rechner arbeitet, ist 
 ```{toctree}
 :maxdepth: 1
 
-sections/installation
+section/installation
 ```
