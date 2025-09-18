@@ -6005,3 +6005,9 @@ build/html/legal/Impressum.html
 build/html/.doctrees/sphinx/index.doctree
 build/html/_sources/sphinx/index.md.txt
 build/html/sphinx/index.html
+build/html/.doctrees/sphinx/section/installation.doctree
+build/html/.doctrees/sphinx/sections/installation.doctree
+build/html/_sources/sphinx/section/installation.md.txt
+build/html/_sources/sphinx/sections/installation.md.txt
+build/html/sphinx/section/installation.html
+build/html/sphinx/sections/installation.html

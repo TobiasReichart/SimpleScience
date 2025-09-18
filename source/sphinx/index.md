@@ -29,3 +29,11 @@ Sphinx bietet viele Vorteile, die es zu einem bevorzugten Werkzeug für die Erst
 Sphinx verwendet eine einfache Ordnerstruktur, in der alle Inhalts-Dateien enthalten sind. Der Aufbau der Sphinx-Dokumentation basiert auf einer index-Datei, die als Einstiegspunkt fungiert und die Struktur der gesamten Dokumentation definiert. Mit der richtigen Konfiguration und einer geeigneten reST- oder md-Syntax können Benutzer dann Seiten hinzufügen, Verlinkungen erstellen, Quellcode einbinden und sogar mathematische Formeln mit TeX-Syntax darstellen.
 
 Im Rahmen von SimpleScience wird Sphinx für die Bereitstellung der Internetpresenz über GitHub verwendet.
+
+**Inhaltsverzeichnis**
+
+```{toctree}
+:maxdepth: 1
+
+section/installation
+```

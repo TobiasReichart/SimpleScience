@@ -1,7 +1,9 @@
 # Installation und Einrichtung von Git
 
 ```{attention}
-**Hinweis**: Die folgenden Schritte (je nach Betriebssystem) zur Installation von Git dienen ausschließlich der Orientierung. Bitte beachte, dass sich Installationsroutinen, Systemvoraussetzungen und Oberflächen je nach Betriebssystem und Version ändern können. Vor der Durchführung lies bitte meinen {ref}`Haftungsausschluss <disclaimer>`, da ich keine Verantwortung für eventuelle Schäden oder Fehlkonfigurationen übernehmen kann.
+**Hinweis**: Die folgenden Schritte zur Installation von git dienen ausschließlich der Orientierung. Installationsroutinen, Systemvoraussetzungen und Benutzeroberflächen können je nach Betriebssystem und Version variieren.  
+
+Vor der Durchführung lies bitte meinen {ref}`Haftungsausschluss <disclaimer>`. Ich übernehme keine Verantwortung für eventuelle Schäden oder Fehlkonfigurationen.  
 ```
 
 ## Windows
