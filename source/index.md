@@ -35,6 +35,7 @@ git/index
 ```{toctree}
 :maxdepth: 1
 :caption: Dokumentation
+:hidden:
 
 sphinx/index
 ```
