@@ -6011,3 +6011,13 @@ build/html/_sources/sphinx/section/installation.md.txt
 build/html/_sources/sphinx/sections/installation.md.txt
 build/html/sphinx/section/installation.html
 build/html/sphinx/sections/installation.html
+source/index.md
+build/html/.doctrees/pyhton/index.doctree
+build/html/.doctrees/python/index.doctree
+build/html/.doctrees/pyzhon/index.doctree
+build/html/_sources/pyhton/index.md.txt
+build/html/_sources/python/index.md.txt
+build/html/_sources/pyzhon/index.md.txt
+build/html/pyhton/index.html
+build/html/python/index.html
+build/html/pyzhon/index.html

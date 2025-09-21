@@ -30,6 +30,7 @@ Dafür stehe ich mit SimpleScience.
 :caption: Informatik
 :hidden:
 git/index
+python/index
 ```
 
 ```{toctree}
