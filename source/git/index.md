@@ -32,9 +32,10 @@ Git ist **kostenlos, plattformunabhängig** und hat sich inzwischen als Standard
 Während **Git** ein lokales Werkzeug ist, das auf deinem Rechner arbeitet, ist **GitHub** eine Online-Plattform zum Hosten von Git-Repositories. Sie erweitert Git um zahlreiche nützliche Funktionen, wie
 
 - Gemeinsames Arbeiten an Projekten über das Internet,
-- Verwaltung von Aufgaben (Issues) und Vorschlägen (Pull Requests),
-- Diskussionen, Code-Reviews und Projektplanung und ist eine
-- Einfache Möglichkeit, Projekte öffentlich zugänglich zu machen
+- Nachverfolgung von Aufgaben, Bugs und Ideen mit Issues,
+- Strukturierte Einreichung und Diskussion von Code-Änderungen über Pull Requests,
+- Unterstützung durch Diskussionen, Code-Reviews und Projektplanung,
+- Einfache Möglichkeit, Projekte öffentlich zugänglich zu machen.
 
 **Inhaltsverzeichnis**
 
