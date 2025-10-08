@@ -29,22 +29,21 @@ html_static_path = ['_static']
 # -- Meine Anpassungen -------------------------------------------------------
 #
 
-# --- Theme einstellen -------------------------------------------------------
+# -- Theme Einstellungen -----------------------------------------------------
 html_theme = 'sphinx_rtd_theme' # default: 'alabaster'
 
 html_theme_options = {
-'collapse_navigation': True, # Navigationsmenüs nicht einklappen
-'sticky_navigation': False, # Navigation scrollt nicht mit
-'includehidden': True, # hidden toctree einträge werden auch angezeigt
-'prev_next_buttons_location': 'bottom', # bottom (default), top, both, None
-'style_nav_header_background': '#2980B9', # Ändert Hintergrundfarbe der Kopfzeile
-'style_external_links': True, # Externe Links werden gekennzeichnet
-'body_max_width': 'none', # HTM-Seite wird auf auf Bildschirmbreite skalliert
+    'collapse_navigation': True,            # Navigationsmenüs nicht einklappen
+    'sticky_navigation': False,              # Navigation scrollt nicht mit
+    'includehidden': True,                   # Hidden toctree-Einträge anzeigen
+    'prev_next_buttons_location': 'bottom',  # Position der Navigationsbuttons
+    'style_nav_header_background': '#2980B9',# Hintergrundfarbe der Kopfzeile
+    'style_external_links': True,            # Externe Links markieren
+    'body_max_width': 'none',                # HTML-Layout auf Bildschirmbreite skalieren
 }
 
-html_show_sourcelink = False # Quelltext-Button ausblenden
-html_css_files = [] # HTML-Styles
-# ----------------------------------------------------------------------------
+html_show_sourcelink = False  # Quelltext-Button ausblenden
+html_css_files = []           # Liste für eigene Styles
 
 # --- Umbau von rst auf MySt-Markdown ----------------------------------------
 extensions.append('myst_parser') # Verwendung von MySt-Markdown erlauben

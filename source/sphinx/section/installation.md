@@ -112,9 +112,12 @@ Nach Abschluss aller Eingaben wurde das Standardgerüst eines neuen Sphinx-Proje
 :caption: Ordnerstruktur eines neuen Sphinx-Projekts
 
 Sphinx-Projekt
+├ build
 ├ source
-│   ├ conf.py
-│   └ index.rst
+│ ├ _static
+│ ├ _templates
+│ ├ conf.py
+│ └ index.rst
 ├ make.bat
 └ Makefile
 ```
@@ -159,4 +162,174 @@ Im Browser erscheint daraufhin die folgende Ansicht:
 :width: 100%
 
 Voreingestelltes Layout
+```
+
+## Theme anpassen
+
+Sphinx bietet zahlreiche vordefinierte Themes, mit denen sich das Erscheinungsbild der generierten Dokumentation anpassen lässt.<br>
+Eine Übersicht verfügbarer Themes findet sich auf der [Website Write the Docs](https://www.writethedocs.org/guide/tools/sphinx-themes/) .<br>
+Für diese Dokumentation wird das Layout Read the Docs verwendet.
+
+Um das Theme zu installieren, kann wie bei der Sphinx-Installation der Python-Paketmanager `pip` verwendet werden. Führe dazu im Terminal den folgenden Befehl aus:
+
+```{code-block} console
+:caption: Read the Docs installieren
+:linenos:
+
+pip install sphinx-rtd-theme
+```
+
+Nach der Installation muss das Theme in der Konfigurationsdatei `conf.py` eingetragen werden. Diese Datei befindet sich im `source`-Verzeichnis des Projekts und enthält sämtliche Einstellungen der Dokumentation.
+
+```{code-block} none
+:caption: Ordnerstruktur des Sphinx-Projekts
+:emphasize-lines: 6
+
+Sphinx-Projekt
+├ build
+├ source
+│ ├ _static
+│ ├ _templates
+│ ├ conf.py
+│ └ index.rst
+├ make.bat
+└ Makefile
+```
+
+```{code-block} python
+:caption: conf.py nach sphinx-quickstart
+:linenos:
+:emphasize-lines: 26
+
+# Configuration file for the Sphinx documentation builder.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+# -- Project information -----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+
+project = 'Sphinx'
+copyright = '2025, Tobias Reichart'
+author = 'Tobias Reichart'
+
+# -- General configuration ---------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+
+extensions = []
+
+templates_path = ['_templates']
+exclude_patterns = []
+
+language = 'de'
+
+# -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+
+html_theme = 'alabaster'
+html_static_path = ['_static']
+```
+
+In der `conf.py` findet sich die Variable `html_theme`, der nun der Name des neuen Themes zugewiesen wird.<br>
+Lösche hierfür die markierte Zeile aus deiner `conf.py` und füge unter `html_static_path = ['_static']` die folgende Codezelle ein. Im folgenden werden wir noch weitere Einstellungen an unserem verwendeten Theme vornehmen.
+
+```{code-block} python
+:caption: Theme festlegen
+:linenos:
+
+# -- Theme Einstellungen -----------------------------------------------------
+html_theme = 'sphinx_rtd_theme' # default: 'alabaster'
+```
+
+Um die Änderung zu übernehmen, wird die Dokumentation erneut mit folgendem Befehl gerendert:
+
+```{code-block} console
+:caption: HTML-Seite neu generieren
+:linenos:
+
+sphinx-build -b html source build/html
+```
+
+Nach dem erfolgreichen Build kann die Seite im Browser mit kbd`F5` aktualisiert werden.<br>
+Das Layout erscheint nun im **Read the Docs**-Design:
+
+```{figure} bilder/rtd-theme.png
+:align: center
+:width: 100%
+
+Theme: *Read the Docs*
+```
+
+Das Theme Read the Docs lässt sich über den Parameter `html_theme_options` in der `conf.py` weiter anpassen.<br>
+Ein Beispiel möglicher Optionen:
+
+```{code-block} python
+:caption: Theme-Optionen anpassen
+:linenos:
+
+html_theme_options = {
+    'collapse_navigation': True,             # Navigationsmenüs nicht einklappen
+    'sticky_navigation': False,              # Navigation scrollt nicht mit
+    'includehidden': True,                   # Hidden toctree-Einträge anzeigen
+    'prev_next_buttons_location': 'bottom',  # Position der Navigationsbuttons
+    'style_nav_header_background': '#2980B9',# Hintergrundfarbe der Kopfzeile
+    'style_external_links': True,            # Externe Links markieren
+    'body_max_width': 'none',                # HTML-Layout auf Bildschirmbreite skalieren
+}
+
+html_show_sourcelink = False  # Quelltext-Button ausblenden
+html_css_files = []           # Liste für eigene Styles
+```
+
+Die Variable `html_css_files` bleibt hier zunächst leer, um die `conf.py` übersichtlich zu halten.<br>
+Später können eigene CSS-Dateien mit `.append()` hinzugefügt werden, um gezielt optische Anpassungen vorzunehmen.
+
+Die `conf.py` sollte nach diesen Änderungen folgendermaßen aussehen:
+
+```{code-block} python
+:caption: Konfigurationsdatei nach den ersten Anpassungen
+:linenos:
+
+# Configuration file for the Sphinx documentation builder.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+# -- Project information -----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+
+project = 'Sphinx'
+copyright = '2025, Tobias Reichart'
+author = 'Tobias Reichart'
+
+# -- General configuration ---------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+
+extensions = []
+
+templates_path = ['_templates']
+exclude_patterns = []
+
+language = 'de'
+
+# -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+
+html_static_path = ['_static']
+
+# -- Theme Einstellungen -----------------------------------------------------
+html_theme = 'sphinx_rtd_theme' # default: 'alabaster'
+
+html_theme_options = {
+    'collapse_navigation': True,             # Navigationsmenüs nicht einklappen
+    'sticky_navigation': False,              # Navigation scrollt nicht mit
+    'includehidden': True,                   # Hidden toctree-Einträge anzeigen
+    'prev_next_buttons_location': 'bottom',  # Position der Navigationsbuttons
+    'style_nav_header_background': '#2980B9',# Hintergrundfarbe der Kopfzeile
+    'style_external_links': True,            # Externe Links markieren
+    'body_max_width': 'none',                # HTML-Layout auf Bildschirmbreite skalieren
+}
+
+html_show_sourcelink = False  # Quelltext-Button ausblenden
+html_css_files = []           # Liste für eigene Styles
 ```
