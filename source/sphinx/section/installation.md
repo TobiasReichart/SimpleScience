@@ -97,9 +97,10 @@ Am einfachsten gelingt das über den Python-Paketmanager `pip`. Führe dazu im T
 :caption: Installation von Sphinx
 :linenos:
 
-pip install sphinx
+python -m pip install sphinx
 ```
 
+(Erstellen der Dokumentation)=
 ## Erstellen der Dokumentation
 
 Die Erstellung eines neuen Sphinx-Projekts erfolgt direkt über die Kommandozeile.  
@@ -236,7 +237,7 @@ Um das Theme zu installieren, kann wie bei der Sphinx-Installation der Python-Pa
 :caption: Read the Docs installieren
 :linenos:
 
-pip install sphinx-rtd-theme
+python -m pip install sphinx-rtd-theme
 ```
 
 Nach der Installation muss das Theme in der Konfigurationsdatei `conf.py` eingetragen werden. Diese Datei befindet sich im `source`-Verzeichnis des Projekts und enthält sämtliche Einstellungen der Dokumentation.
@@ -393,3 +394,53 @@ html_theme_options = {
 html_show_sourcelink = False  # Quelltext-Button ausblenden
 html_css_files = []           # Liste für eigene Styles
 ```
+
+## Live-Vorschau mit sphinx-autobuild
+
+Um Änderungen in Sphinx **sofort im Browser sichtbar zu machen**, kann das Werkzeug `sphinx-autobuild` verwendet werden.
+Es überwacht das Projektverzeichnis und aktualisiert die Ausgabe automatisch, sobald eine Datei gespeichert wird ( {kbd}`Strg` + {kbd}`S` ).
+
+Die Installation erfolgt wie gewohnt über `pip`.
+```{code-block} console
+:caption: sphinx-autobuild installieren
+:linenos:
+
+python -m pip install sphinx-autobuild
+```
+Anschließend kann der folgende Befehl in der Konsole ausgeführt werden - entweder in der noch geöffneten Eingabeaufforderung des Projekts oder, wie in {ref}`Erstellen der Dokumentation` beschrieben, in einem neuen Terminalfenster:
+```{code-block} console
+:caption: Live-Build mit sphinx-autobuild starten
+:linenos:
+
+sphinx-autobuild source build/html
+```
+Nach dem Start erfolgt eine erste vollständige Kompilierung der Dokumentation.
+Die Konsole zeigt anschließend die lokale Serveradresse, über die die Seite aufgerufen werden kann:
+```{code-block} console
+:caption: Ausgabe nach Start des Live-Servers
+:linenos:
+:emphasize-lines: 17
+
+(.venv) PS Dateipfad> sphinx-autobuild source build/html
+[sphinx-autobuild] Starting initial build
+[sphinx-autobuild] > python -m sphinx build source build/html
+Running Sphinx v7.4.7
+loading translations [de]... done
+loading pickled environment... done
+building [mo]: targets for 0 po files that are out of date
+writing output...
+building [html]: targets for 0 source files that are out of date
+updating environment: 0 added, 0 changed, 0 removed
+reading sources...
+looking for now-outdated files... none found
+no targets are out of date.
+build succeeded.
+
+The HTML pages are in build\html.
+[sphinx-autobuild] Serving on http://127.0.0.1:8000
+[sphinx-autobuild] Waiting to detect changes...
+```
+Falls sich die Seite nicht automatisch öffnet, kann die angegebene Adresse `http://127.0.0.1:8000` manuell in die Adresszeile des Browsers kopiert werden.<br>
+Alternativ kann auch mit gedrückter {kbd}`Strg`-Taste auf die Adresse gelklickt werden, so wird die lokale Serveradresse im Standardbrowser geöffnet.
+
+Sobald nun eine Markdown- oder reST-Datei geändert und mit {kbd}`Strg` + {kbd}`S` gespeichert wird, erkennt sphinx-autobuild die Änderung automatisch, rendert die Seite neu und aktualisiert die Anzeige im Browser in Echtzeit.
