@@ -43,4 +43,5 @@ Während **Git** ein lokales Werkzeug ist, das auf deinem Rechner arbeitet, ist 
 :maxdepth: 1
 
 section/installation
+section/git_bash
 ```
