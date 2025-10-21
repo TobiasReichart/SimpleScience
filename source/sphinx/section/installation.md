@@ -225,6 +225,7 @@ Im Browser erscheint daraufhin die folgende Ansicht:
 Voreingestelltes Layout
 ```
 
+(Theme anpassen)=
 ## Theme anpassen
 
 Sphinx bietet zahlreiche vordefinierte Themes, mit denen sich das Erscheinungsbild der generierten Dokumentation anpassen lässt.\
@@ -395,6 +396,7 @@ html_show_sourcelink = False  # Quelltext-Button ausblenden
 html_css_files = []           # Liste für eigene Styles
 ```
 
+(sphinx-autobuild)=
 ## Live-Vorschau mit sphinx-autobuild
 
 Um Änderungen in Sphinx **sofort im Browser sichtbar zu machen**, kann das Werkzeug `sphinx-autobuild` verwendet werden.
@@ -473,3 +475,87 @@ endlocal
 3. (Optional) Erstelle per *Rechtsklick* $\rightarrow$ *Weitere Optionen anzeigen* $\rightarrow$ *Verknüpfung erstellen* eine Desktop-Verknüpfung.
 
 Die Verknüpfung kann nun an einen beliebigen Ort verschoben werden.
+
+## Umbau von reST auf MyST-Markdown
+
+(*reST bleibt weiterhin vollständig nutzbar*)
+
+In dieser Dokumentation wird künftig MyST-Markdown als Standardformat verwendet.
+Bestehende `.rst`-Seiten können jedoch parallel weiterverwendet werden.
+Der Build bleibt dabei vollständig **Sphinx-kompatibel** - sowohl für HTML als auch für PDF-Ausgaben.
+
+### Warum auf Markdown umstellen?
+
+- **Einfachere Syntax**: weniger Tippfehler, schnelleres Schreiben.
+- **Bekanntes Format**: Markdown wird in vielen Projekten und Editoren unterstützt.
+- **Kein Funktionsverlust**: MyST unterstützt alle Sphinx-Direktiven und Rollen\
+    (z. B. Code-Blöcke, toctree, mathematische Formeln, literalinclude, Admonitions …).
+- **Erweiterbar**: Mit myst-nb können zusätzlich Jupyter-Notebooks integriert werden.
+
+### Voraussetzungen installieren
+
+Damit Sphinx Markdown-Dateien versteht, muss der **MyST-Parser** installiert werden.\
+Die Installation erfolgt wie gewohnt über `pip`.\
+
+```{code-block} console
+python -m pip install myst-parser
+```
+
+Für Live-Vorschau und automatisches Neurendern kann weiterhin `sphinx-autobuild` genutzt werden (siehe {ref}`sphinx-autobuild`).
+
+### MyST in der Konfiguration aktivieren
+
+Nach der Installation wird der Parser wie unter {ref}`Theme anpassen` in der Datei `conf.py` eingebunden.
+
+Öffne `conf.py` und füge am Ende des Dokuments die folgenden Zeilen hinzu:
+
+```{code-block} python
+:caption: MyST-Markdown und reST parallel aktivieren
+:linenos:
+
+# -- Umbau von rst auf MySt-Markdown -----------------------------------------
+extensions.append('myst_parser') # Verwendung von MySt-Markdown erlauben
+root_doc = 'index'   # (bei älteren Sphinx-Versionen: master_doc = 'index')
+
+# reST und Markdown parallel erlauben: (Altlasten auch einpfelgbar)
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md':  'markdown',
+}
+
+# sinnvolle MyST-Erweiterungen
+myst_enable_extensions = [
+    # Liste der MyST-Erweiterungen, die aktiv sind
+    "colon_fence",   # erlaubt ::: fenced directives (Alternative zu ```{note} ... ``` mit :::note)
+    "dollarmath",    # $...$ und $$...$$ für Inline- und Block-Mathe
+    "amsmath",       # unterstützt LaTeX-Umgebungen wie \begin{align}...\end{align}
+    "deflist",       # Definition Lists im Markdown-Stil
+    "tasklist",      # - [ ] und - [x] für Aufgabenlisten mit Checkboxen
+]
+
+# Optionen speziell für die Mathe-Verarbeitung (dollarmath/amsmath)
+extensions.append("sphinx.ext.mathjax") # MathJax für Matheformeln
+myst_dmath_allow_labels = True  # erlaubt \label{} und \ref{} innerhalb von $$...$$
+myst_dmath_allow_space  = True   # erlaubt $x = y$ auch mit Leerzeichen nach dem ersten $
+myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehler
+```
+
+### Startseite auf Markdown umstellen
+
+Zum Abschluss muss die bisherige `index.rst` in `index.md` umbenannt werden.\
+Dazu genügt ein Rechtsklick auf die Datei $\rightarrow$ Umbenennen oder {kdb}`F2`.
+
+Der Inhalt der neuen `index.md` kann anschließend ersetzt werden durch:
+
+```{code-block} markdown
+:caption: index.md (Beispiel)
+:linenos:
+
+# Sphinx
+
+Der Inhalt der Dokumentation wird im nächsten Kapitel Strukturierungselemente ergänzt.
+```
+
+Nach all diesen Schritten erkennt Sphinx automatisch sowohl `.rst`- als auch `.md`-Dateien.\
+Du kannst also schrittweise von reStructuredText auf Markdown umsteigen, ohne bestehende Inhalte anzupassen.
+Beim nächsten Build (`sphinx-build -b html source build/html`) werden alle Dateien korrekt verarbeitet - unabhängig von deren Format.

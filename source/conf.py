@@ -25,10 +25,6 @@ language = 'de'
 
 html_static_path = ['_static']
 
-#
-# -- Meine Anpassungen -------------------------------------------------------
-#
-
 # -- Theme Einstellungen -----------------------------------------------------
 html_theme = 'sphinx_rtd_theme' # default: 'alabaster'
 
@@ -45,7 +41,7 @@ html_theme_options = {
 html_show_sourcelink = False  # Quelltext-Button ausblenden
 html_css_files = []           # Liste für eigene Styles
 
-# --- Umbau von rst auf MySt-Markdown ----------------------------------------
+# -- Umbau von rst auf MySt-Markdown -----------------------------------------
 extensions.append('myst_parser') # Verwendung von MySt-Markdown erlauben
 root_doc = 'index'   # (bei älteren Sphinx-Versionen: master_doc = 'index')
 
@@ -70,8 +66,6 @@ extensions.append("sphinx.ext.mathjax") # MathJax für Matheformeln
 myst_dmath_allow_labels = True  # erlaubt \label{} und \ref{} innerhalb von $$...$$
 myst_dmath_allow_space  = True   # erlaubt $x = y$ auch mit Leerzeichen nach dem ersten $
 myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehler
-
-# ----------------------------------------------------------------------------
 
 # --- Codeblöcke--------------------------------------------------------------
 extensions.append('sphinx_copybutton') # Kopierbutton für Codeblöcke hinzufügen
