@@ -24,15 +24,17 @@ Nähere Informationen findest du auf meiner Infoseite zu {ref}`Virtuellen Umgebu
 Die Quickstart Beschreibungen beziehen sich auf das VS Code **TERMINAL**.
 ```
 
-````{dropdown} macOS
+````{dropdown} Windows
 **Erstellen einer virtuellen Umgebung im Ordner** `.venv`
 ```{code-block} console
-python3 -m venv .venv
+python -m venv .venv
 ```
 **Aktivieren der Umgebung**
 ```{code-block} console
-source .venv/bin/activate
+.venv\Scripts\Activate.ps1
 ```
+(Falls blockiert: `Set-ExecutionPolicy -Scope Process Bypass` nur für die aktuelle Session.)
+
 **Aktualisieren von pip innerhalb der venv** (saubere Basis)
 ```{code-block} console
 python -m pip install -U pip
@@ -55,17 +57,15 @@ deactivate
 ```
 ````
 
-````{dropdown} Windows
+````{dropdown} macOS
 **Erstellen einer virtuellen Umgebung im Ordner** `.venv`
 ```{code-block} console
-python -m venv .venv
+python3 -m venv .venv
 ```
 **Aktivieren der Umgebung**
 ```{code-block} console
-.venv\Scripts\Activate.ps1
+source .venv/bin/activate
 ```
-(Falls blockiert: `Set-ExecutionPolicy -Scope Process Bypass` nur für die aktuelle Session.)
-
 **Aktualisieren von pip innerhalb der venv** (saubere Basis)
 ```{code-block} console
 python -m pip install -U pip
