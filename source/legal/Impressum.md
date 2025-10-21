@@ -6,20 +6,20 @@
 
 ## Angaben gemäß § 5 TMG
 
-**Tobias Reichart**<br>
-Guerickestraße 19<br>
-80805 München<br>
-Deutschland<br>
+**Tobias Reichart**\
+Guerickestraße 19\
+80805 München\
+Deutschland\
 E-Mail: <a href="mailto:info.simplescience@gmx.de">info.simplescience@gmx.de</a>
 
 ---
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
 
-**Tobias Reichart**<br>
-Guerickestraße 19<br>
-80805 München<br>
-Deutschland<br>
+**Tobias Reichart**\
+Guerickestraße 19\
+80805 München\
+Deutschland\
 
 ---
 

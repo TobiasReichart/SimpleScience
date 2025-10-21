@@ -10,9 +10,9 @@ Der Schutz Ihrer personenbezogenen Daten ist mir ein wichtiges Anliegen. Nachfol
 
 Verantwortlich für die Verarbeitung personenbezogener Daten im Zusammenhang mit dieser Website ist:
 
-**Tobias Reichart**<br>
-Guerickestraße 19<br>
-80805 München <br> 
+**Tobias Reichart**\
+Guerickestraße 19\
+80805 München \ 
 E-Mail: <a href="mailto:info.simplescience@gmx.de">info.simplescience@gmx.de</a>
 
 ---
@@ -22,9 +22,9 @@ E-Mail: <a href="mailto:info.simplescience@gmx.de">info.simplescience@gmx.de</a>
 
 Diese Website wird über den Dienst GitHub Pages bereitgestellt, ein Angebot der:
 
-**GitHub Inc.**<br>
-88 Colin P. Kelly Jr. Street<br>
-San Francisco, CA 94107<br>
+**GitHub Inc.**\
+88 Colin P. Kelly Jr. Street\
+San Francisco, CA 94107\
 USA
 
 Beim Aufruf dieser Website werden durch GitHub automatisch folgende technische Daten erfasst und in sogenannten Server-Logs gespeichert:
@@ -46,14 +46,14 @@ Diese Daten sind notwendig, um die Website technisch bereitzustellen und die Sys
 
 Da GitHub Inc. ein Unternehmen mit Sitz in den USA ist, kann es bei der Nutzung dieser Website zu einer **Übermittlung personenbezogener Daten in ein Drittland (USA)** kommen.
 
-GitHub ist nach dem **EU-U.S. Data Privacy Framework** zertifiziert. Dadurch wird laut EU-Kommission ein angemessenes Datenschutzniveau gewährleistet.<br>
+GitHub ist nach dem **EU-U.S. Data Privacy Framework** zertifiziert. Dadurch wird laut EU-Kommission ein angemessenes Datenschutzniveau gewährleistet.\
 Weitere Informationen: [https://www.dataprivacyframework.gov/](https://www.dataprivacyframework.gov/)
 
 ---
 
 ## 4. Eigene Datenerhebung
 
-Ich selbst erhebe, speichere oder verarbeite beim Besuch dieser Website **keine personenbezogenen Daten**.<br>
+Ich selbst erhebe, speichere oder verarbeite beim Besuch dieser Website **keine personenbezogenen Daten**.\
 Es gibt insbesondere:
 
 - **keine Kontaktformulare**
@@ -88,14 +88,14 @@ Sie haben gemäß DSGVO insbesondere folgende Rechte:
 - **Widerspruch** gegen die Verarbeitung (Art. 21 DSGVO)
 - **Beschwerde** bei einer Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO)
 
-Zuständige Aufsichtsbehörde für Bayern:<br>
-Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br>
-Promenade 18<br>
-91522 Ansbach<br>
+Zuständige Aufsichtsbehörde für Bayern:\
+Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)\
+Promenade 18\
+91522 Ansbach\
 [https://www.lda.bayern.de](https://www.lda.bayern.de)
 
 ---
 
 ## 8. Kontakt
-Bei Fragen zum Datenschutz auf dieser Website können Sie mich jederzeit per E-Mail kontaktieren:<br>
+Bei Fragen zum Datenschutz auf dieser Website können Sie mich jederzeit per E-Mail kontaktieren:\
 <a href="mailto:info.simplescience@gmx.de">info.simplescience@gmx.de</a>

@@ -3,24 +3,24 @@
 **Python** wurde 1991 von [Guido van Rossum](https://de.wikipedia.org/wiki/Guido_van_Rossum) entwickelt und ist eine **universelle**, **leicht lesbare** Programmiersprache mit Fokus auf **Klarheit**, **Produktivität** und „batteries included“. Sie eignet sich sowohl für Einsteiger als auch für professionelle, große Softwareprojekte.
 
 
-Python ist vor allem deshalb beliebt, weil sich Ideen schnell in funktionierenden Code verwandeln lassen. Die Sprache wirkt durch ihre klare Syntax fast wie gut strukturiertes Deutsch oder Englisch.<br>
+Python ist vor allem deshalb beliebt, weil sich Ideen schnell in funktionierenden Code verwandeln lassen. Die Sprache wirkt durch ihre klare Syntax fast wie gut strukturiertes Deutsch oder Englisch.\
 Python liefert außerdem eine große Standardbibliothek - oft als „batteries included“ bezeichnet. Viele alltägliche Aufgaben lassen sich damit sofort lösen.
 - Dateien einlesen, 
 - Daten verarbeiten,
 - kleine Web-Schnittstellen bereitstellen oder
 - einfache Automatisierungen schreiben.
 
-Wer mehr braucht, findet in der offenen Paketwelt (**PyPI**) unzählige Erweiterungen:<br>
+Wer mehr braucht, findet in der offenen Paketwelt (**PyPI**) unzählige Erweiterungen:\
 Von wissenschaftlichem Rechnen über Webentwicklung bis hin zu kleinen Spielen oder Hardwareprojekten.
 
 Auch in der Wissenschaft hat Python einen festen Platz. Pakete wie **NumPy**, **pandas**, **SciPy**, **SymPy** und **Matplotlib** erleichtern den Umgang mit Daten, erlauben Auswertungen in wenigen Zeilen und liefern direkt anschauliche Grafiken. Das ist besonders hilfreich, wenn man Ergebnisse schnell prüfen, Hypothesen testen oder Abläufe prototypisch simulieren möchte.
 
-Trotz der einfachen Oberfläche ist Python vielseitig. Man kann kleine Skripte für wiederkehrende Aufgaben schreiben, komplette Anwendungen mit grafischer Oberfläche entwickeln, Web-APIs bereitstellen oder Maschinenlern-Modelle trainieren.<br>
+Trotz der einfachen Oberfläche ist Python vielseitig. Man kann kleine Skripte für wiederkehrende Aufgaben schreiben, komplette Anwendungen mit grafischer Oberfläche entwickeln, Web-APIs bereitstellen oder Maschinenlern-Modelle trainieren.\
 Wer an Geschwindigkeit denkt, kann rechenintensive Teile bei Bedarf an optimierte Bibliotheken auslagern oder mit C/C++-Erweiterungen kombinieren. So bleibt der restliche Code weiterhin gut lesbar und leicht anzupassen.
 
 Durch die große und hilfsbereite Python-Community findet man im Web ausführliche Tutorials und Dokumentationen. Für beinahe jede Frage existieren Beispiele, Tutorials und Best-Practices.
 
-Das macht Python zu einer pragmatischen Wahl für Studium, Forschung und Praxis.<br>
+Das macht Python zu einer pragmatischen Wahl für Studium, Forschung und Praxis.\
 Man kommt schnell zu ersten Ergebnissen und kann den Code mit wachsender Erfahrung strukturiert ausbauen.
 
 ````{note}

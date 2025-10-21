@@ -11,10 +11,10 @@ Voraussetzung für die Installation von Sphinx ist eine bereits installierte Ver
 ```
 
 ```{note}
-Es wird **dringend empfohlen**, Sphinx-Projekte in einer *virtuellen Umgebung* (`venv`) aufzubauen.<br>
+Es wird **dringend empfohlen**, Sphinx-Projekte in einer *virtuellen Umgebung* (`venv`) aufzubauen.\
 So bleibt die Arbeitsumgebung stabil, unabhängig von globalen Paketen und jederzeit reproduzierbar.  
 
-Auf diese Weise verhinderst du Versionskonflikte, hältst dein System sauber und stellst sicher, dass deine Dokumentation auch in Zukunft zuverlässig gebaut werden kann.<br>
+Auf diese Weise verhinderst du Versionskonflikte, hältst dein System sauber und stellst sicher, dass deine Dokumentation auch in Zukunft zuverlässig gebaut werden kann.\
 Nähere Informationen findest du auf meiner Infoseite zu {ref}`Virtuellen Umgebungen <Virtuelle Umgebungen>`.
 ```
 
@@ -90,7 +90,7 @@ deactivate
 
 ## Installation
 
-Bevor du mit Sphinx arbeiten kannst, musst du es zunächst in deiner Python-Umgebung (**Global** oder in der **Virtuellen Umgebung**)installieren.<br>
+Bevor du mit Sphinx arbeiten kannst, musst du es zunächst in deiner Python-Umgebung (**Global** oder in der **Virtuellen Umgebung**)installieren.\
 Am einfachsten gelingt das über den Python-Paketmanager `pip`. Führe dazu im Terminal den folgenden Befehl aus:
 
 ```{code-block} console
@@ -107,8 +107,8 @@ Die Erstellung eines neuen Sphinx-Projekts erfolgt direkt über die Kommandozeil
 Gehe dazu in das Verzeichnis, in dem deine Dokumentation gespeichert werden soll.
 
 ```{note}
-Unter **Windows** kannst du im gewünschten Ordner mit der **rechten Maustaste** klicken und *In Terminal öffnen* wählen.<br>
-Unter **macOS** kannst du auf den gewünschten Zielordner mit der **rechten Maustaste** klicken und *Neues Terminal beim Ordner* wählen.<br>
+Unter **Windows** kannst du im gewünschten Ordner mit der **rechten Maustaste** klicken und *In Terminal öffnen* wählen.\
+Unter **macOS** kannst du auf den gewünschten Zielordner mit der **rechten Maustaste** klicken und *Neues Terminal beim Ordner* wählen.\
 In **beiden** Betriebssystemen kannst du im Terminal mit `cd` in den Zielordner navigieren, oder das Terminal in VS Code verwenden (hier muss der Zielordner im Explorer geöffnet sein
 ).
 ```
@@ -192,7 +192,7 @@ Das Projekt kann anschließend durch Eingabe von `sphinx-build -b html source bu
 sphinx-build -b html source build/html
 ```
 
-Dabei wird automatisch der Ordner `build` mit dem Unterordner `html` erzeugt, der die Datei `index.html` enthält.<br>
+Dabei wird automatisch der Ordner `build` mit dem Unterordner `html` erzeugt, der die Datei `index.html` enthält.\
 Diese kann per Doppelklick im Browser geöffnet werden und zeigt die Startseite der frisch generierten Dokumentation.
 
 ```{code-block} none
@@ -227,8 +227,8 @@ Voreingestelltes Layout
 
 ## Theme anpassen
 
-Sphinx bietet zahlreiche vordefinierte Themes, mit denen sich das Erscheinungsbild der generierten Dokumentation anpassen lässt.<br>
-Eine Übersicht verfügbarer Themes findet sich auf der [Website Write the Docs](https://www.writethedocs.org/guide/tools/sphinx-themes/) .<br>
+Sphinx bietet zahlreiche vordefinierte Themes, mit denen sich das Erscheinungsbild der generierten Dokumentation anpassen lässt.\
+Eine Übersicht verfügbarer Themes findet sich auf der [Website Write the Docs](https://www.writethedocs.org/guide/tools/sphinx-themes/) .\
 Für diese Dokumentation wird das Layout Read the Docs verwendet.
 
 Um das Theme zu installieren, kann wie bei der Sphinx-Installation der Python-Paketmanager `pip` verwendet werden. Führe dazu im Terminal den folgenden Befehl aus:
@@ -291,7 +291,7 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 ```
 
-In der `conf.py` findet sich die Variable `html_theme`, der nun der Name des neuen Themes zugewiesen wird.<br>
+In der `conf.py` findet sich die Variable `html_theme`, der nun der Name des neuen Themes zugewiesen wird.\
 Lösche hierfür die markierte Zeile aus deiner `conf.py` und füge unter `html_static_path = ['_static']` die folgende Codezelle ein. Im folgenden werden wir noch weitere Einstellungen an unserem verwendeten Theme vornehmen.
 
 ```{code-block} python
@@ -311,7 +311,7 @@ Um die Änderung zu übernehmen, wird die Dokumentation erneut mit folgendem Bef
 sphinx-build -b html source build/html
 ```
 
-Nach dem erfolgreichen Build kann die Seite im Browser mit kbd`F5` aktualisiert werden.<br>
+Nach dem erfolgreichen Build kann die Seite im Browser mit kbd`F5` aktualisiert werden.\
 Das Layout erscheint nun im **Read the Docs**-Design:
 
 ```{figure} bilder/rtd-theme.png
@@ -321,7 +321,7 @@ Das Layout erscheint nun im **Read the Docs**-Design:
 Theme: *Read the Docs*
 ```
 
-Das Theme Read the Docs lässt sich über den Parameter `html_theme_options` in der `conf.py` weiter anpassen.<br>
+Das Theme Read the Docs lässt sich über den Parameter `html_theme_options` in der `conf.py` weiter anpassen.\
 Ein Beispiel möglicher Optionen:
 
 ```{code-block} python
@@ -342,7 +342,7 @@ html_show_sourcelink = False  # Quelltext-Button ausblenden
 html_css_files = []           # Liste für eigene Styles
 ```
 
-Die Variable `html_css_files` bleibt hier zunächst leer, um die `conf.py` übersichtlich zu halten.<br>
+Die Variable `html_css_files` bleibt hier zunächst leer, um die `conf.py` übersichtlich zu halten.\
 Später können eigene CSS-Dateien mit `.append()` hinzugefügt werden, um gezielt optische Anpassungen vorzunehmen.
 
 Die `conf.py` sollte nach diesen Änderungen folgendermaßen aussehen:
@@ -440,7 +440,7 @@ The HTML pages are in build\html.
 [sphinx-autobuild] Serving on http://127.0.0.1:8000
 [sphinx-autobuild] Waiting to detect changes...
 ```
-Falls sich die Seite nicht automatisch öffnet, kann die angegebene Adresse `http://127.0.0.1:8000` manuell in die Adresszeile des Browsers kopiert werden.<br>
+Falls sich die Seite nicht automatisch öffnet, kann die angegebene Adresse `http://127.0.0.1:8000` manuell in die Adresszeile des Browsers kopiert werden.\
 Alternativ kann auch mit gedrückter {kbd}`Strg`-Taste auf die Adresse gelklickt werden, so wird die lokale Serveradresse im Standardbrowser geöffnet.
 
 Sobald nun eine Markdown- oder reST-Datei geändert und mit {kbd}`Strg` + {kbd}`S` gespeichert wird, erkennt sphinx-autobuild die Änderung automatisch, rendert die Seite neu und aktualisiert die Anzeige im Browser in Echtzeit.

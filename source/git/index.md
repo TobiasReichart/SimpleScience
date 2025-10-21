@@ -2,7 +2,7 @@
 
 **Was ist Git?**
 
-Git ist ein **Versionsverwaltungssystem**, das ursprünglich von [Linus Torvalds](https://de.wikipedia.org/wiki/Linus_Torvalds) (dem Entwickler des Linux-Kernels) entwickelt wurde.<br>
+Git ist ein **Versionsverwaltungssystem**, das ursprünglich von [Linus Torvalds](https://de.wikipedia.org/wiki/Linus_Torvalds) (dem Entwickler des Linux-Kernels) entwickelt wurde.\
 Git ermöglicht, den Entwicklungsstand eines Projektes über die Zeit nachzuvollziehen und Änderungen gezielt zu speichern. Jeder dieser gespeicherten Zustände wird als **Commit** bezeichnet. Man kann sich das wie eine Zeitmaschine vorstellen: Zu jedem Zeitpunkt lässt sich ein Projekt in den Zustand einer früheren Version zurückversetzen.
 
 ```{figure} bilder/Minimalbeispiel_main_branch.svg

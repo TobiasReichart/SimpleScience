@@ -16,7 +16,7 @@ Vor der Durchführung lies bitte meinen {ref}`Haftungsausschluss <disclaimer>`. 
 
 2. Öffne danach deinen **Downloads-Ordner** und starte den Installer per Doppelklick.
 
-3. Während der Installation werden verschiedene Optionen angeboten. In den meisten Fällen kannst du die **Standard-Einstellungen** übernehmen.<br>
+3. Während der Installation werden verschiedene Optionen angeboten. In den meisten Fällen kannst du die **Standard-Einstellungen** übernehmen.\
     Nur an den folgenden Stellen habe ich Änderungen vorgenommen:
 
 ```{figure} bilder/1-installation_components.png
