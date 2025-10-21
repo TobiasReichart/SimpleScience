@@ -1,3 +1,14 @@
-div.admonition > .admonition-title {
-    border-radius: 5px 5px 0 0; /* Nur oben links und rechts abrunden */
+/* ==============================
+   GESAMTE HINWEISBOX (Container)
+   ============================== */
+
+/* Das <div class="admonition"> ist der Rahmen der Box.
+   - border-radius rundet ALLE vier Ecken (oben + unten).
+   - overflow: hidden sorgt dafür, dass der INHALT (z. B. der farbige Titel)
+     die runden Ecken respektiert und nicht "übersteht".
+   - border: ein feiner Rahmen (optional, fürs saubere Erscheinungsbild). */
+div.admonition {
+  border-radius: 5px;              /* alle Ecken (oben & unten) abrunden */
+  overflow: hidden;                /* Inhalt an die Rundung "anpassen" */
+  border: 1px solid rgba(0,0,0,.08);
 }
