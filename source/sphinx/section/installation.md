@@ -444,3 +444,32 @@ Falls sich die Seite nicht automatisch öffnet, kann die angegebene Adresse `htt
 Alternativ kann auch mit gedrückter {kbd}`Strg`-Taste auf die Adresse gelklickt werden, so wird die lokale Serveradresse im Standardbrowser geöffnet.
 
 Sobald nun eine Markdown- oder reST-Datei geändert und mit {kbd}`Strg` + {kbd}`S` gespeichert wird, erkennt sphinx-autobuild die Änderung automatisch, rendert die Seite neu und aktualisiert die Anzeige im Browser in Echtzeit.
+
+### Live-Vorschau über eine Verknüpfung starten (Windows)
+
+Mit einer Batch-Datei ( `.bat` ) lässt sich der Sphinx-Autobuild per Doppelklick starten. Die Dokumentation wird automatisch im Browser geöffnet und bei jeder Änderung neu gerendert.
+
+**Schritt-für-Schritt**
+
+1. Lege im Projektverzeichnis eine Datei Autobuild starten.bat an.
+2. Füge folgenden Inhalt ein und speichere die Datei:
+
+```{code-block} bat
+:caption: Batch-Datei für den Autobuild (Windows)
+:linenos:
+
+@echo off
+setlocal
+rem In das Verzeichnis der Batch-Datei wechseln
+pushd "%~dp0"
+rem (Optional) Virtuelle Umgebung aktivieren, wenn vorhanden
+if exist ".venv\Scripts\activate.bat" call ".venv\Scripts\activate.bat"
+rem Live-Server starten und Browser öffnen
+sphinx-autobuild source build/html --open-browser
+rem Aufräumen und Pfad zurücksetzen (nach Beenden)
+popd
+endlocal
+```
+3. (Optional) Erstelle per *Rechtsklick* $\rightarrow$ *Weitere Optionen anzeigen* $\rightarrow$ *Verknüpfung erstellen* eine Desktop-Verknüpfung.
+
+Die Verknüpfung kann nun an einen beliebigen Ort verschoben werden.
