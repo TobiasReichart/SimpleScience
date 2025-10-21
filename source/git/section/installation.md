@@ -48,7 +48,29 @@ Git Bash
 
 ## Mac
 
-coming soon
+Für macOS empfiehlt sich die Installation von Git über [Homebrew](https://brew.sh/).\
+Homebrew ist ein Paketmanager, der die Installation und Aktualisierung von Entwicklerwerkzeugen wie Git, Python oder Sphinx erheblich vereinfacht.
+Alle Abhängigkeiten werden automatisch verwaltet, und Programme bleiben durch einfache Befehle stets auf dem neuesten Stand.
+Dadurch bleibt die Entwicklungsumgebung konsistent, reproduzierbar und leicht wartbar.
+
+```{code-block} console
+brew install git
+```
+Nach Abschluss
+```{code-block} console
+git --version
+```
+Beispielausgabe:
+```{code-block} console
+git version 2.39.5 
+```
+Damit ist Git einsatzbereit.
+
+Unter macOS gibt es keine separate „Git Bash“ wie unter Windows.
+```{hint}
+Alle folgenden Anweisungen können analog auf macOS im Terminal verwendet werden.
+```
+Das Terminal von macOS ist bereits eine Bash- (oder Zsh-)Shell, in der alle Git-Befehle direkt verwendet werden können.
 
 ## Userdaten hinterlegen
 
