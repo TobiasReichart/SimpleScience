@@ -559,7 +559,7 @@ myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehl
 ### Startseite auf Markdown umstellen
 
 Zum Abschluss muss die bisherige `index.rst` in `index.md` umbenannt werden.\
-Dazu genügt ein Rechtsklick auf die Datei $\rightarrow$ Umbenennen oder {kdb}`F2`.
+Dazu genügt ein Rechtsklick auf die Datei $\rightarrow$ Umbenennen oder {kbd}`F2`.
 
 Der Inhalt der neuen `index.md` kann anschließend ersetzt werden durch:
 

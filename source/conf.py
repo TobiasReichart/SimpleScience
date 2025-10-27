@@ -77,3 +77,14 @@ html_css_files.append("style/hinweisboxen_layout.css") # Anpassen des HTML-Style
 
 # --- Downloadbutton ---------------------------------------------------------
 html_css_files.append("style/download_button.css") # Anpassen des HTML-Styles des Downloadbuttons
+
+# -- Mermaid-Diagramme ------------------------------------------------------
+extensions.append("sphinxcontrib.mermaid") # Mermaid-Diagramme unterstützen
+
+mermaid_init_js = """
+mermaid.initialize({
+    startOnLoad: true,
+    theme: "default",       // ""deefault, "dark", "forest", "neutral"
+    securityLevel: "loose"  // erlaubt Links/HTML im Diagramm (vorsichtig verwenden!)
+});
+"""
