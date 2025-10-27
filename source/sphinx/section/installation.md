@@ -218,7 +218,7 @@ Sphinx-Projekt
 
 Im Browser erscheint daraufhin die folgende Ansicht:
 
-```{figure} bilder/default-theme.png
+```{figure} ../../_static/img/sphinx/installation/default-theme.png
 :align: center
 :width: 100%
 
@@ -315,7 +315,7 @@ sphinx-build -b html source build/html
 Nach dem erfolgreichen Build kann die Seite im Browser mit kbd`F5` aktualisiert werden.\
 Das Layout erscheint nun im **Read the Docs**-Design:
 
-```{figure} bilder/rtd-theme.png
+```{figure} ../../_static/img/sphinx/installation/rtd-theme.png
 :align: center
 :width: 100%
 
@@ -395,6 +395,22 @@ html_theme_options = {
 html_show_sourcelink = False  # Quelltext-Button ausblenden
 html_css_files = []           # Liste für eigene Styles
 ```
+
+````{tip}
+Das Copyright-Jahr in der `conf.py` kann automatisch aus dem aktuellen Systemdatum erzeugt werden.\
+Passe hierfür einfach die obersten Zeilen deiner `conf.py`-Datei an.
+
+```{code-block} python
+:caption: Automatische Jahresangabe im Copyright
+:linenos:
+:emphasize-lines: 1, 5
+
+from datetime import date
+
+project = 'Sphinx'
+author = 'Tobias Reichart'
+copyright = f'{date.today().year}, {author}'
+````
 
 (sphinx-autobuild)=
 ## Live-Vorschau mit sphinx-autobuild
@@ -536,7 +552,7 @@ myst_enable_extensions = [
 # Optionen speziell für die Mathe-Verarbeitung (dollarmath/amsmath)
 extensions.append("sphinx.ext.mathjax") # MathJax für Matheformeln
 myst_dmath_allow_labels = True  # erlaubt \label{} und \ref{} innerhalb von $$...$$
-myst_dmath_allow_space  = True   # erlaubt $x = y$ auch mit Leerzeichen nach dem ersten $
+myst_dmath_allow_space  = True  # erlaubt $x = y$ auch mit Leerzeichen nach dem ersten $
 myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehler
 ```
 

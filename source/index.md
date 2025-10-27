@@ -1,6 +1,6 @@
 # SimpleScience
 
-```{figure} Logo/Logo-black.png
+```{figure} _static/img/Logo/Logo-black.png
 :name: Logo
 :align: center
 :width: 50%

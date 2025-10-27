@@ -1,11 +1,20 @@
 # Git - Versionsverwaltung für Projekte
 
+**Inhaltsverzeichnis**
+
+```{toctree}
+:maxdepth: 1
+
+section/installation
+section/git_bash
+```
+
 **Was ist Git?**
 
 Git ist ein **Versionsverwaltungssystem**, das ursprünglich von [Linus Torvalds](https://de.wikipedia.org/wiki/Linus_Torvalds) (dem Entwickler des Linux-Kernels) entwickelt wurde.\
 Git ermöglicht, den Entwicklungsstand eines Projektes über die Zeit nachzuvollziehen und Änderungen gezielt zu speichern. Jeder dieser gespeicherten Zustände wird als **Commit** bezeichnet. Man kann sich das wie eine Zeitmaschine vorstellen: Zu jedem Zeitpunkt lässt sich ein Projekt in den Zustand einer früheren Version zurückversetzen.
 
-```{figure} bilder/Minimalbeispiel_main_branch.svg
+```{figure} ../_static/img/git/index/Minimalbeispiel_main_branch.svg
 :align: center
 :width: 100%
 
@@ -17,7 +26,7 @@ Ein zentrales Prinzip von Git ist das Arbeiten mit **Branches** (Zweigen).
 - Zusätzliche **Feature-Branches** ermöglichen es, neue Funktionen oder Korrekturen unabhängig zu entwickeln, ohne den Hauptstand zu verändern.
 - Am Ende wird ein Branch über einen **Merge** mit dem **main-Branch** zusammengeführt. Dabei prüft Git automatisch, ob Änderungen konfliktfrei kombiniert werden können.
 
-```{figure} bilder/branch_beispie_feature.svg
+```{figure} ../_static/img/git/index/branch_beispie_feature.svg
 :align: center
 :width: 100%
 
@@ -36,12 +45,3 @@ Während **Git** ein lokales Werkzeug ist, das auf deinem Rechner arbeitet, ist 
 - Strukturierte Einreichung und Diskussion von Code-Änderungen über Pull Requests,
 - Unterstützung durch Diskussionen, Code-Reviews und Projektplanung,
 - Einfache Möglichkeit, Projekte öffentlich zugänglich zu machen.
-
-**Inhaltsverzeichnis**
-
-```{toctree}
-:maxdepth: 1
-
-section/installation
-section/git_bash
-```

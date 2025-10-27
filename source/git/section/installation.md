@@ -19,17 +19,17 @@ Vor der Durchführung lies bitte meinen {ref}`Haftungsausschluss <disclaimer>`. 
 3. Während der Installation werden verschiedene Optionen angeboten. In den meisten Fällen kannst du die **Standard-Einstellungen** übernehmen.\
     Nur an den folgenden Stellen habe ich Änderungen vorgenommen:
 
-```{figure} bilder/1-installation_components.png
+```{figure} ../../_static/img/git/installation/1-installation_components.png
 :align: center
 :width: 50%
 Installation: Select Components
 ```
-```{figure} bilder/2-installation_editor.png
+```{figure} ../../_static/img/git/installation/2-installation_editor.png
 :align: center
 :width: 50%
 Installation: Choosing the default editor used by Git
 ```
-```{figure} bilder/3-installation_branch.png
+```{figure} ../../_static/img/git/installation/3-installation_branch.png
 :align: center
 :width: 50%
 Installation: Adjusting the name of the initial branch in new repositories
@@ -38,7 +38,7 @@ Installation: Adjusting the name of the initial branch in new repositories
 
 4. Nach erfolgreicher Installation befindet sich nun ein **Git-Bash-Icon** auf dem Desktop. Mit einem Doppelklick öffnest du die Git-Bash und kannst Git direkt verwenden.
 
-```{figure} bilder/4-installation_git-bash.png
+```{figure} ../../_static/img/git/installation/4-installation_git-bash.png
 :align: center
 :width: 50%
 :name: git-bash

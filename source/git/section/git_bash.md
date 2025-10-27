@@ -388,4 +388,4 @@ Ordner/
 - Kopiern von Inhalten in die Zwischenablage: {kbd}`Strg` + {kbd}`einfg`
 - Einfügen von Inhalten in die Konsole: {kbd}`Shift` + {kbd}`einfg`
 - Mit den beiden Pfeiltasten {kbd}`↑` und {kbd}`↓` kann durch die bereits verwendeten Befehle 
-- Durch die {kbd}`Tab`-Taste kann die Autovervollständigung verwendet werden und durch erneutes Drücken von {kbd}`Tab` alle Elemente, für die die jeweilige Funktion verfügbar ist, angezeigt werden.
+- Durch die {kbd}`Tab`-Taste kann die Autovervollständigung verwendet werden und durch erneutes Drücken von {kbd}`Tab` können Optionen angezeigt werden.
