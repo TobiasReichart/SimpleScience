@@ -1,5 +1,6 @@
 from datetime import date
 
+# -- Project information -----------------------------------------------------
 project = "SimpleScience"
 author = "Tobias Reichart"
 copyright = f"{date.today().year}, {author}"
@@ -13,6 +14,7 @@ language = "de"
 
 # -- Options for HTML output -------------------------------------------------
 html_static_path = ["_static"]
+html_favicon = "_static/favicon.ico"
 
 # -- Theme Einstellungen -----------------------------------------------------
 html_theme = "sphinx_rtd_theme" # default: "alabaster"

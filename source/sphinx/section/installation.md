@@ -90,7 +90,7 @@ deactivate
 
 ## Installation
 
-Bevor du mit Sphinx arbeiten kannst, musst du es zunächst in deiner Python-Umgebung (**Global** oder in der **Virtuellen Umgebung**)installieren.\
+Bevor du mit Sphinx arbeiten kannst, musst du es zunächst in deiner Python-Umgebung (**Global** oder in der **Virtuellen Umgebung**) installieren.\
 Am einfachsten gelingt das über den Python-Paketmanager `pip`. Führe dazu im Terminal den folgenden Befehl aus:
 
 ```{code-block} console
