@@ -12,7 +12,7 @@ Verantwortlich für die Verarbeitung personenbezogener Daten im Zusammenhang mit
 
 **Tobias Reichart**\
 Guerickestraße 19\
-80805 München \ 
+80805 München\ 
 E-Mail: <a href="mailto:info.simplescience@gmx.de">info.simplescience@gmx.de</a>
 
 ---

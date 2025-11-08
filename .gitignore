@@ -1,3 +1,14 @@
+# Python
+__pycache__/
+
+# Virtuelle Umgebungen
 .venv/
+
+# Build-Artefakte
 build/
+
+# VSCode Einstellungen
+.vscode/
+
+
 desktop.ini

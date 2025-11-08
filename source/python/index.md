@@ -55,10 +55,9 @@ Namespaces are one honking great idea -- let's do more of those!
 ```
 ````
 
-**Inhaltsverzeichnis**
-
 ```{toctree}
 :maxdepth: 1
+:caption: Inhaltsverzeichnis
 
 section/venv
 section/cheatsheet

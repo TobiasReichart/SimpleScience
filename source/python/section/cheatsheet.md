@@ -4,7 +4,9 @@
 
 Eine **virtuelle Umgebung** (engl. *virtual enviroment*) in Python ist eine **isolierte Laufzeitumgebung**, in der du Projekte unabhängig voneinander betreiben kannst.
 
-````{dropdown} Windows
+`````{tab-set}
+:sync-group: os
+````{tab-item} Windows
 **Erstellen einer virtuellen Umgebung im Ordner** `.venv`
 ```{code-block} console
 python -m venv .venv
@@ -37,7 +39,7 @@ deactivate
 ```
 ````
 
-````{dropdown} macOS
+````{tab-item} macOS
 **Erstellen einer virtuellen Umgebung im Ordner** `.venv`
 ```{code-block} console
 python3 -m venv .venv
@@ -67,3 +69,4 @@ python -m pip install -r requirements.txt
 deactivate
 ```
 ````
+`````

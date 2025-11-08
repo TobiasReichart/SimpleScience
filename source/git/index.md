@@ -1,10 +1,9 @@
 (git)=
 # Git - Versionsverwaltung für Projekte
 
-**Inhaltsverzeichnis**
-
 ```{toctree}
 :maxdepth: 1
+:caption: Inhaltsverzeichnis
 
 section/installation
 section/git_bash
