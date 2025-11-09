@@ -4,6 +4,17 @@ wird später durch das Modul Beautyplot ersetzt.
 Ein Modul, welches auf Basis von Matplotlib schönere Layouteinstellungen setzt.
 """
 
+COLORS = {
+    "red":    "#D62728",
+    "blue":   "#1F77B4",
+    "green":  "#2CA02C",
+    "orange": "#FF7F0E",
+    "purple": "#9467BD",
+    "cyan":   "#17BECF",
+    "teal":   "#2AA198",
+    "gray":   "#6E6E6E",
+}
+
 def beautyplot(fig, ax):
     ax.tick_params(        # Hauptticks anpassen
         axis="both",       # Sowohl x- als auch y-Achse

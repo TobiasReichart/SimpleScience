@@ -1,7 +1,7 @@
 from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
-from beautyplot import beautyplot
+from beautyplot import beautyplot, COLORS
 
 # -- Projekt-Root finden (Marker) ----------
 def find_project_root(start: Path | None = None) -> Path:
@@ -41,15 +41,15 @@ x_s = amp * np.sin(2 * np.pi * f0 * t_s)          # Werte auf dem Sinus
 fig, ax = plt.subplots(figsize=(7, 3), dpi=150)
 
 # „Analoger“ Wellenzug:
-ax.plot(t * 1000, x, lw=2, label="Sinus 440 Hz", color="cornflowerblue")
+ax.plot(t * 1000, x, lw=2, label="Sinus 440 Hz", color=COLORS["blue"])
 
 # Senkrechte Linien: von der minimalen Amplitude (ymin) bis zum jeweiligen Sinuswert
 ymin, ymax = -1.15 * amp, 1.15 * amp
 for ts, xs_val in zip(t_s, x_s):
-    ax.vlines(ts * 1000, ymin, xs_val, linewidth=0.8, color="orangered", alpha=0.8)
+    ax.vlines(ts * 1000, ymin, xs_val, linewidth=0.8, color=COLORS["orange"], alpha=0.8)
 
 # Punkte auf dem Wellenzug an den Abtaststellen:
-ax.scatter(t_s * 1000, x_s, s=18, zorder=3, label="Abtastwerte", color="orangered")
+ax.scatter(t_s * 1000, x_s, s=18, zorder=3, label="Abtastwerte", color=COLORS["orange"])
 
 # Bemaßung zwischen zwei benachbarten Abtastlinien:
 if len(t_s) >= 2:
@@ -58,7 +58,7 @@ if len(t_s) >= 2:
     # Doppelpfeil:
     ax.annotate("",
                 xy=(t0, y_dim), xytext=(t1, y_dim),
-                arrowprops=dict(arrowstyle="<->", lw=1.0, color="orangered"))
+                arrowprops=dict(arrowstyle="<->", lw=1.0, color=COLORS["orange"]))
     # Text mittig über der Maßlinie:
     ts_ms = (t1 - t0)
     ax.text((t0 + t1) / 2, y_dim + 0.02 * (ymax - ymin),

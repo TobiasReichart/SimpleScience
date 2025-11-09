@@ -90,3 +90,21 @@ mermaid.initialize({
     securityLevel: "loose"  // erlaubt Links/HTML im Diagramm (vorsichtig verwenden!)
 });
 """
+
+# -- Farben ------------------------------------------------------------------
+mathjax3_config = {
+    "loader": {"load": ["[tex]/color"]},
+    "tex": {
+        "packages": {"[+]": ["color"]},
+        "macros": {
+            "red":    ["{\\color[RGB]{214,39,40} #1}", 1],     # D62728
+            "blue":   ["{\\color[RGB]{31,119,180} #1}", 1],    # 1F77B4
+            "green":  ["{\\color[RGB]{44,160,44} #1}", 1],     # 2CA02C
+            "orange": ["{\\color[RGB]{255,127,14} #1}", 1],    # FF7F0E
+            "purple": ["{\\color[RGB]{148,103,189} #1}", 1],   # 9467BD
+            "cyan":   ["{\\color[RGB]{23,190,207} #1}", 1],    # 17BECF
+            "teal":   ["{\\color[RGB]{42,161,152} #1}", 1],    # 2AA198
+            "gray":   ["{\\color[RGB]{110,110,110} #1}", 1],   # 6E6E6E
+        },
+    },
+}

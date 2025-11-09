@@ -1,7 +1,7 @@
 from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
-from beautyplot import beautyplot
+from beautyplot import beautyplot, COLORS
 
 # -- Projekt-Root finden (Marker) ----------
 def find_project_root(start: Path | None = None) -> Path:
@@ -33,7 +33,7 @@ ymin, ymax = -1.15 * amp, 1.15 * amp
 
 # -- Plot ---
 fig, ax = plt.subplots(1, 1, figsize=(6, 3))
-ax.plot(t * 1000, x, linewidth=2, color="cornflowerblue")
+ax.plot(t * 1000, x, linewidth=2, color=COLORS["blue"])
 ax.set(title="Kammerton A4 (440 Hz) – Zeitbereich", xlabel="Zeit [ms]", ylabel="Amplitude")
 ax.set_ylim(ymin, ymax)
 ax.set_xlim(0., 5.)
