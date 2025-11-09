@@ -26,6 +26,13 @@ Dafür stehe ich mit SimpleScience.
 
 ```{toctree}
 :maxdepth: 1
+:caption: Physik
+:hidden:
+mechanik/index
+```
+
+```{toctree}
+:maxdepth: 1
 :caption: Mathematik
 :hidden:
 analysis/index

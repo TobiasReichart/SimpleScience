@@ -61,4 +61,5 @@ Namespaces are one honking great idea -- let's do more of those!
 
 section/venv
 section/cheatsheet
+rezepte/index
 ```
