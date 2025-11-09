@@ -20,13 +20,14 @@ html_favicon = "_static/favicon.ico"
 html_theme = "sphinx_rtd_theme" # default: "alabaster"
 
 html_theme_options = {
-    "collapse_navigation": True,            # Navigationsmenüs nicht einklappen
-    "sticky_navigation": False,              # Navigation scrollt nicht mit
-    "includehidden": True,                   # Hidden toctree-Einträge anzeigen
-    "prev_next_buttons_location": "bottom",  # Position der Navigationsbuttons
-    "style_nav_header_background": "#2980B9",# Hintergrundfarbe der Kopfzeile
-    "style_external_links": True,            # Externe Links markieren
-    "body_max_width": "none",                # HTML-Layout auf Bildschirmbreite skalieren
+    "collapse_navigation": False,               # Navigationsmenüs nicht einklappen
+    "navigation_depth": -1,                     # alle Ebenen anzeigen (-1 = unbegrenzt)
+    "sticky_navigation": False,                 # Navigation scrollt nicht mit
+    "includehidden": True,                      # Hidden toctree-Einträge anzeigen
+    "prev_next_buttons_location": "bottom",     # Position der Navigationsbuttons
+    "style_nav_header_background": "#2980B9", # Hintergrundfarbe der Kopfzeile
+    "style_external_links": True,               # Externe Links markieren
+    "body_max_width": "none",                   # HTML-Layout auf Bildschirmbreite skalieren
 }
 
 html_show_sourcelink = False  # Quelltext-Button ausblenden
@@ -57,12 +58,11 @@ myst_dmath_allow_labels = True  # erlaubt \label{} und \ref{} innerhalb von $$..
 myst_dmath_allow_space  = True  # erlaubt $x = y$ auch mit Leerzeichen nach dem ersten $
 myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehler
 
-# --- Codeblöcke--------------------------------------------------------------
+# -- Codeblöcke--------------------------------------------------------------
 extensions.append("sphinx_copybutton") # Kopierbutton für Codeblöcke hinzufügen
 html_css_files.append("style/codeblock_layout.css") # Anpassen des HTML-Styles der Codeblöcke
 
-
-# --- Layout- und Stilmittel -------------------------------------------------
+# -- Layout- und Stilmittel -------------------------------------------------
 
 
 
