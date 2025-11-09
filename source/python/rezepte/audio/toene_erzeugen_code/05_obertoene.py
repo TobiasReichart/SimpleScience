@@ -22,6 +22,14 @@ QUALITY_INTERVALS = {
     "sus4":       [0, 5, 7],
 }
 
+# -- Obertongewichtung ---------------------------------------------------------
+INSTRUMENT_PARTIALS = {
+    "floete":   {1: 1.00, 2: 0.20, 3: 0.10, 4: 0.05},                   # weich, fast sinusförmig
+    "violine":  {1: 1.00, 2: 0.70, 3: 0.50, 4: 0.30, 5: 0.25, 6: 0.15}, # obertonreich, brillant
+    "klavier":  {1: 1.00, 2: 0.60, 3: 0.35, 4: 0.20, 5: 0.12, 6: 0.08}, # harmonisch, leicht gedämpft
+    "tuba":     {1: 1.00, 2: 0.10, 3: 0.50, 4: 0.05, 5: 0.25},          # tief, weich, ungerade betont
+}
+
 # -- Einzelnoten erzeugen ------------------------------------------------------
 def note_to_freq(note: str, A4: float = 440.0) -> float:
     """Gleichstufige Stimmung. Notation: A4, C#5, Db3, …"""
@@ -74,6 +82,86 @@ def make_tone_wav(
 
     wavfile.write(filename, sr, to_int16(x))   # schreiben
 
+# -- Töne mit Obertönen erzeugen -----------------------------------------------
+def normalize_partials(partials: dict[int, float], mode: str = "sum") -> dict[int, float]:
+    """Normiert Teiltongwichte
+    
+    mode='sum' -> Summe a_k = 1
+    mode='max' -> max a_k = 1
+    """
+    if not partials:
+        return {1: 1.0}  # Fallback: Grundton mit Gewicht 1
+
+    vals = list(partials.values()) # Alle Gewichte
+    div = (sum(vals) if mode == "sum" else max(vals)) or 1.0 # Normierungsfaktor (gegen 0 absichern)
+
+    return {k: (a / div) for k, a in partials.items()} # Normierte Map zurückgeben
+
+def get_partials(preset_or_dict, *, norm: str = "sum") -> dict[int, float]:
+    """Akzeptiert Preset-Namen (str) oder eigenes Dict und gibt normierte Partials zurück."""
+    if isinstance(preset_or_dict, str):
+        key = preset_or_dict.lower()  # Preset-Key normalisieren
+        if key not in INSTRUMENT_PARTIALS:
+            known = ", ".join(sorted(INSTRUMENT_PARTIALS))  # verfügbare Presets auflisten
+            raise ValueError(f"Unbekanntes Preset: {preset_or_dict!r} (bekannt: {known})")  # Fehlermeldung
+        base = INSTRUMENT_PARTIALS[key]  # Preset holen
+    else:
+        base = dict(preset_or_dict)  # Kopie des benutzerdefinierten Dicts
+
+    return normalize_partials(base, mode=norm)  # Normierung anwenden und zurückgeben
+
+def make_tone_with_partials(
+    note_or_freq: Union[str, float, int],
+    duration_s: float,
+    sr: int,
+    amp: float,
+    filename: str,
+    partials: Union[str, dict[int, float]] = "sinus",
+    A4: float = 440.0,
+    fade_s: float = 0.01,
+    norm_mode: str = "sum",
+) -> None:
+    """Erzeugt einen Ton mit harmonischen Obertönen und speichert ihn als 16-bit-WAV."""
+    f0 = _to_freq(note_or_freq, A4=A4)                 # Grundfrequenz in Hz
+    p = get_partials(partials, norm=norm_mode)         # Obertongewichte normiert holen
+
+    N = int(sr * duration_s)                           # Anzahl Samples
+    t = np.arange(N) / sr                              # Zeitachse [s]
+    x = np.zeros(N, dtype=np.float64)                  # Akkumulator
+
+    for k, a in p.items():
+        x += a * np.sin(2 * np.pi * k * f0 * t)        # k-ter Teilton addieren
+
+    fadelen = max(int(fade_s * sr), 1)                 # Fade-Länge in Samples
+    x[:fadelen] *= np.linspace(0, 1, fadelen)          # Fade-in gegen Klicks
+    x[-fadelen:] *= np.linspace(1, 0, fadelen)         # Fade-out
+
+    wavfile.write(filename, sr, to_int16(amp * x))     # Pegeln, in int16 wandeln, schreiben
+
+def make_instrument_tone_wav(
+    instrument: str,
+    note_or_freq: Union[str, float, int],
+    duration_s: float,
+    sr: int,
+    amp: float,
+    filename: str,
+    A4: float = 440.0,
+    fade_s: float = 0.01,
+    norm_mode: str = "sum",
+) -> None:
+    """Komfort: direkt per Instrument-Preset speichern (Alias für make_tone_with_partials)."""
+    make_tone_with_partials(
+        note_or_freq=note_or_freq,
+        duration_s=duration_s,
+        sr=sr,
+        amp=amp,
+        filename=filename,
+        partials=instrument,
+        A4=A4,
+        fade_s=fade_s,
+        norm_mode=norm_mode,
+    )
+
 # -- Akorde erzeugen -----------------------------------------------------------
 def parse_chord_name(chord: str) -> tuple[str, str]:
     """Parser, der Grundton und Akkordqualität aus natürlicher Sprache zurück gibt."""
@@ -114,7 +202,7 @@ def make_chord_wav(
 ) -> None:
     """Speichert einen mehrstimmigen Akkord als 16-bit-WAV."""
     # Frequenzen ermitteln (Notennamen → Hz; Zahlen → float) 
-    freqs = [(_to_freq(float(nf), A4=A4) if not isinstance(nf, (int, float)) else float(nf))  # Name zu Hz oder casten
+    freqs = [(_to_freq(nf, A4=A4) if not isinstance(nf, (int, float)) else float(nf))  # Name zu Hz oder casten
              for nf in notes_or_freqs]
 
     # Zeitachse & Mixpuffer
@@ -163,12 +251,12 @@ def _to_freq(note_or_freq: Union[str, float, int], A4: float = 440.0) -> float:
     return note_to_freq(str(note_or_freq), A4=A4)
 
 if __name__ == "__main__":
-    # A-Dur (A4–C#5–E5)
-    make_named_chord_wav("A4-Major", 1.5, 44100, 0.9, "chord_A_major.wav")
-    # A-Moll (A4–C5–E5)
-    make_named_chord_wav("A4-minor", 1.5, 44100, 0.9, "chord_A_minor.wav")
-    # D-Dur (D4–F#4–A4), deutscher Alias „dur“ funktioniert ebenfalls:
-    make_named_chord_wav("D4-dur",   1.2, 44100, 0.9, "chord_D_major.wav")
-    # Sus-Beispiele:
-    make_named_chord_wav("D4-sus2",  1.2, 44100, 0.9, "chord_D_sus2.wav")
-    make_named_chord_wav("D4-sus4",  1.2, 44100, 0.9, "chord_D_sus4.wav")
+    # Vier Instrumentfarben auf demselben Grundton – A4
+    make_instrument_tone_wav("floete",  "A4", 1.0, 44100, 0.9, "floete_A4.wav")
+    make_instrument_tone_wav("violine", "A4", 1.0, 44100, 0.9, "violine_A4.wav")
+    make_instrument_tone_wav("klavier", "A4", 1.0, 44100, 0.9, "klavier_A4.wav")
+    make_instrument_tone_wav("tuba",    "A4", 1.0, 44100, 0.9, "tuba_A4.wav")
+
+    # Benutzerdefiniertes Spektrum (ungerade Obertöne stärker)
+    custom = {1: 1.0, 3: 0.8, 5: 0.5, 7: 0.3}
+    make_tone_with_partials("D4", 1.2, 44100, 0.9, "custom_D4.wav", partials=custom)

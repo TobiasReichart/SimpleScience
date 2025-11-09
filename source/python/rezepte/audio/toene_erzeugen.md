@@ -1,5 +1,10 @@
 # Töne mit Python erzeugen und speichern
 
+```{hint}
+Die folgenden Beispiele sind bewusst **didaktisch aufgebaut**:\ 
+Ziel ist das **Verständnis der Prinzipien** hinter digitaler Klangerzeugung, nicht die Entwicklung eines perfekt programmierten Synthesizers.
+```
+
 In diesem Abschnitt wollen wir, **synthetisch Töne** mit **Python, NumPy** und **SciPy** generieren und als **WAV-Datei** abspeichern.
 Dabei beginnen wir mit dem einfachsten denkbaren Ton, dem **Kammerton A4**, von dem sich alle anderen Töne der Musik ableiten.
 Wir wollen diesen als reinen Sinuston generieren.
@@ -7,9 +12,9 @@ Wir wollen schrittweise von einfachen Sinustönen zu komplexeren Klängen mit H�
 Der hier vorgestellte Code wird später um diese Funktionen erweitert.
 
 ```{admonition} benötigte Module
-:class: hint
+:class: note
 
-Um die hier beschriebenen Code-Snippets oder den gesamten code verwenden zu können benötigst du folgende Module:
+Um die hier beschriebenen Code-Snippets oder den gesamten code verwenden zu können werden die folgenden Module benötigt:
 
 - `numpy`
 - `scipy`
@@ -25,7 +30,7 @@ python -m pip install numpy scipy
 
 Ein reiner Ton ist eine **periodische Schwingung mit nur einer Frequenz**. Mathematisch wird er beschrieben durch
 
-$$A(t) = A_{0} \sin(2 \pi f t)$$
+$$\blue{A(t)} = \red{A_{0}} \sin(2 \pi \purple{f} \green{t})$$
 
 ```{figure} ../../../_static/plots/python/rezepte/audio/plot_tone_A4.png
 :width: 90%
@@ -35,7 +40,7 @@ $$A(t) = A_{0} \sin(2 \pi f t)$$
 Verlauf eines reinen Sinustons mit 440 Hz (A4) über 5 ms.
 ```
 
-mit der Amplitude $A_{0}$, der Frequenz $f$ (in Hz) und der Zeit $t$ (in s).
+mit der Amplitude $\red{A_{0}}$, der Frequenz $\purple{f}$ (in Hz) und der Zeit $\green{t}$ (in s).
 
 Diese Gleichung liefert eine kontinuierliche Schwingung, die ein Computer jedoch **abtasten** muss, da er nur **diskrete Werte** verarbeiten kann.
 
@@ -71,6 +76,8 @@ WAV-Datei gespeichert.
 :linenos:
 ```
 
+{download}`Vollständiger Code (Ton erzeugen) <toene_erzeugen_code/01_tone_A4.py>`
+
 **Klicks vermeiden: kurze Ein-/Ausblendung (Fades)**
 
 Abrupte Signalstarts/-enden erzeugen hörbare Klicks (Sprungstellen).
@@ -96,6 +103,8 @@ So entsteht schrittweise ein modulares Grundgerüst für akustische und spektral
 :language: python
 :linenos:
 ```
+
+{download}`Vollständiger Code (Töne nach Frequenz) <toene_erzeugen_code/02_tone_freq.py>`
 
 Die **physikalische Grundlage**, also wie Frequenzen bestimmten Tönen zugeordnet werden und wie Skalen entstehen, wird im Abschnitt {ref}`Töne und Frequenzen` ausführlich behandelt.
 
@@ -172,7 +181,7 @@ def make_tone_wav(
 
 Die vollständige Version kann hier Heruntergeladen werden.
 
-{download}`Vollständiger Code (Töne) </_static/code/python/rezepte/audio/tones_hz_name.py>`
+{download}`Vollständiger Code (Töne) <toene_erzeugen_code/03_tones_hz_name.py>`
 
 ## Akkorde
 
@@ -234,6 +243,11 @@ QUALITY_INTERVALS = {
 }
 ```
 
+Dieses Dictionary sagt Python, welche Halbtöne (ausgehend vom Akkord-Grundton) aufaddiert werden müssen.
+Das Ergebnis ist ein zusammengesetztes Signal, das im Zeitbereich wie ein mehrstimmiger Wellenzug aussieht:
+
+$$x_{\text{mix}}(t) = \sum_{i=1}^{N} \red{A_{i}} \sin(2 \pi \purple{f_{i}} \green{t})$$
+
 ### Akkorde aus natürlicher Sprache extrahieren
 
 Nun wollen wir eine Funktion bauen, die die Akkorde so entgegen nimmt, wie wir sie denken, also *"D4-Major"* oder *"A3-dur"*.
@@ -294,8 +308,30 @@ def chord_frequencies(root_note: str, quality: str, A4: float = 440.0) -> list[f
 Nachdem die Frequenzen der einzelnen Akkordtöne bekannt sind, müssen diese im Zeitbereich kombiniert und in eine speicherbare Form gebracht werden.
 Jede Stimme wird als Sinusschwingung erzeugt und anschließend addiert, genau das ist physikalisch die Überlagerung mehrerer Schwingungen.
 
-Um Clipping zu vermeiden, wird die Amplitude gleichmäßig auf alle Stimmen verteilt. Dadurch bleibt der Summenpegel unterhalb des maximal erlaubten Bereichs.
-Anschließend werden kurze Ein- und Ausblendungen (Fades) hinzugefügt, um harte Sprungstellen zu vermeiden.
+Da jede Stimme $i$ ihre eigene Amplitude $\red{A_{i}}$ und Frequenz $\purple{f_{i}}$ besitzt können diese sich bei einer Überlagerung gegenseitig verstärken oder abschwächen.\
+In der Physik nennt man das Interferenz:
+- positive Überlagerung $\rightarrow$ Lauter,
+- negative Überlagerung $\rightarrow$ Leiser.
+
+Durch diese Überlagerung bekommen wir jedoch ein Problem.
+Wenn wir alle Stimmen einfach mit voller Amplitude aufsummieren, kann der Maximalwert der Summe $x(t)$ größer als 1 (bzw. 32767 im 16-bit-Format) werden.\
+Das führt zu Clipping. Dabei werden die Spitzen "hart" abgeschnitten, was den Klang verzerrt.
+
+>**Beispiel**:\
+>$x(t) = \sin(\dots) + \sin(\dots) + \sin(\dots)$\
+>$\rightarrow$ mögliche Maximalamplitude $\approx 3$.\
+>Bei 16-bit-Audio darf sie aber nur 1 sein (nach der Normierung).
+
+Wir müssen also die Pegel pro Stimme reduzieren.
+Deshalb teilen wir die Gesamtlautstärke durch die Anzahl der Stimmen:
+
+$$\red{A_{i}} = \frac{\blue{A_\text{gesamt}}}{N}$$
+
+Damit ist sichergestellt, dass die Summe nicht übersteuert, egal wie viele Stimmen gespielt werden.
+Die Summe aller Maxima kann dann im schlimmsten Fall 1 ergeben (bei perfekter Phasenaddition).
+
+Das ist eine einfache, robuste Heuristik.
+Nicht perfekt lautheitslinear, aber sicher gegen Clipping und für synthetische Töne völlig ausreichend.
 
 Damit ist das Programm nun in der Lage, aus mehreren Noten, oder direkt aus einem Akkordnamen, eine hörbare Klangdatei zu erzeugen.
 
@@ -368,4 +404,160 @@ def make_named_chord_wav(
 
 Die aktualisierte Version mit Akkorderzeugung kann hier Heruntergeladen werden.
 
-{download}`Vollständiger Code (Akkorde & Töne) </_static/code/python/rezepte/audio/akkord_name.py>`
+{download}`Vollständiger Code (Akkorde & Töne) <toene_erzeugen_code/04_akkord_name.py>`
+
+## Obertöne und Klangfarbe
+
+Ein reiner Sinuston klingt technisch sauber, aber zugleich künstlich und leblos.
+Reale Instrumente erzeugen komplexe Schwingungen, die sich aus einer Vielzahl von **Obertönen** zusammensetzen.
+Das sind Schwingungen, deren Frequenzen **ganzzahlige Vielfache der Grundfrequenz** $\purple{f_{0}}$ sind.
+Diese Teilschwingungen überlagern sich gemäß dem Superpositionsprinzip und bilden zusammen den charakteristischen Klang eines Instruments, seine Klangfarbe (*Timbre*).
+
+Mathematisch lässt sich ein solcher Klang als harmonische Reihe darstellen:
+
+$$\blue{x(t)} = \sum_{k=1}^{N} \red{a_k} \sin(2\pi k \purple{f_{0}} \green{t})$$
+
+Die Amplituden $\red{a_k}$ bestimmen, wie stark die jeweiligen Obertöne ausgeprägt sind.
+Je nach Instrument fallen diese Werte ganz unterschiedlich aus. 
+
+```{hint}
+Die hier betrachteten Obertonspektren beschreiben den spektralen Aufbau eines Tons und sind ein wesentliches Merkmal seiner Klangfarbe.\
+Jedoch genügt für eine realistische Nachbildung eines Instrumententons diese reine Obertonverteilung nicht.\
+Einen Instrumententon prägen weitere Eigenschaften wie
+
+- die **zeitliche Amplitudenhüllkurve**,
+- **Inharmonizitäten** infolge von Materialsteifigkeit oder Schwingungsdispersion,
+- **Modulationseffekte** wie Vibrato und Tremolo,
+- sowie **Resonanzen** und räumliche Ausbreitung innerhalb des Instrumentenkörpers.
+
+Diese Parameter wirken gemeinsam und erzeugen die komplexe Struktur eines realen Klangereignisses.
+```
+
+### Gewichtung der Obertöne
+
+Wir definieren die Obertonstruktur über ein Dictionary, das jedem Instrument eine typische Amplitude-Verteilung zuordnet.
+
+```{list-table} Obertöne unterschiedlicher Instrumente
+:header-rows: 1
+:align: center
+
+* - **Instrument**
+  - **1. Partial**
+  - **2. Partial**
+  - **3. Partial**
+  - **4. Partial**
+  - **5. Partial**
+  - **6. Partial**
+* - Flöte
+  - 1,00
+  - 0,20
+  - 0,10
+  - 0,05
+  - –
+  - –
+* - Violine
+  - 1,00
+  - 0,70
+  - 0,50
+  - 0,30
+  - 0,25
+  - 0,15
+* - Klavier
+  - 1,00
+  - 0,60
+  - 0,35
+  - 0,20
+  - 0,12
+  - 0,08
+* - Tuba
+  - 1,00
+  - 0,10
+  - 0,50
+  - 0,05
+  - 0,25
+  - –
+```
+
+```{code-block} python
+:caption: Obertöne unterschiedlicher Instrumente
+:linenos:
+
+INSTRUMENT_PARTIALS = {
+    "floete":   {1: 1.00, 2: 0.20, 3: 0.10, 4: 0.05},                   # weich, fast sinusförmig
+    "violine":  {1: 1.00, 2: 0.70, 3: 0.50, 4: 0.30, 5: 0.25, 6: 0.15}, # obertonreich, brillant
+    "klavier":  {1: 1.00, 2: 0.60, 3: 0.35, 4: 0.20, 5: 0.12, 6: 0.08}, # harmonisch, leicht gedämpft
+    "tuba":     {1: 1.00, 2: 0.10, 3: 0.50, 4: 0.05, 5: 0.25},          # tief, weich, ungerade betont
+}
+```
+
+*Die hier angegebenen Oberton-Amplituden sind modellhafte Annäherungen typischer Verteilungen*\
+*genaue Werte variieren je Instrument, Spielweise und Aufnahmebedingungen.*
+
+Jeder Teilton wird mit seinem Gewicht $\red{a_k}$ **multipliziert**, um seine individuelle Amplitude festzulegen.
+Anschließend werden alle **gewichteten** Sinusschwingungen **addiert**, um das Gesamtsignal zu bilden.
+
+Aufbauend auf den bisherigen Grundlagen kann die Erzeugung von Obertönen im folgenden Skript nachvollzogen werden.
+Die verwendeten Funktionen und Prinzipien entsprechen dabei den zuvor erläuterten Strukturen.
+
+````{dropdown} hinzugefügter Quellcode: Töne mit Obertönen
+:icon: code
+
+```{literalinclude} toene_erzeugen_code/05_obertoene.py
+:language: python
+:linenos:
+:lineno-match:
+:lines: 85-163
+```
+````
+
+```{code-block} python
+:caption: Beispielcode: Töne mit Obertönen
+:linenos:
+
+# Vier Instrumentfarben auf demselben Grundton – A4
+make_instrument_tone_wav("floete",  "A4", 1.0, 44100, 0.9, "floete_A4.wav")
+make_instrument_tone_wav("violine", "A4", 1.0, 44100, 0.9, "violine_A4.wav")
+make_instrument_tone_wav("klavier", "A4", 1.0, 44100, 0.9, "klavier_A4.wav")
+make_instrument_tone_wav("tuba",    "A4", 1.0, 44100, 0.9, "tuba_A4.wav")
+
+# Benutzerdefiniertes Spektrum (ungerade Obertöne stärker)
+custom = {1: 1.0, 3: 0.8, 5: 0.5, 7: 0.3}
+make_tone_with_partials("D4", 1.2, 44100, 0.9, "custom_D4.wav", partials=custom)
+```
+
+{download}`Vollständiger Code (Töne mit Obertönen) <toene_erzeugen_code/05_obertoene.py>`
+
+## Akkorde mit Obertönen
+
+Nun wollen wir den Code noch um die Funktion erweitern, Akkorde mit harmonischen Obertönen zu erzeugen.
+Jede Stimme des Akkords wird dabei spektral geformt (Partials) und anschließend per Superposition summiert.
+Die verwendeten Funktionen und Strukturen entsprechen den zuvor erläuterten Bausteinen und werden hier lediglich an den Akkordfall angepasst.
+
+````{dropdown} hinzugefügter Quellcode: Töne mit Obertönen
+:icon: code
+
+```{literalinclude} toene_erzeugen_code/06_obertoene_akkorde.py
+:language: python
+:linenos:
+:lineno-match:
+:lines: 245-328
+```
+````
+
+```{code-block} python
+:caption: Beispielcode: Akkorde mit Obertönen
+:linenos:
+
+# C-Dur-Dreiklang mit „Violine“-Obertönen
+make_named_chord_with_partials("C4-Major", 1.2, 44100, 0.9, "C4_maj_violine.wav", partials="violine")
+
+# A-Moll-Dreiklang, flötenartig
+make_named_chord_with_partials("A3-moll", 1.2, 44100, 0.9, "A3_min_floete.wav", partials="floete")
+
+# Custom-Spektrum (ungerade Obertöne betont)
+odd = {1:1.0, 3:0.7, 5:0.4, 7:0.25}
+make_chord_with_partials(["D4","F#4","A4"], 1.0, 44100, 0.9, "D_maj_odd.wav", partials=odd)
+```
+
+{download}`Vollständiger Code (Akkorde & Töne mit Obertönen) <toene_erzeugen_code/06_obertoene_akkorde.py>`
+
