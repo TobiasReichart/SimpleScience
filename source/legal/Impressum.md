@@ -19,7 +19,7 @@ E-Mail: <a href="mailto:info.simplescience@gmx.de">info.simplescience@gmx.de</a>
 **Tobias Reichart**\
 Guerickestraße 19\
 80805 München\
-Deutschland\
+Deutschland
 
 ---
 
