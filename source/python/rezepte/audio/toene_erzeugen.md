@@ -104,6 +104,17 @@ So entsteht schrittweise ein modulares Grundgerüst für akustische und spektral
 :linenos:
 ```
 
+```{code-block} python
+:caption: Beispielcode: Sinuston erzeugen
+:linenos:
+
+# Demo 1: A4 440 Hz, 1 s
+make_tone_wav(freq_hz=440.0, duration_s=1.0, sr=44100, amp=0.9, filename="tone_A4_440Hz.wav")
+
+# Demo 2: C5 ca. 523.25 Hz, 0.8 s
+make_tone_wav(freq_hz=523.251, duration_s=0.8, sr=44100, amp=0.9, filename="tone_C5_523Hz.wav")
+```
+
 {download}`Vollständiger Code (Töne nach Frequenz) <toene_erzeugen_code/02_tone_freq.py>`
 
 Die **physikalische Grundlage**, also wie Frequenzen bestimmten Tönen zugeordnet werden und wie Skalen entstehen, wird im Abschnitt {ref}`Töne und Frequenzen` ausführlich behandelt.
@@ -177,6 +188,21 @@ def make_tone_wav(
     x[-fadelen:] *= np.linspace(1, 0, fadelen) # Fade-Out
 
     wavfile.write(filename, sr, to_int16(x))   # schreiben
+```
+
+```{code-block} python
+:caption: Beispielcode: Sinuston nach Notenname
+:linenos:
+
+# Hz-Eingabe
+make_tone_wav(440.0, duration_s=1.0, sr=44100, amp=0.9, filename="tone_A4_440Hz.wav")
+
+# Noten-Eingabe
+make_tone_wav("C5",   duration_s=0.8, sr=44100, amp=0.9, filename="tone_C5.wav")
+make_tone_wav("F#4",  duration_s=0.8, sr=44100, amp=0.9, filename="tone_Fis4.wav")
+
+# Optional: anderer Kammerton (historisch / Orchester)
+make_tone_wav("A4", duration_s=1.0, sr=44100, amp=0.9, filename="tone_A4_442Hz.wav", A4=442.0)
 ```
 
 Die vollständige Version kann hier Heruntergeladen werden.
@@ -400,6 +426,21 @@ def make_named_chord_wav(
 
     # WAV rendern und speichern
     make_chord_wav(freqs, duration_s, sr, amp, filename, A4=A4, headroom_db=headroom_db)
+```
+
+```{code-block} python
+:caption: Beispielcode: Akkorde erzeugen
+:linenos:
+
+# A-Dur (A4–C#5–E5)
+make_named_chord_wav("A4-Major", 1.5, 44100, 0.9, "chord_A_major.wav")
+# A-Moll (A4–C5–E5)
+make_named_chord_wav("A4-minor", 1.5, 44100, 0.9, "chord_A_minor.wav")
+# D-Dur (D4–F#4–A4), deutscher Alias „dur“ funktioniert ebenfalls:
+make_named_chord_wav("D4-dur",   1.2, 44100, 0.9, "chord_D_major.wav")
+# Sus-Beispiele:
+make_named_chord_wav("D4-sus2",  1.2, 44100, 0.9, "chord_D_sus2.wav")
+make_named_chord_wav("D4-sus4",  1.2, 44100, 0.9, "chord_D_sus4.wav")
 ```
 
 Die aktualisierte Version mit Akkorderzeugung kann hier Heruntergeladen werden.
