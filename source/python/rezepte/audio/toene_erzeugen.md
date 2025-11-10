@@ -213,23 +213,21 @@ Die vollständige Version kann hier Heruntergeladen werden.
 
 {download}`Vollständiger Code (Töne) <toene_erzeugen_code/03_tones_hz_name.py>`
 
-## Beispieltöne
-
 ```{audiolist}
 :caption: Hörprobe: reiner Sinuston (4. Octave)
 
-C4 = /_static/audio/toene_erzeugen/tone_C4.mp3
-C#4 / D4b = /_static/audio/toene_erzeugen/tone_Cis4.mp3
-D4 = /_static/audio/toene_erzeugen/tone_D4.mp3
-D#4 / E4b = /_static/audio/toene_erzeugen/tone_Dis4.mp3
-E4 = /_static/audio/toene_erzeugen/tone_E4.mp3
-F4 = /_static/audio/toene_erzeugen/tone_F4.mp3
-F#4 / G4b = /_static/audio/toene_erzeugen/tone_Fis4.mp3
-G4 = /_static/audio/toene_erzeugen/tone_G4.mp3
-G#4 / A4b = /_static/audio/toene_erzeugen/tone_Gis4.mp3
-A4 = /_static/audio/toene_erzeugen/tone_A4.mp3
-A#4 / B4b = /_static/audio/toene_erzeugen/tone_Ais4.mp3
-B4 = /_static/audio/toene_erzeugen/tone_B4.mp3
+C4 = /_static/audio/toene_erzeugen/tone_C4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_C4.png
+C#4 / D4b = /_static/audio/toene_erzeugen/tone_Cis4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Cis4.png
+D4 = /_static/audio/toene_erzeugen/tone_D4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_D4.png
+D#4 / E4b = /_static/audio/toene_erzeugen/tone_Dis4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Dis4.png
+E4 = /_static/audio/toene_erzeugen/tone_E4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_E4.png
+F4 = /_static/audio/toene_erzeugen/tone_F4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_F4.png
+F#4 / G4b = /_static/audio/toene_erzeugen/tone_Fis4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Fis4.png
+G4 = /_static/audio/toene_erzeugen/tone_G4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_G4.png
+G#4 / A4b = /_static/audio/toene_erzeugen/tone_Gis4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Gis4.png
+A4 = /_static/audio/toene_erzeugen/tone_A4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_A4.png
+A#4 / B4b = /_static/audio/toene_erzeugen/tone_Ais4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Ais4.png
+B4 = /_static/audio/toene_erzeugen/tone_B4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_B4.png
 ```
 
 ## Akkorde

@@ -1,4 +1,4 @@
-/* Karte: mittig, dezente Linie, runde Ecken */
+/* Schlichte Karte */
 .audio-card{
   margin: 1rem auto;
   max-width: 860px;
@@ -7,32 +7,32 @@
   border-radius: 10px;
   background: #fff;
 }
-
-/* Optionaler Titel */
-.audio-title{
-  font-weight: 600;
-  margin: 0 0 .6rem 0;
-}
+.audio-title{ font-weight:600; margin:0 0 .6rem; }
 
 /* Dropdown über dem Player */
-.audio-toolbar{ margin: 0 0 .6rem 0; }
-.audio-select{
-  min-width: 240px;
-  padding: .35rem .6rem;
-}
+.audio-toolbar{ margin:0 0 .6rem; }
+.audio-select{ min-width: 240px; padding:.35rem .6rem; }
 
-/* Runde Ecken am Player sichtbar machen */
+/* Abgerundeter Player sichtbar (Rahmen + overflow) */
 .audio-frame{
   border: 1px solid rgba(0,0,0,.15);
   border-radius: 10px;
   background: #f5f6f7;
-  overflow: hidden;            /* schneidet native Controls rund */
+  overflow: hidden;
 }
+.audio-element{ display:block; width:100%; border:0; background:transparent; }
 
-/* <audio> füllt nur den Rahmen aus */
-.audio-element{
-  display: block;
-  width: 100%;
-  border: 0;
-  background: transparent;
+/* ZENTRIERTE Grafik unter dem Player, skaliert „contain“ */
+.audio-figure{
+  margin: .8rem auto 0 auto;              /* zentriert */
+  max-width: 720px;                        /* optional enger als Karte */
+  text-align: center;
+}
+.audio-image{
+  display:block;
+  max-width: 100%;
+  max-height: 320px;                       /* verhindert große Sprünge */
+  margin: 0 auto;
+  object-fit: contain;                     /* vollständig sichtbar */
+  border-radius: 8px;                      /* leicht abgerundet */
 }
