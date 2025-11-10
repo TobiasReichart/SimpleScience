@@ -1,7 +1,7 @@
 # Töne mit Python erzeugen und speichern
 
 ```{hint}
-Die folgenden Beispiele sind bewusst **didaktisch aufgebaut**:\ 
+Die folgenden Beispiele sind bewusst **didaktisch aufgebaut**:\
 Ziel ist das **Verständnis der Prinzipien** hinter digitaler Klangerzeugung, nicht die Entwicklung eines perfekt programmierten Synthesizers.
 ```
 
@@ -32,7 +32,7 @@ Ein reiner Ton ist eine **periodische Schwingung mit nur einer Frequenz**. Mathe
 
 $$\blue{A(t)} = \red{A_{0}} \sin(2 \pi \purple{f} \green{t})$$
 
-```{figure} ../../../_static/plots/python/rezepte/audio/plot_tone_A4.png
+```{figure} /_static/plots/python/rezepte/audio/plot_tone_A4.png
 :width: 90%
 :align: center
 :alt: Kammerton A4 (440 Hz) im Zeitbereich
@@ -41,6 +41,10 @@ Verlauf eines reinen Sinustons mit 440 Hz (A4) über 5 ms.
 ```
 
 mit der Amplitude $\red{A_{0}}$, der Frequenz $\purple{f}$ (in Hz) und der Zeit $\green{t}$ (in s).
+
+```{audiocard} /_static/audio/toene_erzeugen/A4_440Hz.mp3
+:caption: Hörprobe: Ton A4 - 440 Hz
+```
 
 Diese Gleichung liefert eine kontinuierliche Schwingung, die ein Computer jedoch **abtasten** muss, da er nur **diskrete Werte** verarbeiten kann.
 
@@ -55,7 +59,7 @@ Typische Werte sind hierbei:
 - 48 000 Hz – Studio- und Videotechnik  
 - 96 000 Hz und mehr – High-Resolution-Audio  
 
-```{figure} ../../../_static/plots/python/rezepte/audio/plot_abtasten.png
+```{figure} /_static/plots/python/rezepte/audio/plot_abtasten.png
 :width: 100%
 :align: center
 :alt: Kammerton A4 (440 Hz) im Zeitbereich
@@ -209,6 +213,25 @@ Die vollständige Version kann hier Heruntergeladen werden.
 
 {download}`Vollständiger Code (Töne) <toene_erzeugen_code/03_tones_hz_name.py>`
 
+## Beispieltöne
+
+```{audiolist}
+:caption: Hörprobe: reiner Sinuston (4. Octave)
+
+C4 = /_static/audio/toene_erzeugen/tone_C4.mp3
+C#4 / D4b = /_static/audio/toene_erzeugen/tone_Cis4.mp3
+D4 = /_static/audio/toene_erzeugen/tone_D4.mp3
+D#4 / E4b = /_static/audio/toene_erzeugen/tone_Dis4.mp3
+E4 = /_static/audio/toene_erzeugen/tone_E4.mp3
+F4 = /_static/audio/toene_erzeugen/tone_F4.mp3
+F#4 / G4b = /_static/audio/toene_erzeugen/tone_Fis4.mp3
+G4 = /_static/audio/toene_erzeugen/tone_G4.mp3
+G#4 / A4b = /_static/audio/toene_erzeugen/tone_Gis4.mp3
+A4 = /_static/audio/toene_erzeugen/tone_A4.mp3
+A#4 / B4b = /_static/audio/toene_erzeugen/tone_Ais4.mp3
+B4 = /_static/audio/toene_erzeugen/tone_B4.mp3
+```
+
 ## Akkorde
 
 Nachdem wir jetzt **einzelne Töne** synthetisch erzeugen können, stellt sich die Frage, was geschieht, wenn mehrere Töne **gleichzeitig** klingen?
@@ -247,6 +270,17 @@ In der westlichen Musik basieren die meisten Akkorde auf **Dreiklängen**, also 
 * - Sus4
   - 0-5-7
   - gespannt, auflösend
+```
+
+```{audiolist}
+:caption: Hörprobe: Akkorde am Beispiel des Grundtons C4
+
+C4-Dur (Major) = /_static/audio/toene_erzeugen/chord_C4_Dur.mp3
+C4-Moll (Minor) = /_static/audio/toene_erzeugen/chord_C4_Moll.mp3
+C4-Vermindert (Dim) = /_static/audio/toene_erzeugen/chord_C4_Uebermaessig.mp3
+C4-Übermäßig (Aug) = /_static/audio/toene_erzeugen/chord_C4_vermindert.mp3
+C4-Sus2 = /_static/audio/toene_erzeugen/chord_C4_Sus2.mp3
+C4-Sus4 = /_static/audio/toene_erzeugen/chord_C4_Sus4.mp3
 ```
 
 Die Zahlen geben die **Halbtonschritte** an, also Intervalle relativ zum Grundton.\
@@ -519,6 +553,15 @@ Wir definieren die Obertonstruktur über ein Dictionary, das jedem Instrument ei
   - –
 ```
 
+```{audiolist}
+:caption: Hörprobe der verschiedenen Instrumente
+
+C4 - Flöte = /_static/audio/toene_erzeugen/floete_C4.mp3
+C4 - Violine = /_static/audio/toene_erzeugen/violine_C4.mp3
+C4 - Klavier = /_static/audio/toene_erzeugen/klavier_C4.mp3
+C4 - Tuba = /_static/audio/toene_erzeugen/tuba_C4.mp3
+```
+
 ```{code-block} python
 :caption: Obertöne unterschiedlicher Instrumente
 :linenos:
@@ -573,6 +616,15 @@ make_tone_with_partials("D4", 1.2, 44100, 0.9, "custom_D4.wav", partials=custom)
 Nun wollen wir den Code noch um die Funktion erweitern, Akkorde mit harmonischen Obertönen zu erzeugen.
 Jede Stimme des Akkords wird dabei spektral geformt (Partials) und anschließend per Superposition summiert.
 Die verwendeten Funktionen und Strukturen entsprechen den zuvor erläuterten Bausteinen und werden hier lediglich an den Akkordfall angepasst.
+
+```{audiolist}
+:caption: Hörprobe der verschiedenen Instrumente
+
+C4-Dur (Major) - Flöte = /_static/audio/toene_erzeugen/C4_maj_floete.mp3
+C4-Dur (Major) - Violine = /_static/audio/toene_erzeugen/C4_maj_violine.mp3
+C4-Dur (Major) - Klavier = /_static/audio/toene_erzeugen/C4_maj_klavier.mp3
+C4-Dur (Major) - Tuba = /_static/audio/toene_erzeugen/C4_maj_tuba.mp3
+```
 
 ````{dropdown} hinzugefügter Quellcode: Töne mit Obertönen
 :icon: code

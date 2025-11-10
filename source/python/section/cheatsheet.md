@@ -7,6 +7,7 @@ Eine **virtuelle Umgebung** (engl. *virtual enviroment*) in Python ist eine **is
 `````{tab-set}
 :sync-group: os
 ````{tab-item} Windows
+:sync: win
 **Erstellen einer virtuellen Umgebung im Ordner** `.venv`
 ```{code-block} console
 python -m venv .venv
@@ -40,6 +41,7 @@ deactivate
 ````
 
 ````{tab-item} macOS
+:sync: mac
 **Erstellen einer virtuellen Umgebung im Ordner** `.venv`
 ```{code-block} console
 python3 -m venv .venv

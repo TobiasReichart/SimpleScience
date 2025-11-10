@@ -223,23 +223,28 @@ Falls der Befehl nicht erkannt wird, muss der Python-Interpreter dem Systempfad 
 
 Jedes Projekt erhält in der Regel eine eigene virtuelle Umgebung, die meist im Projektverzeichnis als `.venv` abgelegt wird.
 
-#### macOS
-
-```{code-block} console
-:caption: Virtuelle Umgebung erstellen (macOS)
-:linenos:
-
-python3 -m venv .venv
-```
-
-#### Windows
-
+`````{tab-set}
+:sync-group: os
+````{tab-item} Windows
+:sync: win
 ```{code-block} console
 :caption: Virtuelle Umgebung erstellen (Windows)
 :linenos:
 
 python -m venv .venv
 ```
+````
+
+````{tab-item} macOS
+:sync: mac
+```{code-block} console
+:caption: Virtuelle Umgebung erstellen (macOS)
+:linenos:
+
+python3 -m venv .venv
+```
+````
+`````
 Nach dem Ausführen des Befehls wird der Ordner `.venv` angelegt, der die gesamte Umgebung enthält.
 
 ```{code-block} none
@@ -265,23 +270,29 @@ Du kannst ihn jedoch beliebig wählen (z. B. `env`, `venv-test`), aber `.venv` i
 
 Das Aktivieren sorgt dafür, dass `python` und `pip` innerhalb des Projekts **auf die lokale Umgebung zeigen**.
 
-#### macOS
-
-```{code-block} console
-:caption: Aktivieren der Umgebung (macOS)
-:linenos:
-
-source .venv/bin/activate
-```
-
-#### Windows
-
+`````{tab-set}
+:sync-group: os
+````{tab-item} Windows
+:sync: win
 ```{code-block} console
 :caption: Aktivieren der Umgebung (Windows)
 :linenos:
 
 .venv\Scripts\Activate.ps1
 ```
+````
+
+````{tab-item} macOS
+:sync: mac
+```{code-block} console
+:caption: Aktivieren der Umgebung (macOS)
+:linenos:
+
+source .venv/bin/activate
+```
+````
+`````
+
 ````{note}
 Unter Windows PowerShell kann die Aktivierung einer virtuellen Umgebung blockiert werden. In diesem Fall erscheint eine Meldung wie
 *“execution of scripts is disabled on this system”*.
