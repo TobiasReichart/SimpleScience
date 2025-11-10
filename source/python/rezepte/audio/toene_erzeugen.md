@@ -42,7 +42,7 @@ Verlauf eines reinen Sinustons mit 440 Hz (A4) über 5 ms.
 
 mit der Amplitude $\red{A_{0}}$, der Frequenz $\purple{f}$ (in Hz) und der Zeit $\green{t}$ (in s).
 
-```{audiocard} /_static/audio/toene_erzeugen/A4_440Hz.mp3
+```{audiocard} ../../../_static/audio/toene_erzeugen/A4_440Hz.mp3
 :caption: Hörprobe: Ton A4 - 440 Hz
 ```
 
