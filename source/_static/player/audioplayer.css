@@ -1,0 +1,38 @@
+/* Karte: mittig, dezente Linie, runde Ecken */
+.audio-card{
+  margin: 1rem auto;
+  max-width: 860px;
+  padding: .75rem 1rem;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* Optionaler Titel */
+.audio-title{
+  font-weight: 600;
+  margin: 0 0 .6rem 0;
+}
+
+/* Dropdown über dem Player */
+.audio-toolbar{ margin: 0 0 .6rem 0; }
+.audio-select{
+  min-width: 240px;
+  padding: .35rem .6rem;
+}
+
+/* Runde Ecken am Player sichtbar machen */
+.audio-frame{
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 10px;
+  background: #f5f6f7;
+  overflow: hidden;            /* schneidet native Controls rund */
+}
+
+/* <audio> füllt nur den Rahmen aus */
+.audio-element{
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+}

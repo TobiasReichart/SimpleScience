@@ -1,4 +1,9 @@
-from datetime import date
+from datetime import date # für copyright Jahr
+import os                 # für path manipulations
+import sys                # für path manipulations
+
+sys.path.insert(0, os.path.abspath('.'))        # Sicherstellen, dass _ext gefunden wird
+sys.path.insert(0, os.path.abspath('./_ext'))   # Sicherstellen, dass _ext gefunden wird
 
 # -- Project information -----------------------------------------------------
 project = "SimpleScience"
@@ -108,3 +113,7 @@ mathjax3_config = {
         },
     },
 }
+
+# -- Audio-Player ------------------------------------------------------------
+html_css_files.append("player/audioplayer.css") # Anpassen des HTML-Styles des Audio-Players
+extensions.append("_ext.audiocard")             # Eigene Directive für Audio-Player
