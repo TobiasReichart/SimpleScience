@@ -273,12 +273,12 @@ In der westlichen Musik basieren die meisten Akkorde auf **Dreiklängen**, also 
 ```{audiolist}
 :caption: Hörprobe: Akkorde am Beispiel des Grundtons C4
 
-C4-Dur (Major) = _static/audio/toene_erzeugen/chord_C4_Dur.mp3
-C4-Moll (Minor) = _static/audio/toene_erzeugen/chord_C4_Moll.mp3
-C4-Vermindert (Dim) = _static/audio/toene_erzeugen/chord_C4_Uebermaessig.mp3
-C4-Übermäßig (Aug) = _static/audio/toene_erzeugen/chord_C4_vermindert.mp3
-C4-Sus2 = _static/audio/toene_erzeugen/chord_C4_Sus2.mp3
-C4-Sus4 = _static/audio/toene_erzeugen/chord_C4_Sus4.mp3
+C4-Dur (Major) = _static/audio/toene_erzeugen/chord_C4_Dur.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-major.png
+C4-Moll (Minor) = _static/audio/toene_erzeugen/chord_C4_Moll.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-minor.png
+C4-Vermindert (Dim) = _static/audio/toene_erzeugen/chord_C4_Uebermaessig.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-augmented.png
+C4-Übermäßig (Aug) = _static/audio/toene_erzeugen/chord_C4_vermindert.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-diminished.png
+C4-Sus2 = _static/audio/toene_erzeugen/chord_C4_Sus2.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-sus2.png
+C4-Sus4 = _static/audio/toene_erzeugen/chord_C4_Sus4.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-sus4.png
 ```
 
 Die Zahlen geben die **Halbtonschritte** an, also Intervalle relativ zum Grundton.\
@@ -551,13 +551,16 @@ Wir definieren die Obertonstruktur über ein Dictionary, das jedem Instrument ei
   - –
 ```
 
+*Die hier angegebenen Oberton-Amplituden sind modellhafte Annäherungen typischer Verteilungen*\
+*genaue Werte variieren je Instrument, Spielweise und Aufnahmebedingungen.*
+
 ```{audiolist}
 :caption: Hörprobe der verschiedenen Instrumente
 
-C4 - Flöte = _static/audio/toene_erzeugen/floete_C4.mp3
-C4 - Violine = _static/audio/toene_erzeugen/violine_C4.mp3
-C4 - Klavier = _static/audio/toene_erzeugen/klavier_C4.mp3
-C4 - Tuba = _static/audio/toene_erzeugen/tuba_C4.mp3
+C4 - Flöte = _static/audio/toene_erzeugen/floete_C4.mp3 | image = _static/plots/python/rezepte/audio/plot_obertoene_C4-floete.png
+C4 - Violine = _static/audio/toene_erzeugen/violine_C4.mp3 | image = _static/plots/python/rezepte/audio/plot_obertoene_C4-violine.png
+C4 - Klavier = _static/audio/toene_erzeugen/klavier_C4.mp3 | image = _static/plots/python/rezepte/audio/plot_obertoene_C4-klavier.png
+C4 - Tuba = _static/audio/toene_erzeugen/tuba_C4.mp3 | image = _static/plots/python/rezepte/audio/plot_obertoene_C4-tuba.png
 ```
 
 ```{code-block} python
@@ -571,9 +574,6 @@ INSTRUMENT_PARTIALS = {
     "tuba":     {1: 1.00, 2: 0.10, 3: 0.50, 4: 0.05, 5: 0.25},          # tief, weich, ungerade betont
 }
 ```
-
-*Die hier angegebenen Oberton-Amplituden sind modellhafte Annäherungen typischer Verteilungen*\
-*genaue Werte variieren je Instrument, Spielweise und Aufnahmebedingungen.*
 
 Jeder Teilton wird mit seinem Gewicht $\red{a_k}$ **multipliziert**, um seine individuelle Amplitude festzulegen.
 Anschließend werden alle **gewichteten** Sinusschwingungen **addiert**, um das Gesamtsignal zu bilden.
