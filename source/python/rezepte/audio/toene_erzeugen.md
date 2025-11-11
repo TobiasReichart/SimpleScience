@@ -42,7 +42,7 @@ Verlauf eines reinen Sinustons mit 440 Hz (A4) über 5 ms.
 
 mit der Amplitude $\red{A_{0}}$, der Frequenz $\purple{f}$ (in Hz) und der Zeit $\green{t}$ (in s).
 
-```{audiocard} ../../../_static/audio/toene_erzeugen/A4_440Hz.mp3
+```{audiocard} _static/audio/toene_erzeugen/A4_440Hz.mp3
 :caption: Hörprobe: Ton A4 - 440 Hz
 ```
 
@@ -59,7 +59,7 @@ Typische Werte sind hierbei:
 - 48 000 Hz – Studio- und Videotechnik  
 - 96 000 Hz und mehr – High-Resolution-Audio  
 
-```{figure} /_static/plots/python/rezepte/audio/plot_abtasten.png
+```{figure} ../../../_static/plots/python/rezepte/audio/plot_abtasten.png
 :width: 100%
 :align: center
 :alt: Kammerton A4 (440 Hz) im Zeitbereich
@@ -216,18 +216,18 @@ Die vollständige Version kann hier Heruntergeladen werden.
 ```{audiolist}
 :caption: Hörprobe: reiner Sinuston (4. Octave)
 
-C4 = /_static/audio/toene_erzeugen/tone_C4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_C4.png
-C#4 / D4b = /_static/audio/toene_erzeugen/tone_Cis4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Cis4.png
-D4 = /_static/audio/toene_erzeugen/tone_D4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_D4.png
-D#4 / E4b = /_static/audio/toene_erzeugen/tone_Dis4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Dis4.png
-E4 = /_static/audio/toene_erzeugen/tone_E4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_E4.png
-F4 = /_static/audio/toene_erzeugen/tone_F4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_F4.png
-F#4 / G4b = /_static/audio/toene_erzeugen/tone_Fis4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Fis4.png
-G4 = /_static/audio/toene_erzeugen/tone_G4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_G4.png
-G#4 / A4b = /_static/audio/toene_erzeugen/tone_Gis4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Gis4.png
-A4 = /_static/audio/toene_erzeugen/tone_A4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_A4.png
-A#4 / B4b = /_static/audio/toene_erzeugen/tone_Ais4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_Ais4.png
-B4 = /_static/audio/toene_erzeugen/tone_B4.mp3 | image = /_static/plots/python/rezepte/audio/plot_reiner_sinus_B4.png
+C4 = _static/audio/toene_erzeugen/tone_C4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_C4.png
+C#4 / D4b = _static/audio/toene_erzeugen/tone_Cis4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_Cis4.png
+D4 = _static/audio/toene_erzeugen/tone_D4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_D4.png
+D#4 / E4b = _static/audio/toene_erzeugen/tone_Dis4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_Dis4.png
+E4 = _static/audio/toene_erzeugen/tone_E4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_E4.png
+F4 = _static/audio/toene_erzeugen/tone_F4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_F4.png
+F#4 / G4b = _static/audio/toene_erzeugen/tone_Fis4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_Fis4.png
+G4 = _static/audio/toene_erzeugen/tone_G4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_G4.png
+G#4 / A4b = _static/audio/toene_erzeugen/tone_Gis4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_Gis4.png
+A4 = _static/audio/toene_erzeugen/tone_A4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_A4.png
+A#4 / B4b = _static/audio/toene_erzeugen/tone_Ais4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_Ais4.png
+B4 = _static/audio/toene_erzeugen/tone_B4.mp3 | image = _static/plots/python/rezepte/audio/plot_reiner_sinus_B4.png
 ```
 
 ## Akkorde
@@ -273,12 +273,12 @@ In der westlichen Musik basieren die meisten Akkorde auf **Dreiklängen**, also 
 ```{audiolist}
 :caption: Hörprobe: Akkorde am Beispiel des Grundtons C4
 
-C4-Dur (Major) = /_static/audio/toene_erzeugen/chord_C4_Dur.mp3
-C4-Moll (Minor) = /_static/audio/toene_erzeugen/chord_C4_Moll.mp3
-C4-Vermindert (Dim) = /_static/audio/toene_erzeugen/chord_C4_Uebermaessig.mp3
-C4-Übermäßig (Aug) = /_static/audio/toene_erzeugen/chord_C4_vermindert.mp3
-C4-Sus2 = /_static/audio/toene_erzeugen/chord_C4_Sus2.mp3
-C4-Sus4 = /_static/audio/toene_erzeugen/chord_C4_Sus4.mp3
+C4-Dur (Major) = _static/audio/toene_erzeugen/chord_C4_Dur.mp3
+C4-Moll (Minor) = _static/audio/toene_erzeugen/chord_C4_Moll.mp3
+C4-Vermindert (Dim) = _static/audio/toene_erzeugen/chord_C4_Uebermaessig.mp3
+C4-Übermäßig (Aug) = _static/audio/toene_erzeugen/chord_C4_vermindert.mp3
+C4-Sus2 = _static/audio/toene_erzeugen/chord_C4_Sus2.mp3
+C4-Sus4 = _static/audio/toene_erzeugen/chord_C4_Sus4.mp3
 ```
 
 Die Zahlen geben die **Halbtonschritte** an, also Intervalle relativ zum Grundton.\
@@ -554,10 +554,10 @@ Wir definieren die Obertonstruktur über ein Dictionary, das jedem Instrument ei
 ```{audiolist}
 :caption: Hörprobe der verschiedenen Instrumente
 
-C4 - Flöte = /_static/audio/toene_erzeugen/floete_C4.mp3
-C4 - Violine = /_static/audio/toene_erzeugen/violine_C4.mp3
-C4 - Klavier = /_static/audio/toene_erzeugen/klavier_C4.mp3
-C4 - Tuba = /_static/audio/toene_erzeugen/tuba_C4.mp3
+C4 - Flöte = _static/audio/toene_erzeugen/floete_C4.mp3
+C4 - Violine = _static/audio/toene_erzeugen/violine_C4.mp3
+C4 - Klavier = _static/audio/toene_erzeugen/klavier_C4.mp3
+C4 - Tuba = _static/audio/toene_erzeugen/tuba_C4.mp3
 ```
 
 ```{code-block} python
@@ -618,10 +618,10 @@ Die verwendeten Funktionen und Strukturen entsprechen den zuvor erläuterten Bau
 ```{audiolist}
 :caption: Hörprobe der verschiedenen Instrumente
 
-C4-Dur (Major) - Flöte = /_static/audio/toene_erzeugen/C4_maj_floete.mp3
-C4-Dur (Major) - Violine = /_static/audio/toene_erzeugen/C4_maj_violine.mp3
-C4-Dur (Major) - Klavier = /_static/audio/toene_erzeugen/C4_maj_klavier.mp3
-C4-Dur (Major) - Tuba = /_static/audio/toene_erzeugen/C4_maj_tuba.mp3
+C4-Dur (Major) - Flöte = _static/audio/toene_erzeugen/C4_maj_floete.mp3
+C4-Dur (Major) - Violine = _static/audio/toene_erzeugen/C4_maj_violine.mp3
+C4-Dur (Major) - Klavier = _static/audio/toene_erzeugen/C4_maj_klavier.mp3
+C4-Dur (Major) - Tuba = _static/audio/toene_erzeugen/C4_maj_tuba.mp3
 ```
 
 ````{dropdown} hinzugefügter Quellcode: Töne mit Obertönen

@@ -6,7 +6,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import re
 from pathlib import Path
-from beautyplot import beautyplot, COLORS
+from beautyplot import PlotStyle
+
+import time
 
 # -- Projekt-Root finden (Marker) ----------------------------------------------
 def find_project_root(start: Path | None = None) -> Path:
@@ -86,6 +88,8 @@ def sine_with_fft(
         A4: float = 440
 ) -> tuple[Figure, tuple[Axes, Axes]]:
 
+    ps = PlotStyle()
+    ps.set_font(family="sans", size=12)
     fig, (ax_t, ax_f) = plt.subplots(1, 2, figsize=(10, 4.5))
 
     if type(f) is str:
@@ -103,12 +107,12 @@ def sine_with_fft(
     t_time = np.arange(0.0, time, Ts)
     x_time = np.sin(2*np.pi*f*t_time)
 
-    ax_t.plot(t_time, x_time, lw=1.8, color=COLORS["blue"])
-    ax_t.set_xlim(left=0, right=time)
+    ax_t.plot(t_time*1e3, x_time, lw=2.0, color=ps.colors["blue"])
+    ax_t.set_xlim(left=0, right=time*1e3)
     ax_t.set_ylim(bottom=-1.2, top=1.2)
-    ax_t.set_xlabel(r"$t$ [s]")
+    ax_t.set_xlabel(r"$t$ [ms]")
     ax_t.set_ylabel("Amplitude")
-    beautyplot(fig, ax_t)
+    ps.style_axes(fig, ax_t, comma_axis="y", decimals=1)
 
     # --- Frequenzbereich ---
     T_fft = periods_fft / f              # Dauer der FFT-Zeitreihe [s]
@@ -129,8 +133,8 @@ def sine_with_fft(
     f0_bin = f_x[k0]
     A0 = amp[k0]                             # Amplitude am Bin
 
-    ax_f.vlines(f0_bin, 0.0, A0, linestyles="-", lw=2.0, color=COLORS["orange"])
-    ax_f.scatter([f0_bin], [A0], marker="o", s=20, color=COLORS["orange"], label=rf"$f$= {f0_bin:.1f} Hz".replace(".", ","))
+    ax_f.vlines(f0_bin, 0.0, A0, linestyles="-", lw=2.0, color=ps.colors["orange"])
+    ax_f.scatter([f0_bin], [A0], marker="o", s=20, color=ps.colors["orange"], label=rf"$f$= {f0_bin:.1f} Hz".replace(".", ","))
     ax_f.set_xlabel(r"$f$ [Hz]")
     ax_f.set_ylabel(r"|$X(f)$|")
     ax_f.set_title(f"Fourier-Analyse")
@@ -143,7 +147,7 @@ def sine_with_fft(
     facecolor="white", # Hintergrund (optional)
     framealpha=0.8,    # Transparenz (1 = deckend)
     )
-    beautyplot(fig, ax_f)
+    ps.style_axes(fig, ax_f, comma_axis="y", decimals=1)
 
 
 

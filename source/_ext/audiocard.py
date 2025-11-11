@@ -16,6 +16,21 @@ from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 import html as _html
 
+# --- NEU: Hilfsfunktion, die Pfade relativ zur aktuellen Seite macht ---------
+def _relurl(env, path: str) -> str:
+    """
+    Macht aus '_static/...' oder '_images/...' eine zur aktuellen Seite passende
+    relative URL, z. B. '../_static/...', '../../_images/...'.
+    Führende Slashes und Backslashes werden entfernt.
+    """
+    if not path:
+        return path
+    depth = env.docname.count("/")         # 'kapitel/eins' → 1 → '../'
+    prefix = "../" * depth
+    clean = path.lstrip("/").replace("\\", "/")
+    return prefix + clean
+# -----------------------------------------------------------------------------
+
 
 # ----------------------- Einzelner Player ------------------------------------
 class AudioCardDirective(Directive):
@@ -24,8 +39,10 @@ class AudioCardDirective(Directive):
     option_spec = {"caption": directives.unchanged}
 
     def run(self) -> List[nodes.Node]:
-        audio_path = self.arguments[0]
-        caption = self.options.get("caption", "")
+        env      = self.state.document.settings.env    # ← NEU: env holen
+        audio_in = self.arguments[0]                   # z. B. "_static/audio/A4.mp3"
+        audio    = _relurl(env, audio_in)              # ← NEU: Pfad relativieren
+        caption  = self.options.get("caption", "")
 
         title_html = f'<div class="audio-title">{_html.escape(caption)}</div>' if caption else ""
         html = (
@@ -34,13 +51,13 @@ class AudioCardDirective(Directive):
             '  <div class="audio-frame">'
             f'    <audio controls preload="metadata" class="audio-element" '
             f'           aria-label="{_html.escape(caption or "Audio")}" '
-            f'           src="{_html.escape(audio_path)}"></audio>'
+            f'           src="{_html.escape(audio)}"></audio>'
             '  </div>'
             '</div>'
         )
 
-        latex = rf"\textbf{{Audio:}} {caption or 'Datei'} ({audio_path})"
-        text  = f"Audio: {caption or 'Datei'} ({audio_path})"
+        latex = rf"\textbf{{Audio:}} {caption or 'Datei'} ({audio_in})"
+        text  = f"Audio: {caption or 'Datei'} ({audio_in})"
 
         return [nodes.raw("", html, format="html"),
                 nodes.raw("", latex, format="latex"),
@@ -56,19 +73,14 @@ class AudioListDirective(Directive):
     def _parse_line(self, line: str) -> Dict[str, str]:
         """Parst eine Zeile 'Name = audio | image=pfad' in dict."""
         entry: Dict[str, str] = {}
-        # Split in "linke Seite (=Name)" und "rechte Seite (=audio [ | extras])"
         if "=" in line:
             name, right = [p.strip() for p in line.split("=", 1)]
         else:
-            # wenn kein "=", verwenden wir die ganze Zeile als Pfad u. auch als Name
             name, right = line, line
         entry["name"] = name
 
-        # Rechte Seite weiter nach " | " zerlegen (Optionen)
         parts = [p.strip() for p in right.split("|")]
-        # Teil 0 = Audio-Pfad
         entry["audio"] = parts[0].strip()
-        # Restliche Teile als key=value (z. B. image=...)
         for extra in parts[1:]:
             if "=" in extra:
                 k, v = [x.strip() for x in extra.split("=", 1)]
@@ -76,6 +88,8 @@ class AudioListDirective(Directive):
         return entry
 
     def run(self) -> List[nodes.Node]:
+        env = self.state.document.settings.env  # ← NEU
+
         # Zeilen einlesen → Liste von Dicts: {"name","audio","image"?}
         items: List[Dict[str, str]] = []
         for raw in self.content:
@@ -85,16 +99,18 @@ class AudioListDirective(Directive):
             items.append(self._parse_line(line))
 
         caption   = self.options.get("caption", "")
-        first_src = items[0]["audio"] if items else ""
-        first_img = items[0].get("image", "")
+        # ← NEU: Startquellen relativieren
+        first_src = _relurl(env, items[0]["audio"]) if items else ""
+        first_img_raw = items[0].get("image", "") if items else ""
+        first_img = _relurl(env, first_img_raw) if first_img_raw else ""
 
-        # Dropdown-Optionen: wir hinterlegen data-img auf der <option>
+        # Dropdown-Optionen: value = rel. Audio-URL, data-img = rel. Bild-URL
         options_html = []
         for i, it in enumerate(items):
-            sel = " selected" if i == 0 else ""
-            name = _html.escape(it["name"])
-            audio = _html.escape(it["audio"])
-            img = _html.escape(it.get("image", ""))
+            sel   = " selected" if i == 0 else ""
+            name  = _html.escape(it["name"])
+            audio = _html.escape(_relurl(env, it["audio"]))                # ← NEU
+            img   = _html.escape(_relurl(env, it.get("image",""))) if it.get("image") else ""  # ← NEU
             options_html.append(
                 f'<option value="{audio}" data-img="{img}"{sel}>{name}</option>'
             )
@@ -102,7 +118,6 @@ class AudioListDirective(Directive):
 
         sel_id = f"audio-select-{id(self)}"
         title_html = f'<div class="audio-title">{_html.escape(caption)}</div>' if caption else ""
-        # figure wird anfangs gezeigt/ausgeblendet je nachdem, ob first_img existiert
         fig_style = '' if first_img else ' style="display:none"'
         first_img_attr = _html.escape(first_img) if first_img else ""
 
@@ -133,7 +148,7 @@ class AudioListDirective(Directive):
             '  var img   = card.querySelector(".audio-image");'
             '  if(!sel || !aud || !frame || !fig || !img) return;'
 
-            # Höhe des Players stabilisieren (minHeight)
+            # Höhe stabilisieren
             '  var lockHeight = function(){'
             '    var h = aud.getBoundingClientRect().height;'
             '    if(h > 0){ frame.style.minHeight = Math.round(h) + "px"; }'
@@ -141,7 +156,7 @@ class AudioListDirective(Directive):
             '  if(aud.readyState >= 1){ lockHeight(); }'
             '  aud.addEventListener("loadedmetadata", lockHeight, {passive:true});'
 
-            # Wechsel-Handler (Audio + Bild)
+            # Quelle + Bild wechseln
             '  sel.addEventListener("change", function(){'
             '    var y = window.pageYOffset || document.documentElement.scrollTop || 0;'
             '    var opt = sel.options[sel.selectedIndex];'
@@ -149,15 +164,12 @@ class AudioListDirective(Directive):
             '    var pic = opt.getAttribute("data-img") || "";'
             '    aud.pause(); aud.src = src; aud.load();'
             '    try { aud.focus({preventScroll:true}); } catch(e) {}'
-            '    if (pic) {'
-            '      img.src = pic; fig.style.display = "";'
-            '    } else {'
-            '      img.removeAttribute("src"); fig.style.display = "none";'
-            '    }'
+            '    if (pic) { img.src = pic; fig.style.display = ""; }'
+            '    else { img.removeAttribute("src"); fig.style.display = "none"; }'
             '    setTimeout(function(){ window.scrollTo(0, y); }, 0);'
             '  });'
 
-            # Beim Play evtl. Auto-Scroll des Browsers neutralisieren
+            # Erstes Play: Auto-Scroll neutralisieren
             '  aud.addEventListener("play", function(){'
             '    var y = window.pageYOffset || document.documentElement.scrollTop || 0;'
             '    try { aud.focus({preventScroll:true}); } catch(e) {}'
@@ -167,7 +179,6 @@ class AudioListDirective(Directive):
             '</script>'
         )
 
-        # Fallbacks (LaTeX/Text)
         latex_lines = [rf"\textbf{{Audio-Liste:}} {caption or ''}"]
         for it in items:
             latex_lines.append(f"- {it['name']} ({it['audio']})")
@@ -183,4 +194,4 @@ class AudioListDirective(Directive):
 def setup(app):
     app.add_directive("audiocard", AudioCardDirective)
     app.add_directive("audiolist", AudioListDirective)
-    return {"version": "0.5", "parallel_read_safe": True, "parallel_write_safe": True}
+    return {"version": "0.6", "parallel_read_safe": True, "parallel_write_safe": True}

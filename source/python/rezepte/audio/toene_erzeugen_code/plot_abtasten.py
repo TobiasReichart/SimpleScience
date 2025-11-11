@@ -1,7 +1,7 @@
 from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
-from beautyplot import beautyplot, COLORS
+from beautyplot import PlotStyle 
 
 # -- Projekt-Root finden (Marker) ----------
 def find_project_root(start: Path | None = None) -> Path:
@@ -38,18 +38,20 @@ t_s = np.arange(0.0, dur + 1e-12, Ts)             # Abtastzeitpunkte [s]
 x_s = amp * np.sin(2 * np.pi * f0 * t_s)          # Werte auf dem Sinus
 
 # -- Plot ----------
-fig, ax = plt.subplots(figsize=(7, 3), dpi=150)
+ps = PlotStyle()
+ps.set_font(family="sans", size=12)
+fig, ax = plt.subplots(figsize=(8, 3.5), dpi=150)
 
 # „Analoger“ Wellenzug:
-ax.plot(t * 1000, x, lw=2, label="Sinus 440 Hz", color=COLORS["blue"])
+ax.plot(t * 1000, x, lw=2, label="Sinus 440 Hz", color=ps.colors["blue"])
 
 # Senkrechte Linien: von der minimalen Amplitude (ymin) bis zum jeweiligen Sinuswert
 ymin, ymax = -1.15 * amp, 1.15 * amp
 for ts, xs_val in zip(t_s, x_s):
-    ax.vlines(ts * 1000, ymin, xs_val, linewidth=0.8, color=COLORS["orange"], alpha=0.8)
+    ax.vlines(ts * 1000, ymin, xs_val, linewidth=0.8, color=ps.colors["orange"], alpha=0.8)
 
 # Punkte auf dem Wellenzug an den Abtaststellen:
-ax.scatter(t_s * 1000, x_s, s=18, zorder=3, label="Abtastwerte", color=COLORS["orange"])
+ax.scatter(t_s * 1000, x_s, s=18, zorder=3, label="Abtastwerte", color=ps.colors["orange"])
 
 # Bemaßung zwischen zwei benachbarten Abtastlinien:
 if len(t_s) >= 2:
@@ -58,13 +60,13 @@ if len(t_s) >= 2:
     # Doppelpfeil:
     ax.annotate("",
                 xy=(t0, y_dim), xytext=(t1, y_dim),
-                arrowprops=dict(arrowstyle="<->", lw=1.0, color=COLORS["orange"]))
+                arrowprops=dict(arrowstyle="<->", lw=1.0, color=ps.colors["orange"]))
     # Text mittig über der Maßlinie:
     ts_ms = (t1 - t0)
     ax.text((t0 + t1) / 2, y_dim + 0.02 * (ymax - ymin),
             r"$T_s=\frac{1}{f_s}$",
             ha="center", va="bottom",
-            color="orangered")
+            color=ps.colors["orange"])
 
 # Zusatz-Label für f_s:
 ax.text(
@@ -73,7 +75,7 @@ ax.text(
     ha="right", va="bottom",
     bbox=dict(
         boxstyle="round,pad=0.2", # leicht gerundete Ecken
-        facecolor="white",        # Hintergrundfarbe
+        facecolor=ps.background_color,        # Hintergrundfarbe
         edgecolor="none",         # kein Rahmen
         alpha=0.9                 # leicht transparent
     )
@@ -95,7 +97,7 @@ ax.legend(
     framealpha=0.8,    # Transparenz (1 = deckend)
 )
 
-beautyplot(fig, ax) # wird später durch Modul ersetzt
+ps.style_axes(fig, ax, comma_axis="y", decimals=1)
 
 fig.tight_layout()
 fig.savefig(PNG_PATH, dpi=150)
