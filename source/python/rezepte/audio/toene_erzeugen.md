@@ -7,14 +7,14 @@ Ziel ist das **Verständnis der Prinzipien** hinter digitaler Klangerzeugung, ni
 
 In diesem Abschnitt wollen wir, **synthetisch Töne** mit **Python, NumPy** und **SciPy** generieren und als **WAV-Datei** abspeichern.
 Dabei beginnen wir mit dem einfachsten denkbaren Ton, dem **Kammerton A4**, von dem sich alle anderen Töne der Musik ableiten.
-Wir wollen diesen als reinen Sinuston generieren.
-Wir wollen schrittweise von einfachen Sinustönen zu komplexeren Klängen mit Hüllkurven, Obertönen und Akkorden vordringen.\
+Wir wollen diesen Ton als reinen Sinuston erzeugen.
+Anschließend werden wir schrittweise von einfachen Sinustönen zu komplexeren Klängen mit Hüllkurven, Obertönen und Akkorden vordringen.\
 Der hier vorgestellte Code wird später um diese Funktionen erweitert.
 
 ```{admonition} benötigte Module
 :class: note
 
-Um die hier beschriebenen Code-Snippets oder den gesamten code verwenden zu können werden die folgenden Module benötigt:
+Um die hier beschriebenen Code-Snippets oder den gesamten Code verwenden zu können werden die folgenden Module benötigt:
 
 - `numpy`
 - `scipy`
@@ -67,11 +67,11 @@ Typische Werte sind hierbei:
 Abtasten des Kammertons mit einer Abtastrate von 2 kHz
 ```
 
-In diesem Beispiel verwenden wir die Standardrate **44 100 Hz**. Damit werden in einer Sekunde 44 100 Messpunkte erzeugt,genug, um auch hohe Frequenzen korrekt darzustellen (siehe **Nyquist-Theorem**).
+In diesem Beispiel verwenden wir die Standardrate **44 100 Hz**. Damit werden in einer Sekunde 44 100 Messpunkte erzeugt, genug, um auch hohe Frequenzen korrekt wiederzugeben (siehe **Nyquist-Theorem**).
 
 ### Die Umsetzung in Python
 
-Im folgenden minimalen Beispiel wird ein **440 Hz-Sinuston** erzeugt und als
+Im folgenden Minimalbeispiel wird ein **440 Hz-Sinuston** erzeugt und als
 WAV-Datei gespeichert.
 
 ```{literalinclude} toene_erzeugen_code/01_tone_A4.py
@@ -84,8 +84,8 @@ WAV-Datei gespeichert.
 
 **Klicks vermeiden: kurze Ein-/Ausblendung (Fades)**
 
-Abrupte Signalstarts/-enden erzeugen hörbare Klicks (Sprungstellen).
-Eine 5 bis 10 ms **Fade-In/Out** glättet den Anfang und das Ende und ist für saubere Demos völlig ausreichend.
+Abrupte Signalstarts und -enden erzeugen hörbare Klicks (Sprungstellen).
+Eine 5-10 ms-**Fade-In/-Out** glättet den Anfang und das Ende und genügt für Demonstrationszwecke völlig.
 Für realistischere Hüllkurven (Instrumente) führen wir später ADSR ein.
 Für den Moment bleiben die Fades jedoch bewusst minimal.
 
@@ -99,7 +99,7 @@ Dazu trennen wir zwei Aufgaben:
 1.	**Konvertierung**: Eine Hilfsfunktion `to_int16()` normiert Float-Signale clippingfrei auf den 16-bit-PCM-Bereich [-32768, 32767] und verhindert damit Übersteuerungen beim Speichern.
 2.	**Erzeugung**: Die Funktion `make_tone_wav()` erzeugt einen Sinuston beliebiger Frequenz und Dauer, fügt kurze Fades gegen Klicks hinzu und speichert das Ergebnis als WAV-Datei.
 
-Diese Struktur erlaubt es, Töne oder ganze Tonfolgen künftig systematisch zu generieren, ohne Code zu duplizieren.
+Diese Struktur erlaubt es, Töne oder ganze Tonfolgen künftig systematisch zu erzeugen, ohne Code zu duplizieren.
 So entsteht schrittweise ein modulares Grundgerüst für akustische und spektrale Experimente.
 
 ```{literalinclude} toene_erzeugen_code/02_tone_freq.py
@@ -126,7 +126,7 @@ Die **physikalische Grundlage**, also wie Frequenzen bestimmten Tönen zugeordne
 ## Notennamen unterstützen
 
 Um das Arbeiten mit Tönen intuitiver zu gestalten, wollen wir die bisherige Funktion um eine **Notenerkennung** erweitern.
-Anstatt eine Frequenz manuell anzugeben, kann so direkt eine Notation wie A4, C#5 oder Db3 verwendet werden.
+Anstatt eine Frequenz manuell anzugeben, kann direkt eine Notation wie A4, C#5 oder Db3 verwendet werden.
 Die Funktion `note_to_freq()` berechnet daraus die entsprechende Frequenz nach der **gleichstufigen Stimmung** (Referenzton A4 = 440 Hz).
 
 ```{code-block} python
@@ -158,7 +158,7 @@ def note_to_freq(note: str, A4: float = 440.0) -> float:
     return A4 * (2.0 ** (n / 12.0))         # Gleichstufige Stimmung
 ```
 
-Nun müssen wir unsere `make_tone_wav()` Funktion noch anpassen, sodass diese Hz und Note akzeptiert.
+Nun müssen wir unsere Funktion `make_tone_wav()` noch anpassen, sodass diese Hz und Note akzeptiert.
 
 ```{code-block} python
 :caption: Anpassen der API für das Unterstützen von Notennamen
@@ -209,7 +209,7 @@ make_tone_wav("F#4",  duration_s=0.8, sr=44100, amp=0.9, filename="tone_Fis4.wav
 make_tone_wav("A4", duration_s=1.0, sr=44100, amp=0.9, filename="tone_A4_442Hz.wav", A4=442.0)
 ```
 
-Die vollständige Version kann hier Heruntergeladen werden.
+Die vollständige Version kann hier heruntergeladen werden.
 
 {download}`Vollständiger Code (Töne) <toene_erzeugen_code/03_tones_hz_name.py>`
 
@@ -284,7 +284,7 @@ C4-Sus4 = _static/audio/toene_erzeugen/chord_C4_Sus4.mp3 | image = _static/plots
 Die Zahlen geben die **Halbtonschritte** an, also Intervalle relativ zum Grundton.\
 Diese Intervalle bestimmen den Klangcharakter:\
 **Dur-Akkorde** klingen konsonant und stabil, **Moll-Akkorde** wirken weich oder traurig, während **vermindert** und **übermäßig** dissonante Spannungen erzeugen.\
-Um später in Python nicht immer jeden einzelnen Ton eines Akkords angeben zu müssen legen wir uns ein Dictionary mit den gängigen Bezeichnungen für die verschiedenen Akkordarten an. So ist später auch die Eingabe von Synonymen, wie beispielsweise *Major* statt *Dur* zulässig.
+Um später in Python nicht immer jeden einzelnen Ton eines Akkords angeben zu müssen legen wir uns ein Dictionary mit den gängigen Bezeichnungen für die verschiedenen Akkordarten an. So ist später auch die Eingabe von Synonymen wie beispielsweise *Major* statt *Dur* zulässig.
 
 ```{code-block} python
 :caption: Dictionary für Akkordbezeichnung
@@ -301,15 +301,15 @@ QUALITY_INTERVALS = {
 }
 ```
 
-Dieses Dictionary sagt Python, welche Halbtöne (ausgehend vom Akkord-Grundton) aufaddiert werden müssen.
+Dieses Dictionary teilt Python mit, welche Halbtöne (ausgehend vom Akkord-Grundton) aufaddiert werden müssen.
 Das Ergebnis ist ein zusammengesetztes Signal, das im Zeitbereich wie ein mehrstimmiger Wellenzug aussieht:
 
 $$x_{\text{mix}}(t) = \sum_{i=1}^{N} \red{A_{i}} \sin(2 \pi \purple{f_{i}} \green{t})$$
 
 ### Akkorde aus natürlicher Sprache extrahieren
 
-Nun wollen wir eine Funktion bauen, die die Akkorde so entgegen nimmt, wie wir sie denken, also *"D4-Major"* oder *"A3-dur"*.
-Dafür bauen wie einen **Parser**, der uns die natürliche Sprache so übersetzt, dass unser Python-Programm versteht, was es tun soll.
+Nun wollen wir eine Funktion bauen, die die Akkorde so entgegennimmt, wie wir sie denken, also etwa *"D4-Major"* oder *"A3-dur"*.
+Dafür bauen wir einen **Parser**, der uns die natürliche Sprache so übersetzt, dass unser Python-Programm versteht, was es tun soll.
 
 Dabei zerlegt ein **Regex** die Eingabe in Grundton (inkl. #/b und Oktave) und Akkordqualität ("major", "moll", "sus2", etc.).
 Umlaute sind hierbei durch unser Dictionary (*siehe {numref}`Dictionary für Akkordbezeichnung`*) erlaubt.
@@ -372,7 +372,7 @@ In der Physik nennt man das Interferenz:
 - negative Überlagerung $\rightarrow$ Leiser.
 
 Durch diese Überlagerung bekommen wir jedoch ein Problem.
-Wenn wir alle Stimmen einfach mit voller Amplitude aufsummieren, kann der Maximalwert der Summe $x(t)$ größer als 1 (bzw. 32767 im 16-bit-Format) werden.\
+Wenn wir alle Stimmen einfach mit voller Amplitude aufsummieren, kann der Maximalwert der Summe $x(t)$ größer als 1 (bzw. 32767 im 16-it-Format) werden.\
 Das führt zu Clipping. Dabei werden die Spitzen "hart" abgeschnitten, was den Klang verzerrt.
 
 >**Beispiel**:\
@@ -391,7 +391,7 @@ Die Summe aller Maxima kann dann im schlimmsten Fall 1 ergeben (bei perfekter Ph
 Das ist eine einfache, robuste Heuristik.
 Nicht perfekt lautheitslinear, aber sicher gegen Clipping und für synthetische Töne völlig ausreichend.
 
-Damit ist das Programm nun in der Lage, aus mehreren Noten, oder direkt aus einem Akkordnamen, eine hörbare Klangdatei zu erzeugen.
+Damit ist das Programm nun in der Lage, aus mehreren Noten oder direkt aus einem Akkordnamen, eine hörbare Klangdatei zu erzeugen.
 
 ```{code-block} python
 :caption: Speichern der Akkorde als WAV
@@ -575,7 +575,7 @@ INSTRUMENT_PARTIALS = {
 }
 ```
 
-Jeder Teilton wird mit seinem Gewicht $\red{a_k}$ **multipliziert**, um seine individuelle Amplitude festzulegen.
+Jeder Partialton wird mit seinem Gewicht $\red{a_k}$ **multipliziert**, um seine individuelle Amplitude festzulegen.
 Anschließend werden alle **gewichteten** Sinusschwingungen **addiert**, um das Gesamtsignal zu bilden.
 
 Aufbauend auf den bisherigen Grundlagen kann die Erzeugung von Obertönen im folgenden Skript nachvollzogen werden.
@@ -618,10 +618,10 @@ Die verwendeten Funktionen und Strukturen entsprechen den zuvor erläuterten Bau
 ```{audiolist}
 :caption: Hörprobe der verschiedenen Instrumente
 
-C4-Dur (Major) - Flöte = _static/audio/toene_erzeugen/C4_maj_floete.mp3
-C4-Dur (Major) - Violine = _static/audio/toene_erzeugen/C4_maj_violine.mp3
-C4-Dur (Major) - Klavier = _static/audio/toene_erzeugen/C4_maj_klavier.mp3
-C4-Dur (Major) - Tuba = _static/audio/toene_erzeugen/C4_maj_tuba.mp3
+C4-Dur (Major) - Flöte = _static/audio/toene_erzeugen/C4_maj_floete.mp3 | image = _static/plots/python/rezepte/audio/plot_akkord_C4-Major-floete.png
+C4-Dur (Major) - Violine = _static/audio/toene_erzeugen/C4_maj_violine.mp3 | image = _static/plots/python/rezepte/audio/plot_akkord_C4-Major-klavier.png
+C4-Dur (Major) - Klavier = _static/audio/toene_erzeugen/C4_maj_klavier.mp3 | image = _static/plots/python/rezepte/audio/plot_akkord_C4-Major-tuba.png
+C4-Dur (Major) - Tuba = _static/audio/toene_erzeugen/C4_maj_tuba.mp3 | image = _static/plots/python/rezepte/audio/plot_akkord_C4-Major-violine.png
 ```
 
 ````{dropdown} hinzugefügter Quellcode: Töne mit Obertönen

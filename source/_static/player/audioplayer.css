@@ -31,7 +31,7 @@
 .audio-image{
   display:block;
   max-width: 100%;
-  max-height: 320px;                       /* verhindert große Sprünge */
+  max-height: 480px;                       /* verhindert große Sprünge */
   margin: 0 auto;
   object-fit: contain;                     /* vollständig sichtbar */
   border-radius: 8px;                      /* leicht abgerundet */
