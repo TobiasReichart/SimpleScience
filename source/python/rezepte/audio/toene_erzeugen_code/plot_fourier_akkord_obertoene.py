@@ -242,13 +242,13 @@ def chord_with_fft(
         ax_t.plot(t_time*1e3, tone, lw=1.5, color=color, alpha=0.5, label={name})
         tone = np.zeros_like(t_time)
 
-    ax_t.plot(t_time*1e3, sum, lw=2.0, color=ps.colors["blue"], label="Summe")
+    ax_t.plot(t_time*1e3, sum, lw=2.0, color=ps.colors["blue"], label=f"{note} {quality.capitalize()} (Summe)")
 
     ax_t.set_xlim(left=0, right=time*1e3)
     ax_t.set_ylim(bottom=-6.5, top=6.5)
     ax_t.set_xlabel(r"$t$ [ms]")
     ax_t.set_ylabel("Amplitude")
-    ax_t.set_title(f"{note} Durr mit Obertönen ({instrument.capitalize()})")
+    ax_t.set_title(f"{note} Dur mit Obertönen ({instrument.capitalize()})")
     ax_t.legend(
         loc="lower right",
         frameon=True,      # Rahmen aktivieren
@@ -279,7 +279,7 @@ def chord_with_fft(
 
 for instrument in list(INSTRUMENT_PARTIALS.keys()):
     PNG_PATH = FIG_DIR / (f"plot_akkord_C4-Major-{instrument}".replace("#", "is") + ".png")
-    fig, (ax_t, ax_f) = chord_with_fft("C4", "major", instrument=instrument, time=0.025, spp=1024, fmax_window=2500)
+    fig, (ax_t, ax_f) = chord_with_fft("C4", "dur", instrument=instrument, time=0.025, spp=1024, fmax_window=2500)
     fig.tight_layout()
     fig.savefig(PNG_PATH, dpi=150)
     plt.close(fig)

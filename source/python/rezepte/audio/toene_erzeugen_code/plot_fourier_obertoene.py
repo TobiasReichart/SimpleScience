@@ -112,13 +112,13 @@ def sine_with_fft(
         sum += x
         ax_t.plot(t_time*1e3, x, lw=1.5, color=color_keys[i-1], alpha=0.5)
     
-    ax_t.plot(t_time*1e3, sum, lw=2.0, color=ps.colors["blue"], label="Summe")
+    ax_t.plot(t_time*1e3, sum, lw=2.0, color=ps.colors["blue"], label=f"{note} (Summe)")
 
     ax_t.set_xlim(left=0, right=time*1e3)
     ax_t.set_ylim(bottom=-2.2, top=2.2)
     ax_t.set_xlabel(r"$t$ [ms]")
     ax_t.set_ylabel("Amplitude")
-    ax_t.set_title(f"{note} mit Obertönen ({instrument})")
+    ax_t.set_title(f"{note} mit Obertönen ({instrument.capitalize()})")
     ax_t.legend(
         loc="lower right",
         frameon=True,      # Rahmen aktivieren
