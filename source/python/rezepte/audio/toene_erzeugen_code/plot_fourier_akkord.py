@@ -2,55 +2,33 @@ from __future__ import annotations
 from matplotlib.figure import Figure
 from matplotlib.axes import Axes
 
-import numpy as np
-import matplotlib.pyplot as plt
 import re
 from pathlib import Path
-from beautyplot import PlotStyle
+import sys
+import numpy as np
+import matplotlib.pyplot as plt
 
-# -- Projekt-Root finden (Marker) ----------------------------------------------
-def find_project_root(start: Path | None = None) -> Path:
-    """Wandelt eine Notenbezeichnung in die Frequenz (gleichstufige Stimmung, Referenz A4).
-
-    Unterstützte Notation
-    ---------------------
-    - Stammtöne: A, B, C, D, E, F, G (Groß-/Kleinschreibung egal)
-    - Vorzeichen: # (Kreuz) oder b (Be)
-    - Oktave: ganzzahlig (z. B. 4 für A4)
-    Beispiele: `A4`, `C#5`, `Db3`, `g#3`, `bb2`
-
-    Die Berechnung erfolgt relativ zu `A4` mittels
-        f = A4 * 2^(n/12)
-    wobei `n` die Anzahl der Halbtöne Abstand von A4 ist.
-
-    Parameters
-    ----------
-    note
-        Notenstring (z. B. "C#5", "Db3", "A4").
-    A4
-        Referenzfrequenz für A4.
-
-    Returns
-    -------
-    float
-        Frequenz der Note in Hertz.
-
-    Raises
-    ------
-    ValueError
-        Wenn das Format der Note ungültig ist oder der Notenname/Vorzeichen nicht erkannt wird.
-    """
-    here = (start or Path(__file__).resolve()).parent
-    markers = {".git", "requirements.txt"}
-    for p in [here, *here.parents]:
-        if any((p / m).exists() for m in markers):
+# --- Hilfsfunktion: source-Verzeichnis finden -----------------
+def _find_source_dir(start: Path | None = None) -> Path:
+    """Geht vom Skript nach oben und gibt den Ordner 'source' zurück."""
+    here = (start or Path(__file__).resolve())
+    for p in [here] + list(here.parents):
+        if p.name == "source":
             return p
-    return here  # Fallback: Skriptordner
+    raise RuntimeError("Kein 'source'-Ordner in den übergeordneten Pfaden gefunden.")
 
-# -- Ausgabe-Pfad --------------------------------------------------------------
-ROOT = find_project_root()
-FIG_DIR = ROOT / "source" / "_static" / "plots" / "python" / "rezepte" / "audio"
-FIG_DIR.mkdir(parents=True, exist_ok=True)  # legt 'assets' und 'figures' an, falls nötig
+# --- source auf sys.path + Pfade ableiten ---------------------
+SOURCE_DIR = _find_source_dir()
+sys.path.insert(0, str(SOURCE_DIR))
+
+from plot.beautyplot import PlotStyle  # jetzt sicher importierbar
+
+# Ausgabe-Verzeichnis für Plots relativ zu source/
+FIG_DIR = SOURCE_DIR / "_static" / "plots" / "python" / "rezepte" / "audio"
+FIG_DIR.mkdir(parents=True, exist_ok=True)
+
+HERE = Path(__file__).resolve()
+PNG_PATH = FIG_DIR / (HERE.stem + ".png")
 
 # -- Töne ----------------------------------------------------------------------
 _NOTE_RE = re.compile(r"^([A-Ga-g])([#b]?)(-?\d+)$") # Regex Muster

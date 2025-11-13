@@ -1,23 +1,28 @@
 from pathlib import Path
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
-from beautyplot import PlotStyle 
 
-# -- Projekt-Root finden (Marker) ----------
-def find_project_root(start: Path | None = None) -> Path:
-    """Geht vom Skriptort nach oben und sucht Marker des Projekt-Roots."""
-    here = (start or Path(__file__).resolve()).parent
-    markers = {".git", "requirements.txt"}
-    for p in [here, *here.parents]:
-        if any((p / m).exists() for m in markers):
+# --- Hilfsfunktion: source-Verzeichnis finden -----------------
+def _find_source_dir(start: Path | None = None) -> Path:
+    """Geht vom Skript nach oben und gibt den Ordner 'source' zurück."""
+    here = (start or Path(__file__).resolve())
+    for p in [here] + list(here.parents):
+        if p.name == "source":
             return p
-    return here  # Fallback: Skriptordner
+    raise RuntimeError("Kein 'source'-Ordner in den übergeordneten Pfaden gefunden.")
 
-# -- Ausgabe-Pfad --------------------------
+# --- source auf sys.path + Pfade ableiten ---------------------
+SOURCE_DIR = _find_source_dir()
+sys.path.insert(0, str(SOURCE_DIR))
+
+from plot.beautyplot import PlotStyle
+
+# Ausgabe-Verzeichnis für Plots relativ zu source/
+FIG_DIR = SOURCE_DIR / "_static" / "plots" / "python" / "rezepte" / "audio"
+FIG_DIR.mkdir(parents=True, exist_ok=True)
+
 HERE = Path(__file__).resolve()
-ROOT = find_project_root()
-FIG_DIR = ROOT / "source" / "_static" / "plots" / "python" / "rezepte" / "audio"
-FIG_DIR.mkdir(parents=True, exist_ok=True)  # legt 'assets' und 'figures' an, falls nötig
 PNG_PATH = FIG_DIR / (HERE.stem + ".png")
 
 # -- Parameter ----------
