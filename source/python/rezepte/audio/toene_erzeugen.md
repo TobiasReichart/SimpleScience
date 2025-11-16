@@ -276,7 +276,7 @@ In der westlichen Musik basieren die meisten Akkorde auf **Dreiklängen**, also 
 C4-Dur (Major) = _static/audio/toene_erzeugen/chord_C4_Dur.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-major.png
 C4-Moll (Minor) = _static/audio/toene_erzeugen/chord_C4_Moll.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-minor.png
 C4-Vermindert (Dim) = _static/audio/toene_erzeugen/chord_C4_Uebermaessig.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-augmented.png
-C4-Übermäßig (Aug) = _static/audio/toene_erzeugen/chord_C4_vermindert.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-diminished.png
+C4-Übermäßig (Aug) = _static/audio/toene_erzeugen/chord_C4_Vermindert.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-diminished.png
 C4-Sus2 = _static/audio/toene_erzeugen/chord_C4_Sus2.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-sus2.png
 C4-Sus4 = _static/audio/toene_erzeugen/chord_C4_Sus4.mp3 | image = _static/plots/python/rezepte/audio/plot_Akkord_C4-sus4.png
 ```
