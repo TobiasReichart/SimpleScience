@@ -57,12 +57,39 @@ myst_enable_extensions = [
     "tasklist",      # - [ ] und - [x] für Aufgabenlisten mit Checkboxen
 ]
 
+# -- MathJax ----------------------------------------------------------------
 # Optionen speziell für die Mathe-Verarbeitung (dollarmath/amsmath)
-extensions.append("sphinx.ext.mathjax") # MathJax für Matheformeln
+extensions.append("sphinx.ext.mathjax")           # MathJax für Matheformeln
+mathjax_path = "js/mathjax/es5/tex-chtml-full.js" # lokales MathJax
+
 myst_dmath_allow_labels = True  # erlaubt \label{} und \ref{} innerhalb von $$...$$
 myst_dmath_allow_space  = True  # erlaubt $x = y$ auch mit Leerzeichen nach dem ersten $
 myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehler
 
+mathjax3_config = {
+    "loader": {"load": ["[tex]/color"]},
+    "tex": {
+        "packages": {"[+]": ["color"]},
+        "macros": {
+            "red":    ["{\\color[RGB]{214,39,40} #1}", 1],     # D62728
+            "blue":   ["{\\color[RGB]{31,119,180} #1}", 1],    # 1F77B4
+            "green":  ["{\\color[RGB]{44,160,44} #1}", 1],     # 2CA02C
+            "orange": ["{\\color[RGB]{255,127,14} #1}", 1],    # FF7F0E
+            "purple": ["{\\color[RGB]{148,103,189} #1}", 1],   # 9467BD
+            "cyan":   ["{\\color[RGB]{23,190,207} #1}", 1],    # 17BECF
+            "teal":   ["{\\color[RGB]{42,161,152} #1}", 1],    # 2AA198
+            "gray":   ["{\\color[RGB]{110,110,110} #1}", 1],   # 6E6E6E
+        },
+        "inlineMath": [
+            ["$", "$"],       # $ ... $ als Inline-Math
+            ["\\(", "\\)"],   # \( ... \) ebenfalls
+        ],
+        "displayMath": [
+            ["$$", "$$"],     # $$ ... $$ als Display-Math
+            ["\\[", "\\]"],   # \[ ... \] ebenfalls
+        ],
+    },
+}
 # -- Codeblöcke--------------------------------------------------------------
 extensions.append("sphinx_copybutton") # Kopierbutton für Codeblöcke hinzufügen
 html_css_files.append("style/codeblock_layout.css") # Anpassen des HTML-Styles der Codeblöcke
@@ -96,24 +123,6 @@ mermaid.initialize({
 });
 """
 
-# -- Farben ------------------------------------------------------------------
-mathjax3_config = {
-    "loader": {"load": ["[tex]/color"]},
-    "tex": {
-        "packages": {"[+]": ["color"]},
-        "macros": {
-            "red":    ["{\\color[RGB]{214,39,40} #1}", 1],     # D62728
-            "blue":   ["{\\color[RGB]{31,119,180} #1}", 1],    # 1F77B4
-            "green":  ["{\\color[RGB]{44,160,44} #1}", 1],     # 2CA02C
-            "orange": ["{\\color[RGB]{255,127,14} #1}", 1],    # FF7F0E
-            "purple": ["{\\color[RGB]{148,103,189} #1}", 1],   # 9467BD
-            "cyan":   ["{\\color[RGB]{23,190,207} #1}", 1],    # 17BECF
-            "teal":   ["{\\color[RGB]{42,161,152} #1}", 1],    # 2AA198
-            "gray":   ["{\\color[RGB]{110,110,110} #1}", 1],   # 6E6E6E
-        },
-    },
-}
-
-# -- Audio-Player ------------------------------------------------------------
+# -- Audio-Player -----------------------------------------------------------
 html_css_files.append("player/audioplayer.css") # Anpassen des HTML-Styles des Audio-Players
 extensions.append("_ext.audiocard")             # Eigene Directive für Audio-Player
