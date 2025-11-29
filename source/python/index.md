@@ -63,3 +63,10 @@ section/venv
 section/cheatsheet
 rezepte/index
 ```
+
+```{toctree}
+:maxdepth: 1
+:caption: Modulbeschreibungen
+
+plotly/index
+```
