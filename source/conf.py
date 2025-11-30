@@ -16,6 +16,7 @@ extensions = []
 templates_path = ["_templates"]
 exclude_patterns = []
 language = "de"
+html_js_files = []
 
 # -- Options for HTML output -------------------------------------------------
 html_static_path = ["_static"]
@@ -113,15 +114,9 @@ html_css_files.append("style/hinweisboxen_layout.css") # Anpassen des HTML-Style
 html_css_files.append("style/download_button.css") # Anpassen des HTML-Styles des Downloadbuttons
 
 # -- Mermaid-Diagramme ------------------------------------------------------
-extensions.append("sphinxcontrib.mermaid") # Mermaid-Diagramme unterstützen
-
-mermaid_init_js = """
-mermaid.initialize({
-    startOnLoad: true,
-    theme: "default",       // ""deefault, "dark", "forest", "neutral"
-    securityLevel: "loose"  // erlaubt Links/HTML im Diagramm (vorsichtig verwenden!)
-});
-"""
+#extensions.append("sphinxcontrib.mermaid") # Mermaid-Diagramme unterstützen
+html_js_files.append("js/mermaid/mermaid.min.js")      # UMD-Build
+html_js_files.append("js/mermaid/mermaid-init.js")     # Initialisierungsskript
 
 # -- Audio-Player -----------------------------------------------------------
 html_css_files.append("player/audioplayer.css") # Anpassen des HTML-Styles des Audio-Players
