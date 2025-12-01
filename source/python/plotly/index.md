@@ -35,7 +35,7 @@ python -m pip install numpy pandas
 
 ```
 
-**Erste Schritt**
+**Erste Schritte**
 
 Als schnellste Möglichkeit, Plotly zu testen, genügt bereits:
 
@@ -49,6 +49,7 @@ df = px.data.iris()
 fig = px.scatter(df, x="sepal_width", y="petal_length", color="species")
 fig.show()
 ```
+
 *Codebeispiel aus der offiziellen Dokumentation*: [https://plotly.com/python/plotly-express/](https://plotly.com/python/plotly-express/)
 
 Dieser einfache Scatterplot ist vollständig interaktiv.\
@@ -76,3 +77,12 @@ Für vertiefende Informationen lohnt sich ein Blick in die offiziellen Quellen:
     [https://plotly.com/python/graph-objects/](https://plotly.com/python/graph-objects/)
 - **Plotly auf PyPI**\
     [https://pypi.org/project/plotly/](https://pypi.org/project/plotly/)
+
+```{toctree}
+:maxdepth: 1
+:caption: Inhaltsverzeichnis
+
+Express
+Express_Einstellungen
+Graph_Objects
+```
