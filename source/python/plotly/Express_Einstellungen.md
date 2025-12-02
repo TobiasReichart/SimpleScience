@@ -24,8 +24,10 @@ fig.show()                  # Figur rendern und interaktiv anzeigen
 Das Layout umfasst alle globalen Eigenschaften einer Figure:
 
 - Templates,
-- Farben und
-- Schriftarten.
+- Farben,
+- Schriftarten,
+- Gitterlinien und
+- Dezimaltrennzeichen
 
 Plotly Express setzt hier sinnvolle Standardwerte, aber für saubere wissenschaftliche Plots lohnt sich eine explizite Konfiguration.
 
@@ -83,12 +85,14 @@ Plotly unterstützt eine Vielzahl an Farbdefinitionen, die flexibel sowohl für 
 :linenos:
 
 fig.update_traces(
-    line=dict(color="#1F77B4") # setzen einer Linienfarbe
-    marker=dict(color="rgba(255, 127, 14, 0.7)", size=10) # setzen eines Markerfarbe
+    line=dict(color="#1F77B4"), # setzen einer Linienfarbe
+    marker=dict(color="rgba(255, 127, 14, 0.7)", size=10), # setzen eines Markerfarbe
 )
 ```
 
 ### Schriftart
+
+Plotly ermöglicht eine detaillierte Kontrolle über die Typografie eines Plots. Alle globalen Schriftparameter werden über den Eintrag `font` im Layout gesetzt und gelten automatisch für Titel, Achsenbeschriftungen, Ticklabels und Legendentexte, sofern diese nicht separat überschrieben werden.
 
 ```{code-block} python
 :caption: Default Einstellungen der Schriftart
@@ -102,6 +106,44 @@ fig.update_layout(
         style="normal",
         weight="normal",
     ),
+)
+```
+
+- `color`\
+    Farbe der Schrift: Unterstütz **CSS, Hex, RGB** und **RGBA**
+- `family`\
+    Hier kann die gewünschte Schriftart mit einer Fallbackkette hinterlegt werden\
+    Durch die Fallback-Schriftarten kann eine konsistente Darstellung auf vielen Geräten gewährleistet werden.
+- `size`\
+    Schriftgröße als `int`
+- `style`\
+    Schriftschnitt / Kursivformatierung
+    - `"normal"`
+    - `"italic"` (echte Kursivschrift)
+    - `"oblique"` (künstlich geneigte Schrift)
+- `weight`\
+    Werte zwischen `1` und `1000` oder Kategorie über `string`
+    - `"normal"`
+    - `"bold"`
+    - `"lighter"`
+    - `"bolder"`
+
+### Dezimaltrennzeichen
+
+In deutschsprachigen wissenschaftlichen Texten sind Dezimaltrennzeichen mit Komma und Tausendertrennzeichen mit Punkt üblich.
+Plotly verwendet standardmäßig den amerikanischen Stil:
+
+- 1234.56 $\rightarrow$ Punkt als Dezimaltrennzeichen
+- 1,234.56 $\rightarrow$ Komma als Tausendertrennzeichen
+
+Plotly kann jedoch über `separators` auf das deutsche Format umgestellt werden.
+
+```{code-block} python
+:caption: Deutsches Dezimalformat setzen
+:linenos:
+
+fig.update_layout(
+    separators=",.",
 )
 ```
 
