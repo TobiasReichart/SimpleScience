@@ -193,11 +193,11 @@ fig.update_layout(
 :widths: 50 50
 :header-rows: 0
 
-* - ```{figure} ../../../../_static/plots/python/plotly/anchorpoints.png
+* - ```{figure} ../../_static/plots/python/plotly/anchorpoints.png
       :align: center
       :width: 90%
     ```
-  - ```{figure} ../../../../_static/plots/python/plotly/coordinates_plotly.png
+  - ```{figure} ../../_static/plots/python/plotly/coordinates_plotly.png
       :align: center
       :width: 90%
     ```

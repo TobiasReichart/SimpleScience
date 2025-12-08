@@ -29,3 +29,36 @@ Eine achsensymmetrischen Rechteckfunktion und eine punktsymmetrische Sägezahnfu
 
 Mit dem folgenden Slider lässt sich die Anzahl der berücksichtigten Schwingungen $N$ verändern.\
 So wird sichtbar, wie beide Funktionen aus ihren harmonischen Bausteinen entstehen.
+
+`````{tab-set}
+````{tab-item} Rechtecksignal<br>(Achsensymmetrisch)
+```{raw} html
+<iframe
+    src="../../../_static/plots/analysis/transformationen/fourier-reihe/rechteck_example.html"
+    width="100%"
+    height="400"
+    frameborder="0">
+</iframe>
+```
+````
+````{tab-item} Rampensignal<br>(Punktsymmetrisch)
+```{raw} html
+<iframe
+    src="../../../_static/plots/analysis/transformationen/fourier-reihe/rampe_example.html"
+    width="100%"
+    height="400"
+    frameborder="0">
+</iframe>
+```
+````
+````{tab-item} Mischsignal
+```{raw} html
+<iframe
+    src="../../../_static/plots/analysis/transformationen/fourier-reihe/mischsignal_example.html"
+    width="100%"
+    height="400"
+    frameborder="0">
+</iframe>
+```
+````
+`````
