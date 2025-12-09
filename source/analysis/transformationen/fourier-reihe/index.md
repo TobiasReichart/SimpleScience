@@ -62,3 +62,8 @@ So wird sichtbar, wie beide Funktionen aus ihren harmonischen Bausteinen entsteh
 ```
 ````
 `````
+
+```{hint}
+
+Sollte der interaktive Plot verschoben angezeigt werden, kann dies durch aktualisieren des Tabs {kbd}`F5` behoben werden.
+```
