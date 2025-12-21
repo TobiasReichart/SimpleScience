@@ -20,5 +20,11 @@ Transformationen wie die **Fourier-** oder **Laplace-Transformation** sind dabei
 :maxdepth: 1
 :caption: Inhaltsverzeichnis
 
+Grenzwerte/index
+Differenzialrechnung/index
+Integralrechnung/index
+Differentialgleichungen/index
+Variationsrechnung/index
+komplexe_Zahlen/index
 transformationen/index
 ```
