@@ -13,16 +13,13 @@ Ableitungen werden so zu natürlichen Werkzeugen, und Differentialgleichungen tr
 
 Die Kinematik ist somit weit mehr als eine Sammlung einfacher Rechenregeln. Sie ist der erste Blick auf das Muster, das sich durch die gesamte Physik zieht.
 
-<!-- SPÄTER FOLGT -->
-<!-- Ort, Geschwindigkeit, Beschleunigung (in 1D) -->
-<!-- --Weg-Zeit-Diagramm -> Durchschnittsgeschwindigkeit -> Momentangeschwindigkeit (Matheverweis, Grenzwert) -->
-<!-- --Zeitliche Ableitung als Operator -->
-<!-- Beispiele grundlegender Bewegungen -->
-<!-- --Gleichförmige und gleichmäßig Beschleunigte Bewegung (Freier Fall ohne Luftwiderstand) -->
-<!-- --Freier Fall mit Luftwiderstand -->
-<!-- Einführung der Vektoren -->
-<!-- --waagerechter Wurf -->
-<!-- --schräger Wurf -->
-<!-- Emmy Noether (Unabhängigkeit der Dimensionen -> Symmetrie) -->
-<!-- Verallgemeinerung auf 3D -->
-<!-- -- Ortsvektor, Bewegung in Feldern -->
+```{toctree}
+:maxdepth: 1
+:caption: Inhaltsverzeichnis
+
+section/Grundlegende_Bewegungen
+section/Vektoren
+section/Kreisbewegung
+section/Verallgemeinerung_3D
+section/Aufgaben
+```
