@@ -30,5 +30,6 @@ Damit ist der Weg bereitet: Wir starten mit den Grundlagen der Bewegung, bevor w
 :caption: Inhaltsverzeichnis
 
 kinematik/index
+lagrange/index
 wellen/index
 ```
