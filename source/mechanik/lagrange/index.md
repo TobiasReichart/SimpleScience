@@ -1,9 +1,9 @@
 # Lagrange-Mechanik
 
-In der bisherigen Mechanik haben die Bewegung physikalischer Systeme konsequent aus Kräften heraus beschrieben.
+In der bisherigen Mechanik haben wir die Bewegung physikalischer Systeme konsequent aus Kräften heraus beschrieben.
 Ausgehend von den Newtonschen Axiomen ließen sich Bewegungen berechnen, Impulse bilanzieren, Energieerhaltung formulieren und selbst komplexere Prozesse wie Stöße oder Rotationsbewegungen systematisch analysieren. Dieses kraftbasierte Weltbild ist erfolgreich, intuitiv und für viele Fragestellungen völlig ausreichend.
 
-Wenn wir uns jedoch den Energiefluss eines harmonischen Oszillators anschauen, so sehen wir, egal ob bei einem Federpendel, Fadenpendel (für kleine Auslenkungen) oder Torsionsoszillator stets dieselbe Struktur:
+Wenn wir uns jedoch den Energiefluss eines harmonischen Oszillators anschauen, so sehen wir, egal ob bei einem Federpendel, Fadenpendel (*für kleine Auslenkungen*) oder Torsionsoszillator stets dieselbe Struktur:
 
 ```{figure} ../../../../_static/plots/mechanik/lagrange/Energie_Federpendel.png
 :align: center
@@ -14,9 +14,7 @@ Energie eines Federpendels
 
 Die kinetische und die potenzielle Energie wandeln sich periodisch ineinander um. Während die Gesamtenergie konstant bleibt, oszilliert ihre Aufteilung im Takt der Bewegung.
 
-Diese Beobachtung ist bemerkenswert.\
-Denn sie legt nahe, dass die Dynamik des Systems bereits in seiner Energie enthalten ist.
-
+Diese Beobachtung ist bemerkenswert. Denn sie legt nahe, dass die Dynamik des Systems bereits in seiner Energie enthalten ist.\
 Wenn die Energie eines Systems seine zeitliche Entwicklung so klar widerspiegelt, warum sollte man dann nicht versuchen, die Bewegungsgleichung direkt aus einem Energieprinzip zu gewinnen?
 
 ---
@@ -33,7 +31,8 @@ Die klassische Mechanik entstand zunächst als **Kraftlehre**. In den Principia 
 
 Vor diesem Hintergrund entwickelte **Joseph-Louis Lagrange** eine alternative Formulierung der Mechanik. Sein Ziel war nicht, Newton zu widerlegen, sondern die Mechanik von ihren geometrischen und koordinatenabhängigen Details zu befreien. An die Stelle einzelner Kraftgleichungen trat ein skalärer Ausdruck, der die gesamte Dynamik eines Systems kodiert. Bewegung erschien nun nicht mehr als unmittelbare Folge einzelner Kräfte, sondern als Konsequenz der **strukturellen Eigenschaften des Systems**.
 
-Bemerkenswert ist dabei, dass dieser neue Zugang zunächst keinen zusätzlichen physikalischen Inhalt einführte. Die Lagrange-Mechanik ist der Newtonschen Mechanik vollständig äquivalent. Ihr Vorteil liegt nicht in neuen Vorhersagen, sondern in einer neuen Organisation der Physik: **komplexe Zusammenhänge werden sichtbar, bevor sie ausgerechnet werden**.
+Bemerkenswert ist dabei, dass dieser neue Zugang zunächst keinen zusätzlichen physikalischen Inhalt einführte. Die Lagrange-Mechanik ist der Newtonschen Mechanik vollständig äquivalent. Ihr Vorteil liegt nicht in neuen Vorhersagen, sondern in einer neuen Organisation der Physik:\
+**komplexe Zusammenhänge werden sichtbar, bevor sie ausgerechnet werden**.
 
 Gerade der Oszillator macht diesen Perspektivwechsel besonders anschaulich. Was in der Newtonschen Mechanik als Resultat einer Rückstellkraft erscheint, lässt sich hier als unmittelbare Folge der Energieform des Systems verstehen. Die Bewegungsgleichung ist nicht mehr der Ausgangspunkt der Analyse, sondern ihr Ergebnis.
 

@@ -1,0 +1,1 @@
+# Herleitung der Lagrange-Gleichung 1. Art
