@@ -5,7 +5,7 @@ Ausgehend von den Newtonschen Axiomen ließen sich Bewegungen berechnen, Impulse
 
 Wenn wir uns jedoch den Energiefluss eines harmonischen Oszillators anschauen, so sehen wir, egal ob bei einem Federpendel, Fadenpendel (*für kleine Auslenkungen*) oder Torsionsoszillator stets dieselbe Struktur:
 
-```{figure} ../../../../_static/plots/mechanik/lagrange/Energie_Federpendel.png
+```{figure} ../../_static/plots/mechanik/lagrange/Energie_Federpendel.png
 :align: center
 :width: 100%
 

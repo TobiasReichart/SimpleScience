@@ -121,8 +121,6 @@ make_tone_wav(freq_hz=523.251, duration_s=0.8, sr=44100, amp=0.9, filename="tone
 
 {download}`Vollständiger Code (Töne nach Frequenz) <toene_erzeugen_code/02_tone_freq.py>`
 
-Die **physikalische Grundlage**, also wie Frequenzen bestimmten Tönen zugeordnet werden und wie Skalen entstehen, wird im Abschnitt {ref}`Töne und Frequenzen` ausführlich behandelt.
-
 ## Notennamen unterstützen
 
 Um das Arbeiten mit Tönen intuitiver zu gestalten, wollen wir die bisherige Funktion um eine **Notenerkennung** erweitern.

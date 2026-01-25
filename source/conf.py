@@ -18,6 +18,11 @@ exclude_patterns = []
 language = "de"
 html_js_files = []
 
+# --- Entwicklerbereich ---
+exclude_patterns = []
+if not tags.has("dev"):
+    exclude_patterns.append("dev/**")
+
 # -- Options for HTML output -------------------------------------------------
 html_static_path = ["_static"]
 html_favicon = "_static/favicon.ico"

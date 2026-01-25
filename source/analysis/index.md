@@ -15,16 +15,3 @@ Doch geht die Analysis weit über Ableitungen und Integrale hinaus.
 Sie bietet Methoden, um komplexe Funktionen zu transformieren, zu approximieren und in andere Räume zu überführen.
 So können wir Signale im Frequenzraum analysieren, Systeme stabilisieren oder physikalische Prozesse simulieren.
 Transformationen wie die **Fourier-** oder **Laplace-Transformation** sind dabei keine rein mathematischen Hirngespinste, sondern praktische Werkzeuge, mit denen wir die Sprache der Natur verstehen können.
-
-```{toctree}
-:maxdepth: 1
-:caption: Inhaltsverzeichnis
-
-Grenzwerte/index
-Differenzialrechnung/index
-Integralrechnung/index
-Differentialgleichungen/index
-Variationsrechnung/index
-komplexe_Zahlen/index
-transformationen/index
-```

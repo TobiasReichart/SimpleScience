@@ -10,15 +10,15 @@ Ich zeige, wofür Mathematik in der Technik tatsächlich gebraucht wird, von kom
 Dabei lege ich großen Wert auf anschauliche Visualisierungen, klare Herleitungen und saubere Darstellungen.
 
 Parallel entwickle ich hier auf der Seite unterstützendes Material:
-- LaTeX-Dokumente
-- Python-Skripte
-- interaktive Plots
 - strukturierte Notizen
+- Python-Skripte
+- grafische Darstellungen
+- LaTeX-Dokumente
 
 Zudem findest du hier auch Tutorials zu meinen eigenen Methoden, mit denen ich diese Inhalte erstelle:\
 Wie schreibe ich strukturierte Praktikumsberichte in LaTeX?\
 Wie visualisiere ich physikalische Zusammenhänge mit Python?\
-Wie baue ich mit Tkinter eine moderne Benutzeroberfläche für eigene Applets?
+Wie baue ich eine moderne Benutzeroberfläche für eigene Applets?
 
 Wissenschaft kann einfach sein - wenn man sie richtig erklärt.
 
@@ -63,3 +63,13 @@ legal/Datenschutzerklärung
 legal/Impressum
 legal/Disclaimer
 ```
+
+````{only} dev
+```{toctree}
+:maxdepth: 1
+:hidden:
+:caption: Entwicklerbereich
+
+dev/index
+```
+````

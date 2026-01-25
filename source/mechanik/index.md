@@ -24,12 +24,3 @@ Denn jede Schwingung, so komplex sie später auch werden mag, beginnt mit den kl
 Diese scheinbar einfachen Größen bilden das Fundament, auf dem sämtliche Modelle der Mechanik aufbauen. Erst wenn wir präzise formulieren können, wie sich etwas bewegt, können wir verstehen, warum es sich bewegt.
 
 Damit ist der Weg bereitet: Wir starten mit den Grundlagen der Bewegung, bevor wir uns Stück für Stück zum harmonischen Oszillator vorarbeiten und von dort aus die Phänomene der Welt verstehen.
-
-```{toctree}
-:maxdepth: 1
-:caption: Inhaltsverzeichnis
-
-kinematik/index
-lagrange/index
-wellen/index
-```

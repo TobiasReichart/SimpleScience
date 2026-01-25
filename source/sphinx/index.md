@@ -3,13 +3,6 @@
 Sphinx ist ein leistungsstarkes und flexibles **Open-Source-Tool**, das vor allem für die Erstellung von Dokumentationen verwendet wird (siehe [https://www.sphinx-doc.org/en/master/](https://www.sphinx-doc.org/en/master/)).\
 Es wurde ursprünglich für die **Python-Dokumentation** entwickelt, hat sich jedoch schnell als eine vielseitige Lösung für alle Arten von **technischen** und **benutzerorientierten Dokumentationen** etabliert.
 
-```{toctree}
-:maxdepth: 1
-:caption: Inhaltsverzeichnis
-
-section/installation
-```
-
 **Was ist Sphinx?**
 
 Sphinx ist ein Dokumentationsgenerator, der in Python geschrieben wurde. Es nutzt **reStructuredText** (kurz: *reST*), eine einfache und leicht verständliche Auszeichnungssprache, um strukturierte Dokumentation zu erstellen.\
@@ -36,3 +29,10 @@ Sphinx bietet viele Vorteile, die es zu einem bevorzugten Werkzeug für die Erst
 Sphinx verwendet eine einfache Ordnerstruktur, in der alle Inhalts-Dateien enthalten sind. Der Aufbau der Sphinx-Dokumentation basiert auf einer index-Datei, die als Einstiegspunkt fungiert und die Struktur der gesamten Dokumentation definiert. Mit der richtigen Konfiguration und einer geeigneten reST- oder md-Syntax können Benutzer dann Seiten hinzufügen, Verlinkungen erstellen, Quellcode einbinden und sogar mathematische Formeln mit TeX-Syntax darstellen.
 
 Im Rahmen von SimpleScience wird Sphinx für die Bereitstellung der Internetpresenz über GitHub verwendet.
+
+```{toctree}
+:maxdepth: 1
+:caption: Inhaltsverzeichnis
+
+section/installation
+```
