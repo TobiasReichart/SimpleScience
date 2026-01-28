@@ -15,11 +15,13 @@ flowchart LR
   subgraph SYS["Global Python Environment (System)"]
     PY[System-Python<br/>/usr/bin/python]
     subgraph V1["venv_project1/"]
+      direction TB
       P1[bin/python]
       S1[lib/.../site-packages]
       P1 --> S1
     end
     subgraph V2["venv_project2/"]
+      direction TB
       P2[bin/python]
       S2[lib/.../site-packages]
       P2 --> S2
@@ -80,7 +82,7 @@ Virtuelle Umgebungen lösen diese Probleme, indem sie **pro Projekt** eine eigen
 
 <div class="mermaid">
 flowchart LR
-  subgraph V["Virtuelle Umgebungen (pro Projekt isoliert)"]
+  subgraph V["Virtuelle Umgebungen<br>(pro Projekt isoliert)"]
     direction TB
     subgraph V1["venv_project1/"]
       direction TB
