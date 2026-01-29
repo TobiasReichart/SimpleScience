@@ -17,4 +17,5 @@ plotly/index
 rezepte/index
 transformationen/index
 variationsrechnung/index
+sphinx/index
 ```

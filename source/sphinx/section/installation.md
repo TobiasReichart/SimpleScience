@@ -1,6 +1,9 @@
 # Installation & erste Schritte
 
-In diesem Abschnitt wollen wir die Dokumentation zum *"laufen"* bringen und die ersten optischen Anpassungen vornehmen.
+In diesem Abschnitt wird der **vollständige** Einstieg in ein neues Sphinx-Projekt beschrieben. Von der Einrichtung einer isolierten Python-Umgebung (empfohlen) bis zur ersten Live-Vorschau im Browser.\
+Ziel ist es, eine reproduzierbare, erweiterbare und zukunftssichere Ausgangsbasis für eine technische Dokumentation zu schaffen.
+
+Der Abschnitt richtet sich bewusst an Leserinnen und Leser ohne Vorerfahrung mit Sphinx, setzt jedoch grundlegende Kenntnisse im Umgang mit der Kommandozeile voraus.
 
 ```{attention}
 **Hinweis**: Die folgenden Schritte zur Installation von Sphinx dienen ausschließlich der Orientierung. Installationsroutinen, Systemvoraussetzungen und Benutzeroberflächen können je nach Betriebssystem und Version variieren.  
@@ -14,17 +17,20 @@ Voraussetzung für die Installation von Sphinx ist eine bereits installierte Ver
 Es wird **dringend empfohlen**, Sphinx-Projekte in einer *virtuellen Umgebung* (`venv`) aufzubauen.\
 So bleibt die Arbeitsumgebung stabil, unabhängig von globalen Paketen und jederzeit reproduzierbar.  
 
-Auf diese Weise verhinderst du Versionskonflikte, hältst dein System sauber und stellst sicher, dass deine Dokumentation auch in Zukunft zuverlässig gebaut werden kann.\
+Auf diese Weise werden Versionskonflikte verhindert, das System sauber gehalten und sichergestellt, dass die Dokumentation auch in Zukunft zuverlässig gebaut werden kann.\
 Nähere Informationen findest du auf meiner Infoseite zu {ref}`Virtuellen Umgebungen <Virtuelle Umgebungen>`.
 ```
 
 ## Virtuelle Umgebungen (Quickstart)
 
 ```{hint}
-Die Quickstart Beschreibungen beziehen sich auf das VS Code **TERMINAL**.
+Die folgenden Quickstart-Schritte beziehen sich auf die Verwendung des **integrierten Terminals in Visual Studio Code**.
 ```
 
-````{dropdown} Windows
+`````{tab-set}
+:sync-group: os
+````{tab-item} Windows
+:sync: win
 **Erstellen einer virtuellen Umgebung im Ordner** `.venv`
 ```{code-block} console
 python -m venv .venv
@@ -33,7 +39,12 @@ python -m venv .venv
 ```{code-block} console
 .venv\Scripts\Activate.ps1
 ```
-(Falls blockiert: `Set-ExecutionPolicy -Scope Process Bypass` nur für die aktuelle Session.)
+
+Falls die Ausführung blockiert ist:
+```{code-block} console
+Set-ExecutionPolicy -Scope Process Bypass
+```
+*(wirkt nur für die aktuelle Session)*
 
 **Aktualisieren von pip innerhalb der venv** (saubere Basis)
 ```{code-block} console
@@ -57,7 +68,8 @@ deactivate
 ```
 ````
 
-````{dropdown} macOS
+````{tab-item} macOS
+:sync: mac
 **Erstellen einer virtuellen Umgebung im Ordner** `.venv`
 ```{code-block} console
 python3 -m venv .venv
@@ -87,11 +99,15 @@ python -m pip install -r requirements.txt
 deactivate
 ```
 ````
+`````
+
+Nach diesen Schritten steht eine **isolierte, reproduzierbare Python-Umgebung** zur Verfügung, die als Grundlage für alle weiteren Installations- und Konfigurationsschritte im Sphinx-Projekt dient.
 
 ## Installation
 
-Bevor du mit Sphinx arbeiten kannst, musst du es zunächst in deiner Python-Umgebung (**Global** oder in der **Virtuellen Umgebung**) installieren.\
-Am einfachsten gelingt das über den Python-Paketmanager `pip`. Führe dazu im Terminal den folgenden Befehl aus:
+Bevor mit Sphinx gearbeitet werden kann, muss das Framework zunächst in der Python-Umgebung installiert werden. Die Installation kann grundsätzlich global oder innerhalb einer virtuellen Umgebung erfolgen. Für alle produktiven Projekte wird jedoch ausdrücklich die Verwendung einer **virtuellen Umgebung** empfohlen (siehe vorherigen Abschnitt).
+
+Die Installation erfolgt über den Python-Paketmanager `pip` im Terminal.
 
 ```{code-block} console
 :caption: Installation von Sphinx
@@ -100,20 +116,23 @@ Am einfachsten gelingt das über den Python-Paketmanager `pip`. Führe dazu im T
 python -m pip install sphinx
 ```
 
+Dabei wird Sphinx als zentrales Dokumentationsframework installiert.\
+Nach erfolgreicher Installation stehen alle grundlegenden Werkzeuge zur Erstellung und zum lokalen Testen einer Sphinx-Dokumentation zur Verfügung.
+
 (Erstellen der Dokumentation)=
 ## Erstellen der Dokumentation
 
-Die Erstellung eines neuen Sphinx-Projekts erfolgt direkt über die Kommandozeile.  
-Gehe dazu in das Verzeichnis, in dem deine Dokumentation gespeichert werden soll.
+Die Erstellung eines neuen Sphinx-Projekts erfolgt direkt über die Kommandozeile. Gehe hierfür in das Verzeichnis, in dem die neue Dokumentation gespeichert werden soll.
 
 ```{note}
-Unter **Windows** kannst du im gewünschten Ordner mit der **rechten Maustaste** klicken und *In Terminal öffnen* wählen.\
-Unter **macOS** kannst du auf den gewünschten Zielordner mit der **rechten Maustaste** klicken und *Neues Terminal beim Ordner* wählen.\
-In **beiden** Betriebssystemen kannst du im Terminal mit `cd` in den Zielordner navigieren, oder das Terminal in VS Code verwenden (hier muss der Zielordner im Explorer geöffnet sein
-).
+Unter **Windows** kann im gewünschten Ordner durch klicken mit der **rechten Maustaste** und *In Terminal öffnen* ein neues Terminal geöffnet werden.
+
+Unter **macOS** kann schlicht auf den gewünschten Zielordner mit der **rechten Maustaste** geklickt werden und ein Terminal durch *Neues Terminal beim Ordner* geöffnet werden.
+
+In **beiden** Betriebssystemen ist zum einen das navigieren im Terminal mit `cd` möglich, zum anderen kann das Terminal in VS Code verwendt werden (hier muss der Zielordner im Explorer von VS Code geöffnet sein).
 ```
 
-In dem nun geöffneten Terminal kann nun durch die Eingabe von `sphinx-quickstart` und anschlißende Bestätigung durch {kbd}`Enter` die Erstellung einer neuen Dokumentation gestartet werden.
+In dem nun geöffneten Terminal kann nun durch die Eingabe von `sphinx-quickstart` und anschließende Bestätigung durch {kbd}`Enter` die Erstellung einer neuen Dokumentation gestartet werden. 
 
 ```{code-block} console
 :caption: Neue Dokumentation erstellen
@@ -122,7 +141,7 @@ In dem nun geöffneten Terminal kann nun durch die Eingabe von `sphinx-quickstar
 sphinx-quickstart
 ```
 
-Daraufhin können einige Spezifikationen für die Dokumentation festgelegt werden. Diese Parameter lassen sich teilweise auch nachträglich im Projekt anpassen. Im folgenden Beispiel wurden die **gelb markierten** Einträge gesetzt, alle übrigen durch einfaches Bestätigen mit {kbd}`Enter` leer übernommen.
+Daraufhin können einige Spezifikationen für die Dokumentation festgelegt werden. Im folgenden Beispiel wurden die **gelb markierten** Einträge gesetzt, alle übrigen durch einfaches Bestätigen mit {kbd}`Enter` leer übernommen.
 
 ```{code-block} console
 :caption: Dokumentationsparameter setzen
@@ -167,10 +186,31 @@ make builder
 where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
 ```
 
+```{admonition} Einordnung der beim Quickstart gesetzten Parameter
+:class: note
+
+Während des `sphinx-quickstart` werden grundlegende Eigenschaften der Dokumentation festgelegt.\
+Die meisten dieser Parameter können später in der Datei `conf.py` angepasst werden.
+
+Besonders relevant sind dabei:
+
+- **Separate source- und build-Verzeichnisse**\
+    Durch die Trennung von Quelltext (source) und erzeugter Ausgabe (build) bleibt die Projektstruktur übersichtlich.\
+    Änderungen betreffen ausschließlich die Quelldateien, während erzeugte Artefakte klar isoliert sind.
+
+- **Projektsprache (`language = de`)**\
+    Diese Einstellung beeinflusst automatisch generierte Texte (z. B. Suchfeld, Inhaltsverzeichnis) und ist insbesondere für deutschsprachige Dokumentationen sinnvoll.
+
+- **Index-Datei (`index.rst`)**\
+    Die erzeugte `index.rst` fungiert als Einstiegspunkt der gesamten Dokumentation.\
+    Über sie wird die logische Struktur der Inhalte definiert.
+```
+
 Nach Abschluss aller Eingaben wurde das Standardgerüst eines neuen Sphinx-Projekts erzeugt:
 
 ```{code-block} none
 :caption: Ordnerstruktur eines neuen Sphinx-Projekts
+:emphasize-lines: 6, 7
 
 Sphinx-Projekt
 ├ build
@@ -183,7 +223,20 @@ Sphinx-Projekt
 └ Makefile
 ```
 
-Das Projekt kann anschließend durch Eingabe von `sphinx-build -b html source build/html` im Terminal als statische HTML-Seite generiert werden.
+Nach dem Initialisieren des Projekts sind insbesondere zwei Dateien von zentraler Bedeutung:
+
+- `conf.py`\
+    Enthält sämtliche Konfigurationsparameter der Dokumentation (Erweiterungen, Layout, Sprache, Build-Verhalten).\
+    Diese Datei bildet das technische Herzstück des Projekts.
+- `index.rst`\
+    Definiert den Einstieg und die Navigationsstruktur der Dokumentation.\
+    Alle weiteren Seiten werden direkt oder indirekt über diese Datei eingebunden.
+
+Die Ordner `_static` und `_templates` sind für spätere optische Anpassungen vorgesehen und bleiben im Quickstart zunächst unverändert.
+
+### Statischer HTML-Build
+
+Der Befehl
 
 ```{code-block} console
 :caption: statische HTML-Seite generieren
@@ -192,8 +245,12 @@ Das Projekt kann anschließend durch Eingabe von `sphinx-build -b html source bu
 sphinx-build -b html source build/html
 ```
 
-Dabei wird automatisch der Ordner `build` mit dem Unterordner `html` erzeugt, der die Datei `index.html` enthält.\
-Diese kann per Doppelklick im Browser geöffnet werden und zeigt die Startseite der frisch generierten Dokumentation.
+erzeugt eine statische **HTML-Version** der Dokumentation.\
+Jede Änderung an den Quelldateien erfordert einen erneuten Build, damit sie im Browser sichtbar wird.
+
+Für die kontinuierliche Arbeit an der Dokumentation empfiehlt sich daher eine Live-Vorschau mit automatischem Neuladen, die im nächsten Abschnitt behandelt wird.
+
+Nach Durchführung des HTML-Build kann nun durch **Doppelklick** die Datei `index.html` unter `build/html/` im Browser geöffnet werden und der bisherige Stand der Dokumentation begutachtet werden.
 
 ```{code-block} none
 :caption: Ordnerstruktur des Sphinx-Projekts nach erstem Render
@@ -228,11 +285,23 @@ Voreingestelltes Layout
 (Theme anpassen)=
 ## Theme anpassen
 
-Sphinx bietet zahlreiche vordefinierte Themes, mit denen sich das Erscheinungsbild der generierten Dokumentation anpassen lässt.\
-Eine Übersicht verfügbarer Themes findet sich auf der [Website Write the Docs](https://www.writethedocs.org/guide/tools/sphinx-themes/) .\
-Für diese Dokumentation wird das Layout Read the Docs verwendet.
+Sphinx stellt eine Vielzahl vordefinierter Themes bereit, mit denen sich das Erscheinungsbild der generierten Dokumentation anpassen lässt.\
+Ein Theme beeinflusst dabei unter anderem:
 
-Um das Theme zu installieren, kann wie bei der Sphinx-Installation der Python-Paketmanager `pip` verwendet werden. Führe dazu im Terminal den folgenden Befehl aus:
+- die Seitennavigation,
+- die Typografie,
+- Farben und Abstände,
+- sowie die Darstellung von Codeblöcken und Hinweisen.
+
+Eine Übersicht verfügbarer Themes findet sich auf der Website von Write the Docs unter\
+[https://www.writethedocs.org/guide/tools/sphinx-themes/](https://www.writethedocs.org/guide/tools/sphinx-themes/)
+
+Für diese Dokumentation wird das weit verbreitete **Read the Docs** Theme verwendet, da es sich besonders für **technische Dokumentationen** bewährt hat und eine klare, gut strukturierte Navigation bietet.
+
+### Installation des Themes
+
+Themes werden in Sphinx als Python-Pakete bereitgestellt und können daher direkt über den Paketmanager `pip` installiert werden.\
+Die Installation erfolgt innerhalb der aktuell aktiven Python-Umgebung (idealerweise einer virtuellen Umgebung).
 
 ```{code-block} console
 :caption: Read the Docs installieren
@@ -241,7 +310,12 @@ Um das Theme zu installieren, kann wie bei der Sphinx-Installation der Python-Pa
 python -m pip install sphinx-rtd-theme
 ```
 
-Nach der Installation muss das Theme in der Konfigurationsdatei `conf.py` eingetragen werden. Diese Datei befindet sich im `source`-Verzeichnis des Projekts und enthält sämtliche Einstellungen der Dokumentation.
+Nach erfolgreicher Installation steht das Theme dem Sphinx-Projekt zur Verfügung, ist jedoch noch nicht aktiv.
+
+### Einbindung des Themes
+
+Die Auswahl und Konfiguration des Themes erfolgt über die Datei `conf.py`.\
+Diese Datei befindet sich im `source`-Verzeichnis des Projekts und fungiert als zentrale Konfigurationsdatei der gesamten Dokumentation.
 
 ```{code-block} none
 :caption: Ordnerstruktur des Sphinx-Projekts
@@ -257,6 +331,8 @@ Sphinx-Projekt
 ├ make.bat
 └ Makefile
 ```
+
+Nach dem Ausführen von `sphinx-quickstart` enthält die `conf.py` standardmäßig folgende relevante Einstellung:
 
 ```{code-block} python
 :caption: conf.py nach sphinx-quickstart
@@ -292,8 +368,9 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 ```
 
-In der `conf.py` findet sich die Variable `html_theme`, der nun der Name des neuen Themes zugewiesen wird.\
-Lösche hierfür die markierte Zeile aus deiner `conf.py` und füge unter `html_static_path = ['_static']` die folgende Codezelle ein. Im folgenden werden wir noch weitere Einstellungen an unserem verwendeten Theme vornehmen.
+Das Theme `alabaster` ist das von Sphinx voreingestellte Standard-Theme. Um stattdessen das **Read the Docs** Theme zu verwenden, wird diese Einstellung angepasst.
+
+Lösche die markierte Zeile und ergänze unterhalb von `html_static_path = ['_static']` folgenden Abschnitt:
 
 ```{code-block} python
 :caption: Theme festlegen
@@ -303,7 +380,11 @@ Lösche hierfür die markierte Zeile aus deiner `conf.py` und füge unter `html_
 html_theme = 'sphinx_rtd_theme' # default: 'alabaster'
 ```
 
-Um die Änderung zu übernehmen, wird die Dokumentation erneut mit folgendem Befehl gerendert:
+Die Trennung der Theme-Einstellungen in einen eigenen Abschnitt erhöht die Übersichtlichkeit der Konfigurationsdatei und erleichtert spätere Anpassungen.
+
+### Dokumentation neu rendern
+
+Damit die Änderungen wirksam werden, muss die Dokumentation erneut gebaut werden:
 
 ```{code-block} console
 :caption: HTML-Seite neu generieren
@@ -322,35 +403,35 @@ Das Layout erscheint nun im **Read the Docs**-Design:
 Theme: *Read the Docs*
 ```
 
-Das Theme Read the Docs lässt sich über den Parameter `html_theme_options` in der `conf.py` weiter anpassen.\
-Ein Beispiel möglicher Optionen:
+### Automatische Jahresangabe im Copyright (optional)
+
+Standardmäßig wird das Copyright-Jahr in der `conf.py` als fester Wert hinterlegt.\
+Für langfristige Projekte ist es sinnvoll, dieses Jahr automatisch aus dem aktuellen Systemdatum zu erzeugen.
+
+Hierzu kann die `conf.py` minimal erweitert werden.\
+Dabei ist zu beachten, dass die Variable `author` vor c`opyright` definiert sein muss.
 
 ```{code-block} python
-:caption: Theme-Optionen anpassen
+:caption: Automatische Jahresangabe im Copyright
 :linenos:
+:emphasize-lines: 1, 5
 
-html_theme_options = {
-    'collapse_navigation': True,             # Navigationsmenüs nicht einklappen
-    'sticky_navigation': False,              # Navigation scrollt nicht mit
-    'includehidden': True,                   # Hidden toctree-Einträge anzeigen
-    'prev_next_buttons_location': 'bottom',  # Position der Navigationsbuttons
-    'style_nav_header_background': '#2980B9',# Hintergrundfarbe der Kopfzeile
-    'style_external_links': True,            # Externe Links markieren
-    'body_max_width': 'none',                # HTML-Layout auf Bildschirmbreite skalieren
-}
+from datetime import date
 
-html_show_sourcelink = False  # Quelltext-Button ausblenden
-html_css_files = []           # Liste für eigene Styles
+project = 'Sphinx'
+author = 'Tobias Reichart'
+copyright = f'{date.today().year}, {author}'
 ```
 
-Die Variable `html_css_files` bleibt hier zunächst leer, um die `conf.py` übersichtlich zu halten.\
-Später können eigene CSS-Dateien mit `.append()` hinzugefügt werden, um gezielt optische Anpassungen vorzunehmen.
+### Konfigurationsdatei nach den ersten Anpassungen
 
-Die `conf.py` sollte nach diesen Änderungen folgendermaßen aussehen:
+Nach den beschriebenen Änderungen ergibt sich folgende konsolidierte Fassung der `conf.py`:
 
 ```{code-block} python
 :caption: Konfigurationsdatei nach den ersten Anpassungen
 :linenos:
+
+from datetime import date # für copyright Jahr
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -361,8 +442,8 @@ Die `conf.py` sollte nach diesen Änderungen folgendermaßen aussehen:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Sphinx'
-copyright = '2025, Tobias Reichart'
 author = 'Tobias Reichart'
+copyright = f"{date.today().year}, {author}"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -381,59 +462,53 @@ html_static_path = ['_static']
 
 # -- Theme Einstellungen -----------------------------------------------------
 html_theme = 'sphinx_rtd_theme' # default: 'alabaster'
-
-html_theme_options = {
-    'collapse_navigation': True,             # Navigationsmenüs nicht einklappen
-    'sticky_navigation': False,              # Navigation scrollt nicht mit
-    'includehidden': True,                   # Hidden toctree-Einträge anzeigen
-    'prev_next_buttons_location': 'bottom',  # Position der Navigationsbuttons
-    'style_nav_header_background': '#2980B9',# Hintergrundfarbe der Kopfzeile
-    'style_external_links': True,            # Externe Links markieren
-    'body_max_width': 'none',                # HTML-Layout auf Bildschirmbreite skalieren
-}
-
-html_show_sourcelink = False  # Quelltext-Button ausblenden
-html_css_files = []           # Liste für eigene Styles
 ```
-
-````{tip}
-Das Copyright-Jahr in der `conf.py` kann automatisch aus dem aktuellen Systemdatum erzeugt werden.\
-Passe hierfür einfach die obersten Zeilen deiner `conf.py`-Datei an.
-
-```{code-block} python
-:caption: Automatische Jahresangabe im Copyright
-:linenos:
-:emphasize-lines: 1, 5
-
-from datetime import date
-
-project = 'Sphinx'
-author = 'Tobias Reichart'
-copyright = f'{date.today().year}, {author}'
-````
 
 (sphinx-autobuild)=
 ## Live-Vorschau mit sphinx-autobuild
 
-Um Änderungen in Sphinx **sofort im Browser sichtbar zu machen**, kann das Werkzeug `sphinx-autobuild` verwendet werden.
-Es überwacht das Projektverzeichnis und aktualisiert die Ausgabe automatisch, sobald eine Datei gespeichert wird ( {kbd}`Strg` + {kbd}`S` ).
+Während der aktiven Arbeit an einer Sphinx-Dokumentation ist es wenig effizient, nach jeder Änderung einen vollständigen manuellen Build auszuführen.\
+Für diesen Zweck stellt Sphinx mit `sphinx-autobuild` ein Werkzeug zur Verfügung, das eine **Live-Vorschau** im Browser ermöglicht.
 
-Die Installation erfolgt wie gewohnt über `pip`.
+`sphinx-autobuild` überwacht das Projektverzeichnis kontinuierlich und startet automatisch einen neuen Build, sobald eine Quelldatei gespeichert wird (z. B. mit {kbd}`Strg` + {kbd}`S`).\
+Die aktualisierte Dokumentation wird anschließend unmittelbar im Browser neu geladen.
+
+### Installation von sphinx-autobuild
+
+Die Installation erfolgt, wie bei allen Sphinx-Erweiterungen, über den Python-Paketmanager `pip` innerhalb der aktiven Python-Umgebung:
+
 ```{code-block} console
 :caption: sphinx-autobuild installieren
 :linenos:
 
 python -m pip install sphinx-autobuild
 ```
-Anschließend kann der folgende Befehl in der Konsole ausgeführt werden - entweder in der noch geöffneten Eingabeaufforderung des Projekts oder, wie in {ref}`Erstellen der Dokumentation` beschrieben, in einem neuen Terminalfenster:
+
+Nach erfolgreicher Installation steht das Kommando `sphinx-autobuild` im Terminal zur Verfügung.
+
+### Starten der Live-Vorschau
+
+Der Live-Build wird direkt aus dem Projektverzeichnis heraus gestartet:
+
 ```{code-block} console
 :caption: Live-Build mit sphinx-autobuild starten
 :linenos:
 
 sphinx-autobuild source build/html
 ```
-Nach dem Start erfolgt eine erste vollständige Kompilierung der Dokumentation.
-Die Konsole zeigt anschließend die lokale Serveradresse, über die die Seite aufgerufen werden kann:
+
+Dabei gilt:
+
+- `source` bezeichnet das Verzeichnis mit den Quelldateien (`.rst`, `.md`),
+- `build/html` ist das Zielverzeichnis für die erzeugte HTML-Ausgabe.
+
+Beim Start führt `sphinx-autobuild` zunächst einen **vollständigen Initial-Build** aus.\
+Anschließend wird ein lokaler Webserver gestartet und auf Dateiänderungen gewartet.
+
+#### Konsolenausgabe und lokale Serveradresse
+
+Nach dem erfolgreichen Start erscheint in der Konsole eine Ausgabe ähnlich der folgenden:
+
 ```{code-block} console
 :caption: Ausgabe nach Start des Live-Servers
 :linenos:
@@ -458,82 +533,180 @@ The HTML pages are in build\html.
 [sphinx-autobuild] Serving on http://127.0.0.1:8000
 [sphinx-autobuild] Waiting to detect changes...
 ```
-Falls sich die Seite nicht automatisch öffnet, kann die angegebene Adresse `http://127.0.0.1:8000` manuell in die Adresszeile des Browsers kopiert werden.\
-Alternativ kann auch mit gedrückter {kbd}`Strg`-Taste auf die Adresse gelklickt werden, so wird die lokale Serveradresse im Standardbrowser geöffnet.
 
-Sobald nun eine Markdown- oder reST-Datei geändert und mit {kbd}`Strg` + {kbd}`S` gespeichert wird, erkennt sphinx-autobuild die Änderung automatisch, rendert die Seite neu und aktualisiert die Anzeige im Browser in Echtzeit.
+Die angegebene Adresse `http://127.0.0.1:8000` ist die **lokale Serveradresse**, unter der die Dokumentation im Browser aufgerufen werden kann.\
+Falls sich der Browser nicht automatisch öffnet, kann die Adresse:
 
-### Live-Vorschau über eine Verknüpfung starten (Windows)
+- manuell in die Adresszeile kopiert werden, oder
+- bei gedrückter {kbd}`Strg`-Taste direkt aus dem Terminal angeklickt werden.
 
-Mit einer Batch-Datei ( `.bat` ) lässt sich der Sphinx-Autobuild per Doppelklick starten. Die Dokumentation wird automatisch im Browser geöffnet und bei jeder Änderung neu gerendert.
+```{admonition} Technischer Hintergrund: 127.0.0.1 (Loopback-Adresse)
+:class: note
 
-**Schritt-für-Schritt**
+Die IP-Adresse `127.0.0.1` bezeichnet die sogenannte **Loopback-Schnittstelle** des eigenen Rechners. Sie verweist immer auf das **lokale System** selbst und ist unabhängig von einer Internetverbindung erreichbar.\
+Der Live-Server ist somit:
 
-1. Lege im Projektverzeichnis eine Datei Autobuild starten.bat an.
-2. Füge folgenden Inhalt ein und speichere die Datei:
+- ausschließlich lokal verfügbar,
+- nicht von außen erreichbar,
+- und ausschließlich für Entwicklungszwecke gedacht.
+```
 
-```{code-block} bat
-:caption: Batch-Datei für den Autobuild (Windows)
+Sobald eine Markdown- oder reStructuredText-Datei geändert und gespeichert wird, erkennt `sphinx-autobuild` die Änderung automatisch. Im Hintergrund wird erneut `sphinx-build` ausgeführt, und der Browser lädt die betroffene Seite ohne manuelles Zutun neu.\
+Dieser Workflow ermöglicht:
+
+- sofortiges visuelles Feedback,
+- iteratives Arbeiten an Text und Layout,
+- und ein deutlich effizienteres Schreiben größerer Dokumentationen.
+
+Der Live-Server läuft dabei blockierend im Terminal und bleibt aktiv, bis der Prozess mit {kbd}`Strg` + {kbd}`C` beendet wird.
+
+```{hint}
+
+`sphinx-autobuild` ersetzt nicht den finalen HTML-Build, sondern dient ausschließlich der **lokalen Entwicklung**. Für produktive Builds (z.B. für **GitHub Pages** oder **PDF-Export**) wird weiterhin ein regulärer `sphinx-build` verwendet.
+```
+
+### Live-Vorschau über eine Verknüpfung starten
+
+Für den täglichen Entwicklungsworkflow ist es oft komfortabler, die Live-Vorschau **nicht über manuelle Terminalbefehle**, sondern per **Doppelklick** zu starten.\
+Dies lässt sich sowohl unter Windows als auch unter macOS über kleine Startskripte realisieren.\
+Die Dokumentation wird dabei automatisch:
+
+- im Projektverzeichnis gebaut,
+- im Browser geöffnet,
+- und bei jeder Änderung erneut gerendert.
+
+`````{tab-set}
+:sync-group: os
+````{tab-item} Windows
+:sync: win
+
+1. Lege im Projektverzeichnis eine neue Batch-Datei mit der Endung `.bat` an.
+2. Füge den folgenden Inhalt ein und speichere die Datei:
+
+```{code-block} console
+:caption: Autobuild über Batch-Datei (Windows)
 :linenos:
 
 @echo off
 setlocal
 rem In das Verzeichnis der Batch-Datei wechseln
 pushd "%~dp0"
-rem (Optional) Virtuelle Umgebung aktivieren, wenn vorhanden
+
+rem Virtuelle Umgebung aktivieren, falls vorhanden
 if exist ".venv\Scripts\activate.bat" call ".venv\Scripts\activate.bat"
-rem Live-Server starten und Browser öffnen
+
+rem Live-Server mit aktivem dev-Tag starten
 sphinx-autobuild source build/html --open-browser
-rem Aufräumen und Pfad zurücksetzen (nach Beenden)
+
+rem Aufräumen nach Beenden
 popd
 endlocal
 ```
-3. (Optional) Erstelle per *Rechtsklick* $\rightarrow$ *Weitere Optionen anzeigen* $\rightarrow$ *Verknüpfung erstellen* eine Desktop-Verknüpfung.
 
-Die Verknüpfung kann nun an einen beliebigen Ort verschoben werden.
+3. *(Optional)*\
+   Über **Rechtsklick $\rightarrow$ Weitere Optionen anzeigen $\rightarrow$ Verknüpfung erstellen** kann eine Verknüpfung erzeugt werden, die anschließend frei auf dem System platziert werden kann (z.B. Desktop oder Taskleiste).
+````
 
-## Umbau von reST auf MyST-Markdown
+````{tab-item} macOS
+:sync: mac
 
-(*reST bleibt weiterhin vollständig nutzbar*)
-
-In dieser Dokumentation wird künftig MyST-Markdown als Standardformat verwendet.
-Bestehende `.rst`-Seiten können jedoch parallel weiterverwendet werden.
-Der Build bleibt dabei vollständig **Sphinx-kompatibel** - sowohl für HTML als auch für PDF-Ausgaben.
-
-### Warum auf Markdown umstellen?
-
-- **Einfachere Syntax**: weniger Tippfehler, schnelleres Schreiben.
-- **Bekanntes Format**: Markdown wird in vielen Projekten und Editoren unterstützt.
-- **Kein Funktionsverlust**: MyST unterstützt alle Sphinx-Direktiven und Rollen\
-    (z. B. Code-Blöcke, toctree, mathematische Formeln, literalinclude, Admonitions …).
-- **Erweiterbar**: Mit myst-nb können zusätzlich Jupyter-Notebooks integriert werden.
-
-### Voraussetzungen installieren
-
-Damit Sphinx Markdown-Dateien versteht, muss der **MyST-Parser** installiert werden.\
-Die Installation erfolgt wie gewohnt über `pip`.\
+1. Lege im Projektverzeichnis eine neue Datei mit der Endung `.command` an.
+2. Füge den folgenden Inhalt ein und speichere die Datei:
 
 ```{code-block} console
+:caption: Autobuild über Command-Datei (macOS)
+:linenos:
+
+#!/usr/bin/env bash
+
+# In das Verzeichnis der Skriptdatei wechseln
+cd "$(dirname "$0")" || exit 1
+
+# Virtuelle Umgebung aktivieren, falls vorhanden
+if [ -f ".venv/bin/activate" ]; then
+    source ".venv/bin/activate"
+fi
+
+# Entwickler-Build mit aktivem dev-Tag starten
+sphinx-autobuild source build/html --open-browser
+```
+
+3. Mache die Datei einmalig über das Terminal ausführbar:
+
+```{code-block} console
+:caption: Datei ausführbar machen
+:linenos:
+
+chmod +x <Dateiname>.command
+```
+
+4. *(Optional)*\
+   Über **Rechtsklick $\rightarrow$ Alias erzeugen** kann eine Verknüpfung erstellt und an einen beliebigen Ort verschoben werden.
+````
+`````
+
+```{note}
+
+- Das Skript startet den Live-Server **blockierend** im Terminal.\
+    Das Terminalfenster muss geöffnet bleiben, solange die Live-Vorschau genutzt wird.
+- Die virtuelle Umgebung wird automatisch aktiviert, sofern sie im Projektordner als `.venv` existiert.
+- Der Build erfolgt ausschließlich lokal über `127.0.0.1` und ist nicht von außen erreichbar.
+```
+
+## Umbau von reStructuredText auf MyST-Markdown
+
+(*reStructuredText bleibt weiterhin vollständig nutzbar*)
+
+In dieser Dokumentation wird künftig **MyST-Markdown** als bevorzugtes Quellformat verwendet. Bestehende Inhalte in reStructuredText (`.rst`) können jedoch weiterhin parallel genutzt werden.
+
+Der Build-Prozess bleibt dabei für HTML- als auch für PDF-Ausgaben vollständig Sphinx-kompatibel.\
+Ein vollständiger Umbau bestehender Inhalte ist daher nicht erforderlich.
+
+### Motivation für den Einsatz von Markdown
+
+Die Umstellung auf MyST-Markdown bietet mehrere praktische und konzeptionelle Vorteile:
+
+- **Reduzierte syntaktische Komplexität**\
+    Markdown ist weniger fehleranfällig und ermöglicht schnelleres Schreiben.
+- **Hohe Verbreitung**\
+    Markdown wird von zahlreichen Editoren, Plattformen und Werkzeugen nativ unterstützt.
+- **Kein Funktionsverlust gegenüber reST**\
+    MyST unterstützt sämtliche Sphinx-Direktiven und Rollen\
+    (z.B. `toctree`, Code-Blöcke, mathematische Formeln, `literalinclude`, Admonitions).
+- **Erweiterbarkeit**\
+    Mit Zusatzpaketen wie `myst-nb` lassen sich auch Jupyter-Notebooks direkt integrieren.
+
+MyST-Markdown verbindet damit die Einfachheit von Markdown mit der Ausdrucksstärke von Sphinx.
+
+### Installation der Voraussetzungen
+
+Damit Sphinx Markdown-Dateien interpretieren kann, muss der **MyST-Parser** installiert werden.\
+Die Installation erfolgt innerhalb der aktiven Python-Umgebung über `pip`:
+
+```{code-block} console
+
 python -m pip install myst-parser
 ```
 
-Für Live-Vorschau und automatisches Neurendern kann weiterhin `sphinx-autobuild` genutzt werden (siehe {ref}`sphinx-autobuild`).
+Für Live-Vorschau und automatisches Neurendern kann weiterhin `sphinx-autobuild` verwendet werden (siehe Abschnitt {ref}`sphinx-autobuild`).
 
-### MyST in der Konfiguration aktivieren
+### Aktivierung von MyST in der Konfiguration
 
-Nach der Installation wird der Parser wie unter {ref}`Theme anpassen` in der Datei `conf.py` eingebunden.
+Nach der Installation wird der MyST-Parser in der Datei `conf.py` aktiviert.\
+Die Konfiguration erlaubt dabei explizit die parallele Nutzung von **reST und Markdown**.
 
-Öffne `conf.py` und füge am Ende des Dokuments die folgenden Zeilen hinzu:
+Öffne `conf.py` und ergänze am Ende der Datei folgenden Abschnitt:
 
 ```{code-block} python
 :caption: MyST-Markdown und reST parallel aktivieren
 :linenos:
 
 # -- Umbau von rst auf MySt-Markdown -----------------------------------------
-extensions.append('myst_parser') # Verwendung von MySt-Markdown erlauben
-root_doc = 'index'   # (bei älteren Sphinx-Versionen: master_doc = 'index')
+extensions.append('myst_parser') # MyST-Markdown aktivieren
+root_doc = 'index'               # Einstiegspunkt der Dokumentation
+# (bei älteren Sphinx-Versionen: master_doc = 'index')
 
-# reST und Markdown parallel erlauben: (Altlasten auch einpfelgbar)
+# Gleichzeitige Unterstützung von reST und Markdown
 source_suffix = {
     '.rst': 'restructuredtext',
     '.md':  'markdown',
@@ -542,26 +715,25 @@ source_suffix = {
 # sinnvolle MyST-Erweiterungen
 myst_enable_extensions = [
     # Liste der MyST-Erweiterungen, die aktiv sind
-    "colon_fence",   # erlaubt ::: fenced directives (Alternative zu ```{note} ... ``` mit :::note)
-    "dollarmath",    # $...$ und $$...$$ für Inline- und Block-Mathe
-    "amsmath",       # unterstützt LaTeX-Umgebungen wie \begin{align}...\end{align}
-    "deflist",       # Definition Lists im Markdown-Stil
-    "tasklist",      # - [ ] und - [x] für Aufgabenlisten mit Checkboxen
+    "colon_fence",   # :::-Direktiven (Alternative zu ```{note})
+    "dollarmath",    # Inline- und Block-Mathe mit $...$ / $$...$$
+    "amsmath",       # LaTeX-Umgebungen wie align, gather, …
+    "deflist",       # Definitionslisten im Markdown-Stil
+    "tasklist",      # Aufgabenlisten mit Checkboxen
 ]
-
-# Optionen speziell für die Mathe-Verarbeitung (dollarmath/amsmath)
-extensions.append("sphinx.ext.mathjax") # MathJax für Matheformeln
-myst_dmath_allow_labels = True  # erlaubt \label{} und \ref{} innerhalb von $$...$$
-myst_dmath_allow_space  = True  # erlaubt $x = y$ auch mit Leerzeichen nach dem ersten $
-myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehler
 ```
+
+Diese Konfiguration stellt sicher, dass:
+
+- bestehende reST-Dateien weiterhin funktionieren
+- und neue Inhalte bevorzugt in Markdown geschrieben werden können.
 
 ### Startseite auf Markdown umstellen
 
-Zum Abschluss muss die bisherige `index.rst` in `index.md` umbenannt werden.\
-Dazu genügt ein Rechtsklick auf die Datei $\rightarrow$ Umbenennen oder {kbd}`F2`.
+Zum Abschluss wird die zentrale Startseite der Dokumentation von `index.rst` auf `index.md` umgestellt.\
+Dazu genügt es, die Datei umzubenennen (Rechtsklick $\rightarrow$ Umbenennen oder {kbd}`F2`).
 
-Der Inhalt der neuen `index.md` kann anschließend ersetzt werden durch:
+Ein minimaler Inhalt der neuen `index.md` könnte beispielsweise so aussehen:
 
 ```{code-block} markdown
 :caption: index.md (Beispiel)
@@ -569,9 +741,8 @@ Der Inhalt der neuen `index.md` kann anschließend ersetzt werden durch:
 
 # Sphinx
 
-Der Inhalt der Dokumentation wird im nächsten Kapitel Strukturierungselemente ergänzt.
+Das weitere Vorgehen wird im nächsten Kapitel "Struktur und Navigation" erläutert.
 ```
 
-Nach all diesen Schritten erkennt Sphinx automatisch sowohl `.rst`- als auch `.md`-Dateien.\
-Du kannst also schrittweise von reStructuredText auf Markdown umsteigen, ohne bestehende Inhalte anzupassen.
-Beim nächsten Build (`sphinx-build -b html source build/html`) werden alle Dateien korrekt verarbeitet - unabhängig von deren Format.
+Beim nächsten Build erkennt Sphinx automatisch sowohl `.rst`- als auch `.md`-Dateien.\
+Der Umstieg von reStructuredText auf MyST-Markdown kann somit schrittweise und ohne Brüche erfolgen.

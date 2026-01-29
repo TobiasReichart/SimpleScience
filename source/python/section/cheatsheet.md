@@ -2,7 +2,7 @@
 
 ## Virtuelle Umgebungen
 
-Eine **virtuelle Umgebung** (engl. *virtual enviroment*) in Python ist eine **isolierte Laufzeitumgebung**, in der du Projekte unabhängig voneinander betreiben kannst.
+Eine **virtuelle Umgebung** (engl. *virtual enviroment*) in Python ist eine **isolierte Laufzeitumgebung**, in der Projekte unabhängig voneinander betrieben werden können.
 
 `````{tab-set}
 :sync-group: os
