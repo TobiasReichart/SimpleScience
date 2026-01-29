@@ -106,7 +106,7 @@ arrow_s = FancyArrowPatch(
 )
 axL.add_patch(arrow_s)
 axL.text(x + 0.08, y + 0.65,
-        r'$\vec{F}_\mathrm{R} = -k\,x$',
+        r'$\vec{F}_\mathrm{R} = -k\,\vec{x}$',
         va='center', color="black", fontsize=12,
         bbox=dict(
             facecolor='white',
@@ -140,7 +140,7 @@ axR.plot(t, E_kin, linewidth=2, color="black")
 
 # E_max als waagerechte Linie
 axR.axhline(E_max, linewidth=2, color="black", linestyle="--")
-axR.text(t[-1]*0.985, E_max + 0.03, r'$E_\mathrm{max}$', ha='right', va='bottom')
+axR.text(t[-1]*0.985, E_max + 0.03, r'$E_\mathrm{ges}$', ha='right', va='bottom')
 
 axR.text(2.7, 0.8, r'$E_\mathrm{pot}$', ha='right', va='bottom', color=ps.colors["orange"], fontsize=16)
 axR.text(1.5, 0.2, r'$E_\mathrm{kin}$', ha='right', va='bottom', color=ps.colors["blue"], fontsize=16)
