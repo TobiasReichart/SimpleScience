@@ -1,0 +1,26 @@
+%%{init: {"theme": "neutral"}}%%
+flowchart TB
+
+  subgraph V[" "]
+    direction TB
+    subgraph V1["venv_project1/"]
+      direction TB
+      P1[.venv/bin/python]
+      S1[lib/pythonX.Y/site-packages]
+      P1 --> S1
+      A1[[Paket A v1.0]]
+      B1[[Paket B v2.3]]
+      S1 --> A1
+      S1 --> B1
+    end
+    subgraph V2["venv_project2/"]
+      direction TB
+      P2[.venv/bin/python]
+      S2[lib/pythonX.Y/site-packages]
+      P2 --> S2
+      A2[[Paket A v2.0]]
+      C2b[[Paket C v1.4]]
+      S2 --> A2
+      S2 --> C2b
+    end
+  end

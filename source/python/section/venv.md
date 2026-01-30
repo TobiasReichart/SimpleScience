@@ -10,26 +10,12 @@ Sie stellt sicher, dass jedes Projekt eigene Bibliotheken, Versionen und Abhäng
 
 Dadurch vermeidest du Versionskonflikte und stellst sicher, dass deine Software auch später unter denselben Bedingungen reproduzierbar ausgeführt werden kann.
 
-<div class="mermaid">
-flowchart LR
-  subgraph SYS["Global Python Environment (System)"]
-    PY[System-Python<br/>/usr/bin/python]
-    subgraph V1["venv_project1/"]
-      direction TB
-      P1[bin/python]
-      S1[lib/.../site-packages]
-      P1 --> S1
-    end
-    subgraph V2["venv_project2/"]
-      direction TB
-      P2[bin/python]
-      S2[lib/.../site-packages]
-      P2 --> S2
-    end
-  end
-</div>
+```{figure} ../../_static/img/python/venv/isolierte_umgebung.svg
+:width: 100%
+:align: center
 
-*Isolierte Python-Umgebungen pro Projekt*
+Global Python Environment
+```
 
 > **Beispiel:**
 > Ein älteres Projekt benötigt `NumPy==1.23`, ein neues Projekt `NumPy==2.0`.
@@ -80,34 +66,12 @@ Ohne eine **venv** installierst du Pakete **global**. Das führt in der Praxis z
 
 Virtuelle Umgebungen lösen diese Probleme, indem sie **pro Projekt** eine eigene Paketstruktur anlegen.
 
-<div class="mermaid">
-flowchart LR
-  subgraph V["Virtuelle Umgebungen<br>(pro Projekt isoliert)"]
-    direction TB
-    subgraph V1["venv_project1/"]
-      direction TB
-      P1[.venv/bin/python]
-      S1[lib/pythonX.Y/site-packages]
-      P1 --> S1
-      A1[[Paket A v1.0]]
-      B1[[Paket B v2.3]]
-      S1 --> A1
-      S1 --> B1
-    end
-    subgraph V2["venv_project2/"]
-      direction TB
-      P2[.venv/bin/python]
-      S2[lib/pythonX.Y/site-packages]
-      P2 --> S2
-      A2[[Paket A v2.0]]
-      C2b[[Paket C v1.4]]
-      S2 --> A2
-      S2 --> C2b
-    end
-  end
-</div>
+```{figure} ../../_static/img/python/venv/paketversionen.svg
+:width: 100%
+:align: center
 
-*Unterschiedliche Paketversionen pro Projekt*
+Unterschiedliche Paketversionen pro Projekt
+```
 
 ## Wie funktionieren virtuelle Umgebungen?
 
@@ -123,26 +87,12 @@ Wird eine virtuelle Umgebung aktiviert, ändert sich der Suchpfad von Python:
 2. Der `PATH` der Shell wird so angepasst, dass venv-Binaries (z. B. `pip`, `python`) zuerst gefunden werden.
 3. Die globale Installation bleibt unberührt, ist aber temporär im Hintergrund.
 
-<div class="mermaid">
-flowchart TB
-  subgraph System["Globales System"]
-    PY_SYS["/usr/bin/python"]
-    SP_SYS["/usr/lib/pythonX.Y/site-packages"]
-    PY_SYS --> SP_SYS
-  end
-  subgraph VENV["Virtuelle Umgebung (.venv)"]
-    PY_VENV[".venv/bin/python"]
-    SP_VENV[".venv/lib/pythonX.Y/site-packages"]
-    PY_VENV --> SP_VENV
-    A1["numpy==1.24"]
-    A2["matplotlib==3.8"]
-    SP_VENV --> A1
-    SP_VENV --> A2
-  end
-  PY_SYS -. "python -> .venv/bin/python (PATH)" .-> PY_VENV
-</div>
+```{figure} ../../_static/img/python/venv/trennung_systeme.svg
+:width: 100%
+:align: center
 
-*Trennung zwischen dem globalen System-Python und einer virtuellen Umgebung*
+Trennung zwischen dem globalen System-Python und einer virtuellen Umgebung
+```
 
 Die gestrichelte Linie soll zeigen, dass bei aktivierter venv der Befehl python im Terminal auf den lokalen Interpreter umgeleitet wird.
 

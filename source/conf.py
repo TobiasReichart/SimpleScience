@@ -118,11 +118,6 @@ html_css_files.append("style/hinweisboxen_layout.css") # Anpassen des HTML-Style
 # --- Downloadbutton ---------------------------------------------------------
 html_css_files.append("style/download_button.css") # Anpassen des HTML-Styles des Downloadbuttons
 
-# -- Mermaid-Diagramme ------------------------------------------------------
-#extensions.append("sphinxcontrib.mermaid") # Mermaid-Diagramme unterstützen
-html_js_files.append("js/mermaid/mermaid.min.js")      # UMD-Build
-html_js_files.append("js/mermaid/mermaid-init.js")     # Initialisierungsskript
-
 # -- Audio-Player -----------------------------------------------------------
-html_css_files.append("player/audioplayer.css") # Anpassen des HTML-Styles des Audio-Players
+html_css_files.append("style/audioplayer.css") # Anpassen des HTML-Styles des Audio-Players
 extensions.append("_ext.audiocard")             # Eigene Directive für Audio-Player

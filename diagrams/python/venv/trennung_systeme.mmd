@@ -1,0 +1,17 @@
+%%{init: {"theme": "neutral"}}%%
+flowchart TB
+  subgraph System["Globales System"]
+    PY_SYS["/usr/bin/python"]
+    SP_SYS["/usr/lib/pythonX.Y/site-packages"]
+    PY_SYS --> SP_SYS
+  end
+  subgraph VENV["Virtuelle Umgebung (.venv)"]
+    PY_VENV[".venv/bin/python"]
+    SP_VENV[".venv/lib/pythonX.Y/site-packages"]
+    PY_VENV --> SP_VENV
+    A1["numpy==1.24"]
+    A2["matplotlib==3.8"]
+    SP_VENV --> A1
+    SP_VENV --> A2
+  end
+  PY_SYS -. "python -> .venv/bin/python (PATH)" .-> PY_VENV

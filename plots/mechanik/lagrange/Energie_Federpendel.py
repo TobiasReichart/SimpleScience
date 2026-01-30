@@ -4,22 +4,30 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle, FancyArrowPatch
 
-# --- Hilfsfunktion: source-Verzeichnis finden -----------------
-def _find_source_dir(start: Path | None = None) -> Path:
-    """Geht vom Skript nach oben und gibt den Ordner 'source' zurück."""
+def find_project_root(start: Path | None = None) -> Path:
+    """
+    Findet den Projektroot, indem nach einem Ordner gesucht wird,
+    der sowohl 'source' als auch 'plots' enthält.
+    """
     here = (start or Path(__file__).resolve())
     for p in [here] + list(here.parents):
-        if p.name == "source":
+        if (p / "source").is_dir() and (p / "plots").is_dir():
             return p
-    raise RuntimeError("Kein 'source'-Ordner in den übergeordneten Pfaden gefunden.")
+    raise RuntimeError(
+        "Projektroot nicht gefunden. Erwartet Ordnerstruktur mit 'source/' und 'plots/' im selben Verzeichnis."
+    )
 
-# --- source auf sys.path + Pfade ableiten ---------------------
-SOURCE_DIR = _find_source_dir()
-sys.path.insert(0, str(SOURCE_DIR))
+PROJECT_ROOT = find_project_root()
+SOURCE_DIR = PROJECT_ROOT / "source"
+PLOTS_DIR = PROJECT_ROOT / "plots"
 
-from plot.beautyplot import PlotStyle
+# beautyplot.py importierbar machen
+if str(PLOTS_DIR) not in sys.path:
+    sys.path.insert(0, str(PLOTS_DIR))
 
-# Ausgabe-Verzeichnis für Plots relativ zu source/
+from beautyplot import PlotStyle
+
+# --- Ausgabe-Verzeichnis für Plots relativ zu source/_static/ ---
 FIG_DIR = SOURCE_DIR / "_static" / "plots" / "mechanik" / "lagrange"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
