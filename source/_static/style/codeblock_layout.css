@@ -72,6 +72,9 @@ div.highlight-css     { --code-title: "CSS";      --code-title-bg: #66309a; --co
 div.highlight-csharp  { --code-title: "C#";       --code-title-bg: #66309a; --code-title-fg: #fff; }
 div.highlight-xml     { --code-title: "XML";      --code-title-bg: #439eff; --code-title-fg: #fff; }
 
+/* Mermaid */
+div.highlight-text     { --code-title: "Mermaid";      --code-title-bg: #ff3670; --code-title-fg: #fff; }
+
 /* Optional: Ordnerstruktur (keine Sprache → oft "none") */
 div.highlight-none    { --code-title: "Ordnerstruktur"; --code-title-bg: #3b3b3b; --code-title-fg: #fff; }
 

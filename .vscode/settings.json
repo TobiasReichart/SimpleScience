@@ -1,28 +1,28 @@
 {
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python",
   "python.terminal.activateEnvironment": true,
-  "editor.rulers": [40, 80],
+  "editor.rulers": [],
 
-  "cSpell.language": "de",
-  "cSpell.enabled": true,
-  "cSpell.allowCompoundWords": true,
-  "cSpell.ignoreRegExpList": [ // Blöcke ignorieren
-    "/```[\\s\\S]*?```/g"
-  ],
+  "cSpell.enabled": true,             // Erweiterung für das Projekt aktivieren
+  "cSpell.language": "de",            // Deutsch als primäre Prüfsprache
+  "cSpell.allowCompoundWords": true,  // Erlaubt deutsche Komposita
   "cSpell.languageSettings": [
     {
-      "languageId": "python",
+      "languageId": "python",         // Rechtschreibprüfung in Python, für
       "includeRegExpList": [
-        "comments",
-        "strings"
+        "comments",                   // Kommentare
+        "strings"                     // Docstrings und String-Literalen
       ]
     }
   ],
   "cSpell.words": [
+    "align",
     "Clusterstrukturen",
+    "dateiformatübergreifende",
     "datenzentrierte",
     "Emmy",
     "Exponentialdarstellung",
+    "German",
     "gezoomt",
     "High",
     "Lagrange",
@@ -33,6 +33,8 @@
     "plotly",
     "Publikationsgrafiken",
     "Ready",
-    "Scatterplot"
+    "Scatterplot",
+    "Spell",
+    "Visual"
   ],
 }

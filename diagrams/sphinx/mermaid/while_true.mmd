@@ -1,0 +1,6 @@
+%%{init: {"theme": "neutral"}}%%
+flowchart LR
+    A[while True] --> B[Code im Schleifenrumpf]
+    B --> C{Abbruchbedingung erfüllt?}
+    C -- Ja --> D([break / Ende])
+    C -- Nein --> A

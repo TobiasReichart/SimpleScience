@@ -44,6 +44,7 @@ analysis/index
 :hidden:
 git/index
 python/index
+werkzeuge-methoden/index
 ```
 
 ```{toctree}
