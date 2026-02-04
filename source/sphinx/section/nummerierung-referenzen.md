@@ -112,14 +112,21 @@ Analog zu Abbildungen
 :caption: Abbildungen referenzieren
 :linenos:
 
-```{table} Parameter der Schwingung
-:name: tab-parameter
+```{list-table} Parameterübersicht
 :align: center
+:header-rows: 1
+:name: tab-parameter
 
-| Parameter | Bedeutung |
-|----------|-----------|
-| $a$        | Amplitude |
-| $\omega$        | Kreisfrequenz |
+* - Parameter
+  - Bedeutung
+  - Einheit
+* - $a$
+  - Amplitude
+  - m
+* - $\omega$
+  - Kreisfrequenz
+  - rad/s
+```
 ```
 
 siehe {numref}`tab-parameter`
@@ -128,14 +135,20 @@ siehe {numref}`tab-parameter`
 ````{admonition} Gerendertes Ausgabe
 :class: note
 
-```{table} Parameter der Schwingung
-:name: tab-parameter
+```{list-table} Parameterübersicht
 :align: center
+:header-rows: 1
+:name: tab-parameter
 
-| Parameter | Bedeutung |
-|----------|-----------|
-| $a$        | Amplitude |
-| $\omega$        | Kreisfrequenz |
+* - Parameter
+  - Bedeutung
+  - Einheit
+* - $a$
+  - Amplitude
+  - m
+* - $\omega$
+  - Kreisfrequenz
+  - rad/s
 ```
 
 siehe {numref}`tab-parameter`

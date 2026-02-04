@@ -141,6 +141,99 @@ Typische Werte:
 - `center`: Standard für wissenschaftliche Abbildungen
 - `left` / `right`: sinnvoll bei kleineren Abbildungen
 
-#### `:name:`
+#### Verlinkungen `:name:`
 
 Damit wir Abbildungen im Text sauber referenzieren können, bekommen sie ein **Label** (eine eindeutige ID). Das Referenzieren ist genauer im Abschnitt {ref}`Inhalte Verlinken` beschrieben.
+
+## Mehrere Abbildungen nebeneinander darstellen
+
+Für die gleichzeitige Darstellung von **zwei oder mehr Abbildungen** nebeneinander bietet Sphinx mit der Erweiterung `sphinx-design` ein flexibles, semantisch sauberes Layoutsystem.\
+Damit lassen sich beliebig viele Grafiken in einem **Grid-Layout** anordnen, ohne auf Tabellen oder HTML-Tricks zurückzugreifen.
+
+Das zugrundeliegende Prinzip ist dabei stets gleich:\
+Jede Abbildung bleibt eine eigenständige `figure` und wird lediglich über ein übergeordnetes Layout-Element positioniert.
+
+````{dropdown} Installation der Erweiterung (falls noch nicht vorhanden)
+
+Die Erweiterung wird einmalig über den Python-Paketmanager `pip` installiert:
+
+```{code-block} console
+:caption: Installation von sphinx-design
+
+python -m pip install sphinx-design
+```
+
+Anschließend muss sie in der Datei `conf.py` aktiviert werden:
+
+```{code-block} python
+:caption: sphinx-design in conf.py aktivieren
+:linenos:
+
+extensions.append("sphinx_design")
+```
+
+Nach einem erneuten Build steht die Grid-Funktionalität projektweit zur Verfügung.
+````
+
+``````{code-block} markdown
+:caption: Mehrere Abbildungen nebeneinander
+:linenos:
+
+`````{grid} 2
+:gutter: 2
+
+````{grid-item}
+```{figure} ../../_static/img/Logo/Logo-black.png
+:align: center
+:width: 100%
+:name: fig-links
+
+Linke Abbildung
+```
+````
+````{grid-item}
+```{figure} ../../_static/img/Logo/Logo-black.png
+:align: center
+:width: 100%
+:name: fig-rechts
+
+Rechte Abbildung
+```
+````
+`````
+``````
+
+Dabei gilt:
+
+- die Zahl hinter `{grid}` gibt die **Spaltenanzahl** an
+- `:gutter:` definiert den Space zwischen den Abbildungen
+- jede Grafik ist eine **vollwertige `figure`**
+- Referenzen über `{numref}` funktionieren weiterhin
+- die Darstellung ist **responsiv** (bei schmalen Bildschirmen umbrechend)
+
+``````{admonition} Gerendertes Ausgabe
+:class: note
+
+`````{grid} 2
+:gutter: 2
+
+````{grid-item}
+```{figure} ../../_static/img/Logo/Logo-black.png
+:align: center
+:width: 100%
+:name: fig-links
+
+Linke Abbildung
+```
+````
+````{grid-item}
+```{figure} ../../_static/img/Logo/Logo-black.png
+:align: center
+:width: 100%
+:name: fig-rechts
+
+Rechte Abbildung
+```
+````
+`````
+``````

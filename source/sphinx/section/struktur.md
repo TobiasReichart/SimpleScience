@@ -214,6 +214,42 @@ Listen sollten:
 - konsistent formatiert werden
 - durch Einrückungen und erzwungene Zeilenumbrüche nicht zu komplex gestaltet werden
 
+### Inline-Formatierungen
+
+Sphinx bietet eine Vielzahl von Rollen zur Formatierung von Text, insbesondere für Befehle, Dateipfade, Tasten und Benutzeroberflächen. Hier sind einige der wichtigsten:
+
+```{list-table} Inline-Formatierungen
+  :header-rows: 1
+
+  * - Rolle
+    - Syntax
+    - Beispiel
+  * - `{kbd}`
+    - ``` {kbd}`Strg` ```
+    - {kbd}`Strg`
+ * - `{file}`
+    - ``` {file}`C:\Pfad\Datei.txt` ```
+    - {file}`C:\Pfad\Datei.txt`
+  * - `{menuselection}`
+    - ``` {menuselection}`Datei --> Neu` ```
+    - {menuselection}`Datei --> Neu`
+  * - `{guilabel}`
+    - ``` {menuselection}`OK` ```
+    - {guilabel}`OK`
+  * - `{command}`
+    - ``` {command}`git commit` ```
+    - {command}`git commit`
+  * - `{abbr}`
+    - ``` {abbr}`HTML (HyperText Markup Language)` ```
+    - {abbr}`HTML (HyperText Markup Language)`
+  * - `{dfn}`
+    - ``` {dfn}`Fourier-Transformation` ```
+    - {dfn}`Fourier-Transformation`
+  * - `{samp}`
+    - ``` {samp}`python {script}.py` ```
+    - {samp}`python {script}.py`
+```
+
 ### Typografie und Lesbarkeit
 
 Eine gute Dokumentation ist nicht nur korrekt, sondern **lesbar**.

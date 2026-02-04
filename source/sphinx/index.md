@@ -48,6 +48,8 @@ section/installation
 section/struktur
 section/layout
 section/abbildungen
+section/tabellen
+section/mathematik
 section/nummerierung-referenzen.md
 section/mermaid
 ```

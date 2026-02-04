@@ -10,8 +10,6 @@ Index-Seite bereits live
 :maxdepth: 1
 :caption: Inhaltsverzeichnis
 
-section/mathematik
-section/tabellen
 section/code
 section/veroeffentlichen
 section/pdf

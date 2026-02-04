@@ -1,5 +1,201 @@
 # Mathematik
 
+Sphinx unterstützt mathematische Notation vollständig über **LaTeX-Syntax**, die zur Laufzeit durch **MathJax** im Browser gerendert wird. Dabei wird zwischen **Inline-Mathematik** und **abgesetzten Formelblöcken** unterschieden.
+
+(Konfiguration MathJax)=
+## Konfiguration
+
+Damit alle im folgenden beschriebenen Funktionen zuverlässig arbeiten, sind die folgenden Einstellungen in der `conf.py` erforderlich:
+
+```{code-block} python
+:caption: Konfiguration von MathJax
+:linenos:
+
+# -- MathJax ----------------------------------------------------------------
+# Optionen speziell für die Mathe-Verarbeitung (dollarmath/amsmath)
+extensions.append("sphinx.ext.mathjax")           # MathJax für Matheformeln
+
+myst_dmath_allow_labels = True  # erlaubt \label{} und \ref{} innerhalb von $$...$$
+myst_dmath_allow_space  = True  # erlaubt $x = y$ auch mit Leerzeichen nach dem ersten $
+myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehler
+
+mathjax3_config = {
+    "loader": {"load": ["[tex]/color"]},
+    "tex": {
+        "packages": {"[+]": ["color"]},
+        "macros": {
+            "red":    ["{\\color[RGB]{214,39,40} #1}", 1],     # D62728
+            "blue":   ["{\\color[RGB]{31,119,180} #1}", 1],    # 1F77B4
+            "green":  ["{\\color[RGB]{44,160,44} #1}", 1],     # 2CA02C
+            "orange": ["{\\color[RGB]{255,127,14} #1}", 1],    # FF7F0E
+            "purple": ["{\\color[RGB]{148,103,189} #1}", 1],   # 9467BD
+            "cyan":   ["{\\color[RGB]{23,190,207} #1}", 1],    # 17BECF
+            "teal":   ["{\\color[RGB]{42,161,152} #1}", 1],    # 2AA198
+            "gray":   ["{\\color[RGB]{110,110,110} #1}", 1],   # 6E6E6E
+        },
+        "inlineMath": [
+            ["$", "$"],       # $ ... $ als Inline-Math
+            ["\\(", "\\)"],   # \( ... \) ebenfalls
+        ],
+        "displayMath": [
+            ["$$", "$$"],     # $$ ... $$ als Display-Math
+            ["\\[", "\\]"],   # \[ ... \] ebenfalls
+        ],
+    },
+}
+```
+
+Diese Optionen sorgen dafür, dass:
+- MathJax generell aktiviert wird,
+- Gleichungen sauber referenzierbar sind,
+- natürlich geschriebene Mathematik nicht zu Parserfehlern führt,
+- wir später Gleichungen {ref}`Einfärben <Einfärben mathematischer Ausdrücke>` können
+- und PDFs sauber aussteuern können.
+
+## Inline-Mathematik
+
+Inline-Mathematik wird verwendet, um kurze mathematische Ausdrücke innerhalb eines Fließtexts darzustellen.
+
+```{code-block} markdown
+:caption: Inline-Mathematik
+:linenos:
+
+Die Energie ist gegeben durch $E = mc^2$.
+```
+
+Gerendert erscheint der Ausdruck direkt im Textfluss:
+> Die Energie ist gegeben durch $E = mc^2$.
+
+Inline-Mathematik eignet sich für:
+
+- einzelne Variablen,
+- kurze Formeln,
+- mathematische Symbole im Satz.
+
+```{note}
+Inline-Mathematik sollte **sparsam** eingesetzt werden.\
+Längere oder strukturierte Ausdrücke beeinträchtigen die Lesbarkeit und gehören in einen Formelblock.
+```
+
+## Abgesetzte Formelblöcke mit $$ ... $$
+
+Für größere mathematische Ausdrücke oder Gleichungen wird Display-Math verwendet. In MyST-Markdown geschieht dies über doppelte Dollarzeichen:
+
+```{code-block} markdown
+:caption: Abgesetzte Formelblöcke ($$)
+:linenos:
+
+$$
+E = mc^2
+$$
+```
+
+Diese Schreibweise erzeugt eine zentrierte, eigenständige Gleichung.
+
+````{admonition} Gerendertes Ausgabe
+:class: note
+
+$$E = mc^2$$
+```` 
+
+## Die `math`-Direktive
+
+Neben der Dollar-Syntax unterstützt Sphinx explizit die math-Direktive:
+
+````{code-block} markdown
+:caption: math-Direktive
+:linenos:
+
+```{math}
+E = mc^2
+```
+````
+
+````{admonition} Gerendertes Ausgabe
+:class: note
+
+```{math}
+E = mc^2
+```
+````
+
+Diese Schreibweise ist funktional äquivalent zu `$$ ... $$`, bietet jedoch:
+
+- klarere Semantik,
+- bessere Lesbarkeit im Quelltext,
+- saubere Abgrenzung in komplexen Dokumenten.
+
+Für umfangreiche mathematische Abschnitte ist die `{math}`-Direktive die robustere Wahl.
+
+### Mehrzeilige Formeln und `align`
+
+Für mehrere Gleichungen oder Ausrichtung an Gleichheitszeichen kann die LaTeX-Umgebung `align` genutzt werden:
+
+````{code-block} markdown
+:caption: math-Direktive
+:linenos:
+
+```{math}
+\begin{align}
+E &= mc^2 \\
+\sqrt{x^{2} + y^{2}} &= r
+\end{align}
+```
+````
+
+Dabei gilt:
+
+- `&` markiert die Ausrichtungsstelle,
+- `\\` erzeugt einen Zeilenumbruch.
+
+Diese Form ist besonders geeignet für Herleitungen und Systeme von Gleichungen.
+
+````{admonition} Gerendertes Ausgabe
+:class: note
+
+```{math}
+\begin{align}
+E &= mc^2 \\
+\sqrt{x^{2} + y^{2}} &= r
+\end{align}
+```
+````
+
+(Einfärben mathematischer Ausdrücke)=
+## Einfärben mathematischer Ausdrücke
+
+Im Abschnitt {ref}`Konfiguration MathJax` haben wir bereits Farben definiert, die der **Standardfarbpalette von Matplotlib** entsprechen. Diese Liste ist beliebig erweiterbar.
+
+Das Einfärben von Formeln ist besonders nützlich, um:
+
+- Variablen hervorzuheben,
+- Terme zu unterscheiden,
+- didaktische Akzente zu setzen.
+
+Die Farben können direkt in mathematischen Ausdrücken genutzt werden:
+
+```{code-block} markdown
+:caption: eingefärbte Formel
+:linenos:
+
+$$
+E = \red{m} \blue{c}^2
+$$
+```
+
+$$E = \red{m} \blue{c}^2$$
+
+Oder in Inline-Mathematik:
+
+```{code-block} markdown
+:caption: eingefärbte Inline-Mathematik
+:linenos:
+
+Die Masse $\green{m}$ bestimmt die Energie.
+```
+
+> Die Masse $\green{m}$ bestimmt die Energie.
+
 ## Lokale Einbindung von MathJax
 
 Für die Darstellung mathematischer Ausdrücke in Sphinx wird wie eingangs beschrieben standardmäßig **MathJax** verwendet. In der Voreinstellung bindet Sphinx MathJax über ein externes **Content Delivery Network** (*CDN*) ein.\

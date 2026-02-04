@@ -12,6 +12,3 @@ Im Zentrum stehen die beiden großen Werkzeuge:
 Von der klassischen Mechanik bis hin zur Quantenphysik bilden diese beiden großen Werkzeuge das Herzstück des physikalischen Denkens.
 
 Doch geht die Analysis weit über Ableitungen und Integrale hinaus.
-Sie bietet Methoden, um komplexe Funktionen zu transformieren, zu approximieren und in andere Räume zu überführen.
-So können wir Signale im Frequenzraum analysieren, Systeme stabilisieren oder physikalische Prozesse simulieren.
-Transformationen wie die **Fourier-** oder **Laplace-Transformation** sind dabei keine rein mathematischen Hirngespinste, sondern praktische Werkzeuge, mit denen wir die Sprache der Natur verstehen können.
