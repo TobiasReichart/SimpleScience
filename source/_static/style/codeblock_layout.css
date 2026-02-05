@@ -41,47 +41,47 @@ div.highlight::before {
 }
 
 /* ===========================================================================
-   SPRACH-ZUORDNUNG (nur Variablen setzen, kein Duplizieren)
+   SPRACH-ZUORDNUNG
    Sphinx/Pygments erzeugt Klassen wie .highlight-bash, .highlight-python, ...
    =========================================================================== */
 
 /* Bash / Konsole */
-div.highlight-bash    { --code-title: "Bash";     --code-title-bg: #000;    --code-title-fg: #fff; }
-div.highlight-console { --code-title: "Konsole";  --code-title-bg: #000;    --code-title-fg: #fff; }
+div.highlight-bash    { --code-title: "Bash";    --code-title-bg: #000;    --code-title-fg: #fff; }
+div.highlight-console { --code-title: "Konsole"; --code-title-bg: #000;    --code-title-fg: #fff; }
 
 /* Windows Batch */
-div.highlight-bat     { --code-title: "Batch";    --code-title-bg: #000;    --code-title-fg: #fff; }
+div.highlight-bat     { --code-title: "Batch"; --code-title-bg: #000;    --code-title-fg: #fff; }
 
 /* Python */
-div.highlight-python  { --code-title: "Python";   --code-title-bg: #3771a1; --code-title-fg: #fff; }
+div.highlight-python  { --code-title: "Python"; --code-title-bg: #3771a1; --code-title-fg: #fff; }
 
 /* LaTeX */
-div.highlight-latex   { --code-title: "LaTeX";    --code-title-bg: #343131; --code-title-fg: #fff; }
+div.highlight-latex   { --code-title: "LaTeX"; --code-title-bg: #343131; --code-title-fg: #fff; }
 
 /* Markdown (MyST) */
 div.highlight-markdown{ --code-title: "MyST-Markdown"; --code-title-bg: #f37726; --code-title-fg: #fff; }
 
 /* TOML / JSON */
-div.highlight-toml    { --code-title: "TOML";     --code-title-bg: #9c4221; --code-title-fg: #fff; }
-div.highlight-json    { --code-title: "JSON";     --code-title-bg: #434343; --code-title-fg: #fff; }
+div.highlight-toml    { --code-title: "TOML"; --code-title-bg: #9c4221; --code-title-fg: #fff; }
+div.highlight-json    { --code-title: "JSON"; --code-title-bg: #434343; --code-title-fg: #fff; }
 
 /* BibTeX / reST / CSS / C# / XML */
-div.highlight-bibtex  { --code-title: "BibTeX";   --code-title-bg: #343131; --code-title-fg: #fff; }
-div.highlight-rst     { --code-title: "reST";     --code-title-bg: #343131; --code-title-fg: #fff; }
-div.highlight-css     { --code-title: "CSS";      --code-title-bg: #66309a; --code-title-fg: #fff; }
-div.highlight-csharp  { --code-title: "C#";       --code-title-bg: #66309a; --code-title-fg: #fff; }
-div.highlight-xml     { --code-title: "XML";      --code-title-bg: #439eff; --code-title-fg: #fff; }
+div.highlight-bibtex  { --code-title: "BibTeX"; --code-title-bg: #343131; --code-title-fg: #fff; }
+div.highlight-rst     { --code-title: "reST";   --code-title-bg: #343131; --code-title-fg: #fff; }
+div.highlight-css     { --code-title: "CSS";    --code-title-bg: #66309a; --code-title-fg: #fff; }
+div.highlight-csharp  { --code-title: "C#";     --code-title-bg: #66309a; --code-title-fg: #fff; }
+div.highlight-xml     { --code-title: "XML";    --code-title-bg: #439eff; --code-title-fg: #fff; }
 
 /* Mermaid */
-div.highlight-text     { --code-title: "Mermaid";      --code-title-bg: #ff3670; --code-title-fg: #fff; }
+div.highlight-text     { --code-title: "Mermaid"; --code-title-bg: #ff3670; --code-title-fg: #fff; }
 
 /* Optional: Ordnerstruktur (keine Sprache → oft "none") */
 div.highlight-none    { --code-title: "Ordnerstruktur"; --code-title-bg: #3b3b3b; --code-title-fg: #fff; }
 
 /* Copy-Button unter Kopfzeile */
 div.highlight .copybtn {
-  position: absolute;
-  top: 35px;
-  right: 8px;
-  z-index: 2;
+  position: absolute;    /* entkoppeln der Position vom Fließlayout */
+  top: 35px;             /* Abstand vom oberen Rand */
+  right: 8px;            /* Abstand vom rechten Rand */
+  z-index: 2;            /* verhindern von Überlagerung durch andere Layer */
 }

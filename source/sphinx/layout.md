@@ -126,7 +126,7 @@ Das ist der Inhalt der Hinweisbox.
 ```
 ````
 
-```{figure} ../../_static/img/sphinx/layout/hinweisbox-standard.png
+```{figure} ../_static/img/sphinx/layout/hinweisbox-standard.png
 :align: center
 :width: 100%
 
@@ -149,7 +149,7 @@ Dieser Text nutzt den Stil von `note`, trägt aber einen eigenen Titel.
 ```
 ````
 
-```{figure} ../../_static/img/sphinx/layout/hinweisbox-eigene-titel.png
+```{figure} ../_static/img/sphinx/layout/hinweisbox-eigene-titel.png
 :align: center
 :width: 100%
 
@@ -283,7 +283,7 @@ Beispiel:
 :linenos:
 
 ````{only} html
-```{figure} ../../_static/img/example.svg
+```{figure} ../_static/img/example.svg
 :width: 80%
 ```
 ```` 
@@ -328,7 +328,7 @@ Am Beispiel der `figure`-Direktive:
 :caption: Beispielhafte Verwendung von Optionen in der figure-Direktive
 :linenos:
 
-```{figure} ../../_static/img/mermaid/venv.svg
+```{figure} ../_static/img/mermaid/venv.svg
 :width: 90%
 :align: center
 :name: fig-venv

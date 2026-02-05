@@ -42,7 +42,7 @@ Dabei gilt:
 - `:caption:` erzeugt die Überschrift, die in der Sidebar über den anwählbaren Seitenlinks angezeigt wird
 - Die Hauptüberschrift eines Artikels `# ...` aus der ersten Zeile wird als verlinkter Text in der Sidebar angezeigt (hier: Installation, Struktur und Navigation, Layout)
 
-```{figure} ../../_static/img/sphinx/struktur/toctree.png
+```{figure} ../_static/img/sphinx/struktur/toctree.png
 :width: 40%
 :align: center
 
@@ -305,7 +305,7 @@ Bewährt haben sich insbesondere die folgenden Erweiterungen:
     Allgemeine Rechtschreibprüfung für Quelltexte, Markdown und Konfigurationsdateien.\
     siehe: [https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 
-```{figure} ../../_static/img/sphinx/struktur/code_spell_checker.png
+```{figure} ../_static/img/sphinx/struktur/code_spell_checker.png
 :width: 80%
 :align: center
 
@@ -316,7 +316,7 @@ Code Spell Checker Erweiterung in VS Code
     Ergänzt deutsche Wörterbücher und reduziert Fehlalarme in deutschsprachigen Texten.\
     siehe: [https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-german](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-german)
 
-```{figure} ../../_static/img/sphinx/struktur/german_code_spell_checker.png
+```{figure} ../_static/img/sphinx/struktur/german_code_spell_checker.png
 :width: 80%
 :align: center
 
@@ -396,7 +396,7 @@ In Visual Studio Code erfolgt dies komfortabel direkt aus dem Editor heraus:
 
 Der Begriff ist anschließend im gesamten Projekt als korrekt akzeptiert.
 
-```{figure} ../../_static/img/sphinx/struktur/woerterbuch.png
+```{figure} ../_static/img/sphinx/struktur/woerterbuch.png
 :width: 70%
 :align: center
 
@@ -415,7 +415,7 @@ Neben dem Hinzufügen eigener Wörter bietet der Code Spell Checker auch **konte
 - Diese Vorschläge basieren auf dem aktiven Wörterbuch sowie der Umgebung (Deutsch / Englisch).
 - Die gewünschte Korrektur kann direkt ausgewählt und übernommen werden.
 
-```{figure} ../../_static/img/sphinx/struktur/spelling.png
+```{figure} ../_static/img/sphinx/struktur/spelling.png
 :width: 60%
 :align: center
 

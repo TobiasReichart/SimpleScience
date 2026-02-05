@@ -22,7 +22,7 @@ Eine Abbildung besteht konzeptionell aus:
 - optionalem **Label** (für Referenzen),
 - optionalen **Layout-Optionen** (Größe, Ausrichtung, …).
 
-```{figure} ../../_static/img/sphinx/abbildungen/beispielgrafik.png
+```{figure} ../_static/img/sphinx/abbildungen/beispielgrafik.png
 :align: center
 :width: 80%
 
@@ -94,7 +94,7 @@ Die `figure`-Direktive ist der Standard in Dokumentationen mit Sphinx, da sie **
 
 ````{code-block} markdown
 
-```{figure} ../../_static/img/sphinx/abbildungen/beispielgrafik.png
+```{figure} ../_static/img/sphinx/abbildungen/beispielgrafik.png
 :align: center
 :width: 80%
 
@@ -183,7 +183,7 @@ Nach einem erneuten Build steht die Grid-Funktionalität projektweit zur Verfüg
 :gutter: 2
 
 ````{grid-item}
-```{figure} ../../_static/img/Logo/Logo-black.png
+```{figure} ../_static/img/Logo/Logo-black.png
 :align: center
 :width: 100%
 :name: fig-links
@@ -192,7 +192,7 @@ Linke Abbildung
 ```
 ````
 ````{grid-item}
-```{figure} ../../_static/img/Logo/Logo-black.png
+```{figure} ../_static/img/Logo/Logo-black.png
 :align: center
 :width: 100%
 :name: fig-rechts
@@ -218,7 +218,7 @@ Dabei gilt:
 :gutter: 2
 
 ````{grid-item}
-```{figure} ../../_static/img/Logo/Logo-black.png
+```{figure} ../_static/img/Logo/Logo-black.png
 :align: center
 :width: 100%
 :name: fig-links
@@ -227,7 +227,7 @@ Linke Abbildung
 ```
 ````
 ````{grid-item}
-```{figure} ../../_static/img/Logo/Logo-black.png
+```{figure} ../_static/img/Logo/Logo-black.png
 :align: center
 :width: 100%
 :name: fig-rechts

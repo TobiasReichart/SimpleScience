@@ -48,7 +48,7 @@ flowchart LR
 ```
 ````
 
-```{figure} ../../_static/img/sphinx/mermaid/while_true.svg
+```{figure} ../_static/img/sphinx/mermaid/while_true.svg
 :width: 100%
 :align: center
 
@@ -95,7 +95,7 @@ Für die Erstellung und Vorschau von Mermaid-Diagrammen empfiehlt sich Visual St
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - VS-Code-Erweiterung [Mermaid Preview](https://marketplace.visualstudio.com/items?itemName=vstirbu.vscode-mermaid-preview)
 
-```{figure} ../../_static/img/sphinx/mermaid/mermaid_preview.png
+```{figure} ../_static/img/sphinx/mermaid/mermaid_preview.png
 :width: 80%
 :align: center
 
@@ -155,7 +155,7 @@ Die Erweiterung *Mermaid Preview* ermöglicht eine grafische Vorschau des Diagra
 Die Vorschau erfolgt in einem **separaten Fenster**, unabhängig von Markdown- oder Sphinx-Vorschauen.
 
 
-```{figure} ../../_static/img/sphinx/mermaid/mermaid_preview_vscode.png
+```{figure} ../_static/img/sphinx/mermaid/mermaid_preview_vscode.png
 :width: 100%
 :align: center
 
@@ -169,7 +169,7 @@ Aus der Vorschau heraus kann das Diagramm direkt als SVG oder PNG exportiert wer
 1. Links oben in der Ecke der Vorschau auf den Download-Pfeil
 2. Image as SVG
 
-```{figure} ../../_static/img/sphinx/mermaid/save_as.png
+```{figure} ../_static/img/sphinx/mermaid/save_as.png
 :width: 80%
 :align: center
 

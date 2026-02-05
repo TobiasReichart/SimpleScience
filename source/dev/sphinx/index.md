@@ -10,7 +10,6 @@ Index-Seite bereits live
 :maxdepth: 1
 :caption: Inhaltsverzeichnis
 
-section/code
 section/veroeffentlichen
 section/pdf
 ```

@@ -44,12 +44,13 @@ Im Rahmen von **SimpleScience** wird Sphinx zur Bereitstellung der Dokumentation
 :maxdepth: 1
 :caption: Inhaltsverzeichnis
 
-section/installation
-section/struktur
-section/layout
-section/abbildungen
-section/tabellen
-section/mathematik
-section/nummerierung-referenzen.md
-section/mermaid
+installation
+struktur
+layout
+abbildungen
+tabellen
+mathematik
+code
+nummerierung-referenzen.md
+mermaid
 ```

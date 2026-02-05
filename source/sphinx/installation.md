@@ -275,7 +275,7 @@ Sphinx-Projekt
 
 Im Browser erscheint daraufhin die folgende Ansicht:
 
-```{figure} ../../_static/img/sphinx/installation/default-theme.png
+```{figure} ../_static/img/sphinx/installation/default-theme.png
 :align: center
 :width: 100%
 
@@ -396,7 +396,7 @@ sphinx-build -b html source build/html
 Nach dem erfolgreichen Build kann die Seite im Browser mit kbd`F5` aktualisiert werden.\
 Das Layout erscheint nun im **Read the Docs**-Design:
 
-```{figure} ../../_static/img/sphinx/installation/rtd-theme.png
+```{figure} ../_static/img/sphinx/installation/rtd-theme.png
 :align: center
 :width: 100%
 

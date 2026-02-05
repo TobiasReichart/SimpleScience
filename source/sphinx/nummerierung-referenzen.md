@@ -76,7 +76,7 @@ Eine Abbildung wird mit einem expliziten Namen versehen, um sie verlinken zu kö
 :caption: Abbildungen referenzieren
 :linenos:
 
-```{figure} ../../_static/img/Logo/Logo-black.png
+```{figure} ../_static/img/Logo/Logo-black.png
 :width: 40%
 :align: center
 :name: logo
@@ -90,7 +90,7 @@ siehe {numref}`logo`
 ```{admonition} Gerendertes Ausgabe
 :class: note
 
-```{figure} ../../_static/img/Logo/Logo-black.png
+```{figure} ../_static/img/Logo/Logo-black.png
 :width: 40%
 :align: center
 :name: logo

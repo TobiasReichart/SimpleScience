@@ -1,7 +1,7 @@
 {
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python",
   "python.terminal.activateEnvironment": true,
-  "editor.rulers": [],
+  "editor.rulers": [80],
 
   "cSpell.enabled": true,             // Erweiterung für das Projekt aktivieren
   "cSpell.language": "de",            // Deutsch als primäre Prüfsprache
