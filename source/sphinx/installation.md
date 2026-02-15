@@ -42,7 +42,7 @@ python -m venv .venv
 
 Falls die Ausführung blockiert ist:
 ```{code-block} console
-Set-ExecutionPolicy -Scope Process Bypass
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 *(wirkt nur für die aktuelle Session)*
 
@@ -129,7 +129,7 @@ Unter **Windows** kann im gewünschten Ordner durch klicken mit der **rechten Ma
 
 Unter **macOS** kann schlicht auf den gewünschten Zielordner mit der **rechten Maustaste** geklickt werden und ein Terminal durch *Neues Terminal beim Ordner* geöffnet werden.
 
-In **beiden** Betriebssystemen ist zum einen das navigieren im Terminal mit `cd` möglich, zum anderen kann das Terminal in VS Code verwendt werden (hier muss der Zielordner im Explorer von VS Code geöffnet sein).
+In **beiden** Betriebssystemen ist zum einen das navigieren im Terminal mit `cd` möglich, zum anderen kann das Terminal in VS Code verwendet werden (hier muss der Zielordner im Explorer von VS Code geöffnet sein).
 ```
 
 In dem nun geöffneten Terminal kann nun durch die Eingabe von `sphinx-quickstart` und anschließende Bestätigung durch {kbd}`Enter` die Erstellung einer neuen Dokumentation gestartet werden. 
@@ -409,7 +409,7 @@ Standardmäßig wird das Copyright-Jahr in der `conf.py` als fester Wert hinterl
 Für langfristige Projekte ist es sinnvoll, dieses Jahr automatisch aus dem aktuellen Systemdatum zu erzeugen.
 
 Hierzu kann die `conf.py` minimal erweitert werden.\
-Dabei ist zu beachten, dass die Variable `author` vor c`opyright` definiert sein muss.
+Dabei ist zu beachten, dass die Variable `author` vor `copyright` definiert sein muss.
 
 ```{code-block} python
 :caption: Automatische Jahresangabe im Copyright

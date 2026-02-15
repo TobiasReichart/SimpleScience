@@ -36,7 +36,7 @@ Themes bieten häufig zusätzliche Optionen, die über `html_theme_options` konf
 Eine ausführliche Beschreibung aller Funktionen, die das Theme bietet, findet sich unter dem folgenden Link:\
 [https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html](https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html)
 
-Es bietet sich an, diese Einstellungen unter der Variable `thml_theme` vorzunehmen.\
+Es bietet sich an, diese Einstellungen unter der Variable `html_theme` vorzunehmen.\
 In diesem Projekt wurden die folgenden Einstellungen gesetzt:
 
 ```{code-block} python
