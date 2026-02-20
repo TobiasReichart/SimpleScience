@@ -57,8 +57,16 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ```{toctree}
 :maxdepth: 1
-:caption: Inhaltsverzeichnis
+:caption: Workflow & Tools
 
-section/venv
-section/cheatsheet
+workflow/venv
+workflow/cheatsheet
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Software Engineering
+
+software-engineering/unittest
+software-engineering/design-pattern/index
 ```

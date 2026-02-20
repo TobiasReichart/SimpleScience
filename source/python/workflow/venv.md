@@ -1,6 +1,82 @@
 (Virtuelle Umgebungen)=
 # Virtuelle Umgebungen
 
+## Quickstart
+
+`````{tab-set}
+:sync-group: os
+````{tab-item} Windows
+:sync: win
+**Erstellen einer virtuellen Umgebung im Ordner** `.venv`
+```{code-block} console
+python -m venv .venv
+```
+**Aktivieren der Umgebung**
+```{code-block} console
+.venv\Scripts\Activate.ps1
+```
+
+Falls die Ausführung blockiert ist:
+```{code-block} console
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+*(wirkt nur für die aktuelle Session)*
+
+**Aktualisieren von pip innerhalb der venv** (saubere Basis)
+```{code-block} console
+python -m pip install -U pip
+```
+**Installieren der Pakete in der venv**
+```{code-block} console
+python -m pip install <paket1> <paket2>
+```
+**Schreiben der Paketversionen in** `requirements.txt`
+```{code-block} console
+python -m pip freeze > requirements.txt
+```
+**Reproduzieren der venv anhand von** `requirements.txt`
+```{code-block} console
+python -m pip install -r requirements.txt
+```
+**Deaktivieren der virtuellen Umgebung**
+```{code-block} console
+deactivate
+```
+````
+
+````{tab-item} macOS
+:sync: mac
+**Erstellen einer virtuellen Umgebung im Ordner** `.venv`
+```{code-block} console
+python3 -m venv .venv
+```
+**Aktivieren der Umgebung**
+```{code-block} console
+source .venv/bin/activate
+```
+**Aktualisieren von pip innerhalb der venv** (saubere Basis)
+```{code-block} console
+python -m pip install -U pip
+```
+**Installieren der Pakete in der venv**
+```{code-block} console
+python -m pip install <paket1> <paket2>
+```
+**Schreiben der Paketversionen in** `requirements.txt`
+```{code-block} console
+python -m pip freeze > requirements.txt
+```
+**Reproduzieren der venv anhand von** `requirements.txt`
+```{code-block} console
+python -m pip install -r requirements.txt
+```
+**Deaktivieren der virtuellen Umgebung**
+```{code-block} console
+deactivate
+```
+````
+`````
+
 ## Motivation & Überblick
 
 ### Was ist eine „virtuelle Umgebung“?
