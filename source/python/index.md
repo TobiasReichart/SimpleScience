@@ -60,7 +60,6 @@ Namespaces are one honking great idea -- let's do more of those!
 :caption: Workflow & Tools
 
 workflow/venv
-workflow/cheatsheet
 ```
 
 ```{toctree}

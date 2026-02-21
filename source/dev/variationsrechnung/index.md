@@ -6,13 +6,8 @@ Nicht mehr eine **Zahl** wird so gewählt, dass eine Funktion minimal wird, stat
 In vielen physikalischen Problemen ist die gesuchte Bewegung nicht dadurch charakterisiert, dass sie "zufällig" eine Differentialgleichung erfüllt. Vielmehr lässt sie sich als Lösung eines stationären Prinzips verstehen. Eine Länge, eine Laufzeit oder in der Mechanik die Wirkung ändert sich unter kleinen Variationen der Bahn im ersten Schritt nicht.
 
 Man hört gelegentlich die verkürzte Aussage, die Natur "nehme den energetisch günstigsten Weg". Diese Intuition trifft den Kern nur teilweise. Entscheidend ist zunächst **Stationarität** (nicht zwingend ein Minimum).\
-Aus einer einzigen globalen Forderung folgt eine lokale Differentialgleichung für die optimale Kurve.\
-Das ist es, was diesen Ansatz so spannend macht.
+Aus einer einzigen globalen Forderung folgt eine lokale Differentialgleichung für die optimale Kurve. Das ist es, was diesen Ansatz so spannend macht.
 
-$$ J \left[ y \right] = \int_{a}^{b} L \left(x, y, y^{\prime} \right) \mathrm{d}x$$
-
-
-Damit wird eine überraschende Verbindung möglich:\
 Dieselbe mathematische Struktur erklärt, warum ein Seil zwischen zwei festen Punkten in einer bestimmten Form durchhängt, aber auch warum Licht an einer Grenzfläche seinen Weg "knickt", woraus als Konsequenz das Brechungsgesetz von Snell folgt.
 
 ```{hint}
@@ -22,7 +17,7 @@ Hier kommen zwei Grafiken hin: (1) Seil zwischen zwei Punkten (Längen-/Energiep
 ```
 
 Genau diese Perspektive ist später die Brücke zur Lagrange-Mechanik.\
-Nicht Kräfte stehen am Anfang, sondern ein Prinzip. Aus diesem diesem Prinzip ergeben sich die Bewegungsgleichungen als notwendige Bedingung.
+Nicht Kräfte stehen am Anfang, sondern ein Prinzip, aus dem sich die Bewegungsgleichungen als notwendige Bedingung ergeben.
 
 ```{toctree}
 :maxdepth: 1
@@ -30,4 +25,5 @@ Nicht Kräfte stehen am Anfang, sondern ein Prinzip. Aus diesem diesem Prinzip e
 
 grundbefriffe-notation
 herleitung-euler-lagrange
+aufgaben
 ```
