@@ -11,4 +11,11 @@ Im Zentrum stehen die beiden großen Werkzeuge:
 
 Von der klassischen Mechanik bis hin zur Quantenphysik bilden diese beiden großen Werkzeuge das Herzstück des physikalischen Denkens.
 
-Doch geht die Analysis weit über Ableitungen und Integrale hinaus.
+Doch geht die Analysis weit über Ableitungen und Integrale hinaus...
+
+```{toctree}
+:maxdepth: 1
+:caption: Inhaltsverzeichnis
+
+variationsrechnung/index
+```

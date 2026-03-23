@@ -1,4 +1,4 @@
-# Grundbegriffe und Notation
+# Snells Brechungsgesetz
 
 ```{admonition} In Vorbereitung
 :class: hint

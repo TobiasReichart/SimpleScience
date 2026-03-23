@@ -73,9 +73,9 @@ myst_dmath_allow_space  = True  # erlaubt $x = y$ auch mit Leerzeichen nach dem 
 myst_dmath_allow_digits = True  # erlaubt $3x$ (Ziffer direkt nach $) statt Fehler
 
 mathjax3_config = {
-    "loader": {"load": ["[tex]/color"]},
+    "loader": {"load": ["[tex]/color", "[tex]/cancel"]},
     "tex": {
-        "packages": {"[+]": ["color"]},
+        "packages": {"[+]": ["color", "cancel"]},
         "macros": {
             "red":    ["{\\color[RGB]{214,39,40} #1}", 1],     # D62728
             "blue":   ["{\\color[RGB]{31,119,180} #1}", 1],    # 1F77B4
@@ -85,6 +85,8 @@ mathjax3_config = {
             "cyan":   ["{\\color[RGB]{23,190,207} #1}", 1],    # 17BECF
             "teal":   ["{\\color[RGB]{42,161,152} #1}", 1],    # 2AA198
             "gray":   ["{\\color[RGB]{110,110,110} #1}", 1],   # 6E6E6E
+
+            "ccancel": ["#1{\\cancel{\\color{black}{#2}}}", 2], # Kürzen
         },
         "inlineMath": [
             ["$", "$"],       # $ ... $ als Inline-Math

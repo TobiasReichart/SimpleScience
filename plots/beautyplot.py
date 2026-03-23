@@ -31,6 +31,7 @@ class PlotStyle:
         "cyan":   "#17BECF",
         "teal":   "#2AA198",
         "gray":   "#6E6E6E",
+        "black":  "#000000"
     })
     figure_transparent: bool = True     # nur der Rand außerhalb der Axes
 

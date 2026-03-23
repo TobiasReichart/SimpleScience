@@ -1,4 +1,4 @@
-# Herleitung der Euler-Lagrange-Gleichung
+# Die kontinuierliche Brechung
 
 ```{admonition} In Vorbereitung
 :class: hint
