@@ -20,7 +20,7 @@ Galileo Galilei hatte in seinem Werk *Discorsi* (1638) richtigerweise vermutet, 
 
 Eine legendäre Anekdote zu diesem Problem geht auf Sir Isaac Newton zurück. Er erhielt das Problem nach einem langen Arbeitstag in der Münzanstalt. Er löste es noch in derselben Nacht und schickte die Antwort anonym zurück. Als Johann Bernoulli die Lösung sah, erkannte er sofort den Stil des Engländers und rief aus: "*Ex ungue leonem*" (Man erkennt den Löwen an seiner Klaue).
 
-## Ausgangspunkt
+## Ausgangslage
 
 In *schnellste Notrutsche I* wollen wir das Problem unter den folgenden Voraussetzungen betrachten:
 
@@ -38,9 +38,16 @@ Die Bahn ist am Anfang steil $\rightarrow$ schnell Geschwindigkeit aufbauen.\
 Die Bahn ist am Ende flach $\rightarrow$ hohe Geschwindigkeit ausnutzen.
 ````
 
-Um die Kurve der schnellsten Reise zu finden, müssen wir die Gesamtzeit $T$ als Funktion der Kurvenform $y(x)$ ausdrücken. Dies geschieht in drei logischen Schritten:
+Um die Kurve der schnellsten Reise zu finden, müssen wir die Gesamtzeit $T$ als Funktion der Kurvenform $y(x)$ ausdrücken.
 
+```{warning}
+Die folgende Herleitung ist bewusst direkt über die Euler-Lagrange-Gleichung geführt.  
+Sie ist korrekt, aber algebraisch aufwändig.
 
+Gerade daran soll sichtbar werden, dass bei Variationsproblemen nicht nur die formale Anwendung der Theorie entscheidend ist, sondern bereits die Wahl einer geschickten Modellierung oder einer geeigneten Erhaltungsgröße.
+
+Wir rechnen diesen Weg hier daher bewusst einmal aus. Nicht weil er der eleganteste ist, sondern weil er zeigt, warum man im Vorfeld über die Struktur eines Problems nachdenken sollte.
+```
 
 Da der Körper in unserer Annahme die Bahn **reibungsfrei** hinunter rutscht, muss die Energie erhalten bleiben.
 
@@ -130,7 +137,7 @@ $$\frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\partial F}{\partial y^{\prime}} 
 
 mit
 
-$$A(x) = \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{1}{2}} \quad \text{und} \quad B(x) = \left[ 2 g \left( y_{1} - y \right) \right]^{-\frac{1}{2}},$$
+$$A(x) = \left[ 2 g \left( y_{1} - y \right) \right]^{-\frac{1}{2}} \quad \text{und} \quad B(x) = \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{1}{2}},$$
 
 wobei $A \coloneqq A(x)$ und $B \coloneqq B(x)$.
 
@@ -142,13 +149,13 @@ $$\frac{\mathrm{d}}{\mathrm{d} x} \left( \frac{\partial F}{\partial y^{\prime}} 
 :class: hint
 
 ```{math}
-\frac{\mathrm{d}}{\mathrm{d} x} A &= - \ccancel{\red}{\frac{1}{2}} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{3}{2}} \ccancel{\red}{2} y^{\prime} y^{\prime \prime} \\
-A^{\prime} &= - y^{\prime} y^{\prime \prime} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{3}{2}}
+\frac{\mathrm{d}}{\mathrm{d} x} A &= \ccancel{\red}{- \frac{1}{2}} \left[ 2g \left( y_{1} - y \right) \right]^{-\frac{3}{2}} \cdot \ccancel{\red}{-2} g y^{\prime} \\
+A^{\prime} &= g y^{\prime} \left[ 2g \left( y_{1} - y \right) \right]^{-\frac{3}{2}}
 ```
 ---
 ```{math}
-\frac{\mathrm{d}}{\mathrm{d} x} B &= \ccancel{\red}{- \frac{1}{2}} \left[ 2g \left( y_{1} - y \right) \right]^{-\frac{3}{2}} \cdot \ccancel{\red}{-2} g y^{\prime} \\
-B^{\prime} &= g y^{\prime} \left[ 2g \left( y_{1} - y \right) \right]^{-\frac{3}{2}}
+\frac{\mathrm{d}}{\mathrm{d} x} B &= - \ccancel{\red}{\frac{1}{2}} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{3}{2}} \ccancel{\red}{2} y^{\prime} y^{\prime \prime} \\
+B^{\prime} &= - y^{\prime} y^{\prime \prime} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{3}{2}}
 ```
 ````
 
@@ -157,21 +164,22 @@ Eingesetzt in die die Terme 1, 2 und 3 ergibt sich:
 **Term 1**
 
 ```{math}
-y^{\prime \prime} A B = y^{\prime \prime} \cdot \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{1}{2}} \cdot \left[ 2 g \left( y_{1} - y \right) \right]^{-\frac{1}{2}} \\
+y^{\prime \prime} A B &= y^{\prime \prime} \cdot \left[ 2 g \left( y_{1} - y \right) \right]^{-\frac{1}{2}} \cdot \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{1}{2}} \\
+&= \frac{y^{\prime \prime}}{\sqrt{1 + \left( y^{\prime} \right)^{2}} \sqrt{2 g \left( y_{1} - y \right)}}
 ```
 
 **Term 2**
 
 ```{math}
-y^{\prime} A^{\prime} B &= y^{\prime} \cdot g y^{\prime} \left[ 2g \left( y_{1} - y \right) \right]^{-\frac{3}{2}} \cdot \left[ 2 g \left( y_{1} - y \right) \right]^{-\frac{1}{2}} \\
-&= \frac{g \left( y^{\prime} \right)^{2} }{\left[ 2g \left( y_{1} - y \right) \right]^{\frac{3}{2}} \sqrt{2 g \left( y_{1} - y \right)}}
+y^{\prime} A^{\prime} B &= y^{\prime} \cdot g y^{\prime} \left[ 2g \left( y_{1} - y \right) \right]^{-\frac{3}{2}} \cdot \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{1}{2}} \\
+&= \frac{g \left( y^{\prime} \right)^{2} }{\left[ 2g \left( y_{1} - y \right) \right]^{\frac{3}{2}} \sqrt{1 + \left( y^{\prime} \right)^{2}}}
 ```
 
 **Term 3**
 
 ```{math}
-y^{\prime} A B^{\prime} &= y^{\prime} \cdot \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{1}{2}} \cdot \left\{- y^{\prime} y^{\prime \prime} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{3}{2}} \right\} \\
-&= - \left( y^{\prime} \right)^{2} y^{\prime \prime} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{1}{2}} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{3}{2}}
+y^{\prime} A B^{\prime} &= y^{\prime} \cdot \left[ 2 g \left( y_{1} - y \right) \right]^{-\frac{1}{2}} \cdot \left\{- y^{\prime} y^{\prime \prime} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{-\frac{3}{2}} \right\} \\
+&= - \frac{\left( y^{\prime} \right)^{2} y^{\prime \prime}}{\sqrt{2 g \left( y_{1} - y \right)} \left[ 1 + \left( y^{\prime} \right)^{2} \right]^{\frac{3}{2}}}
 ```
 
 Term 1 und 3 lassen sich vereinfachen:
